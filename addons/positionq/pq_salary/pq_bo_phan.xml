@@ -44,7 +44,7 @@
             <field name="name">Bộ phận</field>
             <field name="res_model">pq.bo.phan</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree</field>
         </record>
 	
 	</data>

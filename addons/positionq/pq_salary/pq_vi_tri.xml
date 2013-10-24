@@ -11,7 +11,9 @@
 					<field name="name"/>
 					<field name="bo_phan"></field>
 					<field name="nhom_vi_tri"></field>
-					<field name="diem"></field>
+					<field name="muc_luong_hien_tai"></field>
+					<field name="so_luong_nhan_vien"></field>
+					<field name="tong_luong_hien_tai"></field>
 				</tree>
 			</field>
 		</record>

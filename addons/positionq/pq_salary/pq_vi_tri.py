@@ -20,6 +20,13 @@ class pq_vi_tri(osv.osv):
             res[obj['id']] = vi_tri_yeu_to.get('matrix',{}).get(obj['id'],{}).get('diem',0)
         return res
     
+    def func_tong_luong_hien_tai(self, cr, uid, ids, fields, args, context=None):
+        res = {}
+        for obj in self.read(cr, uid, ids, ['muc_luong_hien_tai', 'so_luong_nhan_vien']):
+            value = obj['muc_luong_hien_tai'] * obj['so_luong_nhan_vien']
+            res[obj['id']] = value
+        return res
+    
     _name = 'pq.vi.tri'
     _description = 'Vi tri'
     _columns = {
@@ -29,10 +36,17 @@ class pq_vi_tri(osv.osv):
         
         'diem': fields.function(func_diem, method=True, string="Điểm", type="float", digits=(16,2)),
         
+        'muc_luong_hien_tai': fields.float('Mức lương hiện tại', digits=(16,2)),
+        'so_luong_nhan_vien': fields.float('Số lượng nhân viên', digits=(16,2)),
+        'tong_luong_hien_tai': fields.function(func_tong_luong_hien_tai, method=True, string='Tổng lương hiện tại', 
+                                               type="float", digits=(16,2)),
+        
         'create_date': fields.datetime('Ngày giờ tạo', readonly=True),
         'user_id': fields.many2one('res.users', string="Người tạo",readonly=True),
     }
     _defaults = {
+        'muc_luong_hien_tai': lambda *x: 0,
+        'so_luong_nhan_vien': lambda *x: 0,
         'user_id': lambda self, cr, uid, context=None: uid,
     }
     
