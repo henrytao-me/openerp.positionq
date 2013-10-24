@@ -112,11 +112,10 @@
 				<thead>
 					<tr>
 						<th rowspan="5" style="min-width:35px;">STT</th>
-						<th rowspan="5" style="min-width:150px">Vị trí</th>
-						<th rowspan="5">Bộ phận</th>
-						<th rowspan="5">Nhóm</th>
-						<th rowspan="5">Điểm</th>
-						<t></t>
+						<th rowspan="5" style="min-width:150px;">Vị trí</th>
+						<th rowspan="5" style="min-width:150px;">Bộ phận</th>
+						<th rowspan="5" style="min-width:150px;">Nhóm</th>
+						<th rowspan="5" style="min-width:50px;">Điểm</th>
 						<t t-foreach="res.yeu_to" t-as="yeu_to">
 							<th t-att-colspan="yeu_to.len + yeu_to.tieu_chi.length * 3">
 								<t t-esc="yeu_to.name"></t>
@@ -127,9 +126,9 @@
 						<t t-foreach="res.yeu_to" t-as="yeu_to">
 							<t t-foreach="yeu_to.tieu_chi" t-as="tieu_chi">
 								<th t-att-colspan="tieu_chi.len"><t t-esc="tieu_chi.name"></t></th>
-								<th rowspan="4">Tổng điểm</th>
-								<th rowspan="4">Mức độ</th>
-								<th rowspan="4">Điểm công việc</th>
+								<th rowspan="3" style="min-width:40px">Tổng điểm</th>
+								<th rowspan="4" style="min-width:40px">Mức độ</th>
+								<th rowspan="4" style="min-width:40px">Điểm công việc</th>
 							</t>
 						</t>
 					</tr>
@@ -161,6 +160,7 @@
 										<th><t t-esc="tcc2.trong_so"></t></th>
 									</t>
 								</t>
+								<th style="min-width:40px"><t t-esc="tieu_chi.trong_so"></t></th>
 							</t>
 						</t>
 					</tr>
@@ -171,9 +171,9 @@
 						<t t-set="a" t-value="vi_tri.id"></t>
 						<tr>
 							<td><t t-esc="i + 1"></t></td>
-							<td><t t-esc="vi_tri.name"></t></td>
-							<td><t t-esc="vi_tri.bo_phan[1]"></t></td>
-							<td><t t-esc="vi_tri.nhom_vi_tri[1]"></t></td>
+							<td><div style="width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.name"></t></div></td>
+							<td><div style="width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.bo_phan[1]"></t></div></td>
+							<td><div style="width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.nhom_vi_tri[1]"></t></div></td>
 							<td><t t-esc="res.matrix[a].diem"></t></td>
 							
 							<t t-foreach="res.yeu_to" t-as="yeu_to">
@@ -218,7 +218,7 @@
 										</t>
 									</t>
 									<td><t t-esc="res.matrix[a].yeu_to[b].tieu_chi[c].trong_so"></t></td>
-									<td><t t-esc="res.matrix[a].yeu_to[b].tieu_chi[c].muc_do"></t></td>
+									<td><t t-esc="res.matrix[a].yeu_to[b].tieu_chi[c].muc_do "></t></td>
 									<td><t t-esc="res.matrix[a].yeu_to[b].tieu_chi[c].diem"></t></td>
 								</t>
 							</t>

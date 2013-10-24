@@ -270,7 +270,7 @@ class pq_vi_tri_yeu_to(osv.osv):
                         # init tieu_chi trong_so
                         matrix[a]['yeu_to'][b]['tieu_chi'][c]['trong_so'] += matrix[a]['yeu_to'][b]['tieu_chi'][c]['tcc1'][d]['trong_so']
                     
-        # tieu_chi muc_do standard
+        # tieu_chi trong_so standard
         for yeu_to in res['yeu_to']:
             b = yeu_to['id']    
             for tieu_chi in yeu_to['tieu_chi']:
@@ -285,7 +285,7 @@ class pq_vi_tri_yeu_to(osv.osv):
         
         yeu_to_danh_gia = {}
         
-        # tieu_chi muc_do
+        # tieu_chi muc_do / diem
         for yeu_to in res['yeu_to']:
             b = yeu_to['id']    
             for tieu_chi in yeu_to['tieu_chi']:
@@ -299,7 +299,7 @@ class pq_vi_tri_yeu_to(osv.osv):
                     muc_do = 1
                     i = 1
                     while i <= numOfBac:
-                        if matrix[a]['yeu_to'][b]['tieu_chi'][c]['trong_so'] <= ((tieu_chi['trong_so'] / 5) * i):
+                        if matrix[a]['yeu_to'][b]['tieu_chi'][c]['trong_so'] <= ((tieu_chi['trong_so'] / numOfBac) * i):
                             muc_do = i
                             break
                         i += 1
