@@ -11,6 +11,7 @@
 					<field name="name"/>
 					<field name="bo_phan"></field>
 					<field name="nhom_vi_tri"></field>
+					<field name="diem"></field>
 				</tree>
 			</field>
 		</record>

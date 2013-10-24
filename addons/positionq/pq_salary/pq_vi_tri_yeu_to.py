@@ -153,7 +153,7 @@ class pq_vi_tri_yeu_to(osv.osv):
                 res[o[item][0]] = self.obj2dict(cr, uid, tmp[:], keys[:])
         return res
     
-    def get_matrix(self, cr, uid):
+    def get_matrix(self, cr, uid, args=[]):
         res = {'vi_tri': [],
                'yeu_to': [],
                'matrix': {}}
@@ -162,7 +162,7 @@ class pq_vi_tri_yeu_to(osv.osv):
         numOfBac = 5        
         
         # get vi_tri
-        ids = self.pool.get('pq.vi.tri').search(cr, uid, [])
+        ids = self.pool.get('pq.vi.tri').search(cr, uid, args)
         res['vi_tri'] = self.pool.get('pq.vi.tri').read(cr, uid, ids, ['name', 'bo_phan', 'nhom_vi_tri'])
         
         # get yeu_to

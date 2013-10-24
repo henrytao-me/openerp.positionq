@@ -13,8 +13,11 @@ class pq_vi_tri(osv.osv):
     
     def func_diem(self, cr, uid, ids, fields, args, context=None):
         res = {}
+        # get pq_vi_tri_yeu_to
+        vi_tri_yeu_to = self.pool.get('pq.vi.tri.yeu.to').get_matrix(cr, uid, [('id', 'in', ids)])
+        # starts
         for obj in self.read(cr, uid, ids, ['name']):
-            res[obj['id']] = 0
+            res[obj['id']] = vi_tri_yeu_to.get('matrix',{}).get(obj['id'],{}).get('diem',0)
         return res
     
     _name = 'pq.vi.tri'
