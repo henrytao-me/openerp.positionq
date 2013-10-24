@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="snc_nhan_dinh" xml:space="preserve">
+
+<div t-name="snc_nhan_dinh_tuan_trong_so">
+	
+	<div style="height:10px;"></div>
+	<h2 style="margin-left:10px;font-size:18px;">Trọng số xu hướng tuần</h2>
+	
+	<t t-call="snc_nhan_dinh_tuan_trong_so_xu_huong">
+        <t t-set="tsxh" t-value="template_data.tsxh"/>
+    </t>
+    
+    <div style="height:10px;"></div>
+	<h2 style="margin-left:10px;font-size:18px;">Trọng số biên độ tuần</h2>
+	
+    <t t-call="snc_nhan_dinh_tuan_trong_so_bien_do">
+        <t t-set="tsbd" t-value="template_data.tsbd"/>
+    </t>
+    
+    <div style="height:10px;"></div>
+	<h2 style="margin-left:10px;font-size:18px;">Trọng số tuần</h2>
+	
+    <t t-call="snc_nhan_dinh_tuan_trong_so_tuan">
+        <t t-set="ts" t-value="template_data.ts"/>
+    </t>
+</div>
+
+<div t-name="snc_nhan_dinh_tuan_trong_so_xu_huong">
+	<table class="oe_list_content oe_table_border" style="width:100%;">
+		<thead>
+			<tr>
+				<td>Cán bộ</td>
+				<td style="text-align:center">SS xu hướng</td>
+				<td style="text-align:center">Điểm số k</td>
+				<td style="text-align:center">Trọng số xu hướng</td>
+			</tr>
+		</thead>
+		<tbody>
+			<t t-foreach="tsxh.data" t-as="index">
+			    <tr>
+			    	<td><t t-esc="tsxh.data[index].name"></t></td>
+			    	<td style="text-align:center"><t t-esc="toFixed(tsxh.data[index].ssxh, 2)"></t></td>
+			    	<td style="text-align:center"><t t-esc="toFixed(tsxh.data[index].k, 2)"></t></td>
+			    	<td style="text-align:center"><t t-esc="toFixed((tsxh.data[index].tsxh * 100), 2) + '%'"></t></td>
+			    </tr>
+			</t>
+			<tr>
+				<td>Điểm chuẩn</td>
+				<td style="text-align:center"><t t-esc="toFixed(tsxh.info.dcxh, 2)"></t></td>
+				<td style="text-align:center"><t t-esc="toFixed(tsxh.k, 2)"></t></td>
+				<td style="text-align:center">-</td>
+			</tr>
+	    </tbody>
+		<tfoot>
+			<tr>
+				<td colspan="4"></td>
+			</tr>
+		</tfoot>
+	</table>
+</div>
+
+<div t-name="snc_nhan_dinh_tuan_trong_so_bien_do">
+	<table class="oe_list_content oe_table_border" style="width:100%;">
+		<thead>
+			<tr>
+				<td>Cán bộ</td>
+				<td style="text-align:center">SS biên độ</td>
+				<td style="text-align:center">Điểm số k</td>
+				<td style="text-align:center">Trọng số biên độ</td>
+			</tr>
+		</thead>
+		<tbody>
+			<t t-foreach="tsbd.data" t-as="index">
+			    <tr>
+			    	<td><t t-esc="tsbd.data[index].name"></t></td>
+			    	<td style="text-align:center"><t t-esc="toFixed(tsbd.data[index].ssbd, 2)"></t></td>
+			    	<td style="text-align:center"><t t-esc="toFixed(tsbd.data[index].k, 2)"></t></td>
+			    	<td style="text-align:center"><t t-esc="toFixed((tsbd.data[index].tsbd * 100), 2) + '%'"></t></td>
+			    </tr>
+			</t>
+	    </tbody>
+		<tfoot>
+			<tr>
+				<td colspan="4"></td>
+			</tr>
+		</tfoot>
+	</table>
+</div>
+
+<div t-name="snc_nhan_dinh_tuan_trong_so_tuan">
+	<table class="oe_list_content oe_table_border" style="width:100%;">
+		<thead>
+			<tr>
+				<td></td>
+				<t t-foreach="ts" t-as="index">
+			    	<td style="text-align:center"><t t-esc="ts[index].name"></t></td>
+				</t>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Trọng số xu hướng</td>
+				<t t-foreach="ts" t-as="index">
+			    	<td style="text-align:center"><t t-esc="toFixed((ts[index].tsxh * 100), 2) + '%'"></t></td>
+				</t>
+			</tr>
+			<tr>
+				<td>Trọng số biên độ</td>
+				<t t-foreach="ts" t-as="index">
+			    	<td style="text-align:center"><t t-esc="toFixed((ts[index].tsbd * 100), 2) + '%'"></t></td>
+				</t>
+			</tr>
+			<tr>
+				<td>Trọng số tuần</td>
+				<t t-foreach="ts" t-as="index">
+			    	<td style="text-align:center"><t t-esc="toFixed((ts[index].ts * 100), 2) + '%'"></t></td>
+				</t>
+			</tr>
+	    </tbody>
+		<tfoot>
+			<tr>
+				<td></td>
+				<t t-foreach="ts" t-as="index">
+			    	<td></td>
+				</t>
+			</tr>
+		</tfoot>
+	</table>
+</div>
+	
+</templates>

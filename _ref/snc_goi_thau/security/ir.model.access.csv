@@ -1,0 +1,15 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+
+"access_group_snc_goi_thau_user_1","access_group_snc_goi_thau_user_1","model_snc_vote","group_snc_goi_thau_user",1,0,0,0
+"access_group_snc_goi_thau_user_2","access_group_snc_goi_thau_user_2","model_snc_vote_solution","group_snc_goi_thau_user",1,1,1,1
+"access_group_snc_goi_thau_user_3","access_group_snc_goi_thau_user_3","model_snc_vote_detail","group_snc_goi_thau_user",1,1,1,1
+
+"access_group_snc_goi_thau_manager_1","access_group_snc_goi_thau_manager_1","model_snc_vote","group_snc_goi_thau_manager",1,1,1,1
+"access_group_snc_goi_thau_manager_2","access_group_snc_goi_thau_manager_2","model_snc_vote_solution","group_snc_goi_thau_manager",1,1,1,1
+"access_group_snc_goi_thau_manager_3","access_group_snc_goi_thau_manager_3","model_snc_vote_detail","group_snc_goi_thau_manager",1,1,1,1
+
+"access_group_snc_goi_thau_manager_4","access_group_snc_goi_thau_manager_4","model_snc_goi_thau","group_snc_goi_thau_manager",1,1,1,1
+"access_group_snc_goi_thau_manager_5","access_group_snc_goi_thau_manager_5","model_snc_goi_thau_chi_tiet","group_snc_goi_thau_manager",1,1,1,1
+
+"access_group_snc_goi_thau_manager_6","access_group_snc_goi_thau_manager_6","base.model_res_users","group_snc_goi_thau_manager",1,1,1,1
+"access_group_snc_goi_thau_manager_7","access_group_snc_goi_thau_manager_7","base.model_res_groups","group_snc_goi_thau_manager",1,1,1,1

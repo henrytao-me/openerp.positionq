@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		
+		<menuitem name="Design" sequence="95" id="menu_vieterp_design"/>
+		
+			<menuitem name="Design" sequence="100" id="menu_vieterp_design_design" 
+				parent="menu_vieterp_design"/>
+				
+				<menuitem name="Models" sequence="10" id="menu_vieterp_design_design_models" 
+					parent="menu_vieterp_design_design" action="act_window_models"/>
+					
+				<menuitem name="Views" sequence="20" id="menu_vieterp_design_design_views" 
+					parent="menu_vieterp_design_design" action="act_window_views"/>
+					
+				<menuitem name="Actions" sequence="30" id="menu_vieterp_design_design_actions" 
+					parent="menu_vieterp_design_design" action="act_window_act_window"/>
+				
+				<menuitem name="Menus" sequence="40" id="menu_vieterp_design_design_menus" 
+					parent="menu_vieterp_design_design" action="grant_menu_access"/>
+							
+	</data>
+</openerp>

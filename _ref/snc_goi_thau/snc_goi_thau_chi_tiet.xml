@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+		<!-- List view -->
+		<record id="view_tree_goi_thau_chi_tiet" model="ir.ui.view">
+			<field name="name">view_tree_goi_thau_chi_tiet</field>
+			<field name="model">snc.goi.thau.chi.tiet</field>
+			<field name="arch" type="xml">
+				<tree string="Chi tiết gói thầu" editable="top" version="7.0">
+					<field name="name" invisible="1"/>					
+					<field name="product_id"/>        	
+                	<field name="gia_goi_thau_cong_thuc"/>
+                	<field name="gia_dang_mang_cong_thuc"/>
+                	<field name="gia_goi_thau"/>
+                	<field name="gia_dang_mang"/>
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Form view -->
+		<!-- <record id="view_form_goi_thau_chi_tiet" model="ir.ui.view">
+			<field name="name">view_form_goi_thau_chi_tiet</field>
+			<field name="model">snc.goi.thau.chi.tiet</field>
+			<field name="arch" type="xml">
+				<form string="Chi tiết gói thầu" version="7.0">
+					<sheet>
+						<group colspan="4">
+							<field name="name" invisible="1"/>
+							<field name="product_id" on_change="onchange_product_id(product_id)"/>
+		                	<field name="tieu_chuan_ky_thuat_id"/>
+		                	<field name="don_gia_dang_mang"/>
+		                	<field name="don_vi_tinh"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record> -->
+	
+	</data>
+</openerp>

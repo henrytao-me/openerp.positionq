@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	
+    	<record id="category_snc_nhan_dinh_ngay" model="ir.module.category">
+    		<field name="name">PTT / Nhận định ngày</field>
+    		<field name="parent_id" ref="base.module_category_ptt"></field>
+    	</record>
+        
+        <record id="group_snc_nhan_dinh_ngay_user" model="res.groups">
+	        <field name="name">Người dùng</field>
+	        <field name="alias">group_snc_nhan_dinh_ngay_user</field>
+	        <field name="category_id" ref="category_snc_nhan_dinh_ngay"/>
+	        <field name="is_public" eval="True"></field>
+	        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+	        <field name="menu_access" eval="[(4, ref('menu_ptt_cc_nd_nd_ngay')),
+	        								 (4, ref('menu_ptt_cc_nd_tk_ngay')),
+	        								 (4, ref('menu_ptt_cc_nd_ts_ngay'))]"></field>	        
+	    </record>
+	    
+	    <record id="group_snc_nhan_dinh_ngay_manager" model="res.groups">
+	        <field name="name">Quản trị</field>
+	        <field name="alias">group_snc_nhan_dinh_ngay_manager</field>
+	        <field name="category_id" ref="category_snc_nhan_dinh_ngay"/>
+	        <field name="is_public" eval="True"></field>
+	        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+	        <field name="implied_ids" eval="[(4, ref('group_snc_nhan_dinh_ngay_user'))]"/>
+	        <field name="menu_access" eval="[(4, ref('menu_ptt_cc_nd_qt_ngay'))]"></field>	        
+	    </record>
+        
+    </data>
+</openerp>

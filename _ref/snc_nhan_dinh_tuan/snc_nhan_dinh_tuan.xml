@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+		<!-- List view -->
+		<record id="view_tree_snc_nhan_dinh_tuan" model="ir.ui.view">
+			<field name="name">view_tree_snc_nhan_dinh_tuan</field>
+			<field name="model">snc.nhan.dinh.tuan</field>			
+			<field name="arch" type="xml">
+				<tree string="Nhận định" version="7.0" editable="top"
+						alias="snc_nhan_dinh_tuan"
+						widget="custom"
+						list_template="view_tree_snc_nhan_dinh_tuan.list"
+						rows_template="view_tree_snc_nhan_dinh_tuan.rows">
+						
+					<field name="name" invisible="1"/>					
+					<field name="time" class="oe_edit_only"/>
+					<field name="time_format" class="oe_view_only"/>
+					
+					<field name="high"/>
+					<field name="low"/>
+					<field name="trend"/>	
+					
+					<field name="real_high"/>
+					<field name="real_low"/>
+					<field name="real_trend"/>
+					
+					<field name="diff_high_abs"/>					
+					<field name="diff_high_percent"/>
+					
+					<field name="diff_low_abs"/>
+					<field name="diff_low_percent"/>
+					
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Search view -->
+		<record id="view_search_snc_nhan_dinh_tuan" model="ir.ui.view">
+            <field name="name">view_search_snc_nhan_dinh_tuan</field>
+            <field name="model">snc.nhan.dinh.tuan</field>
+            <field name="arch" type="xml">
+	            <search string="Nhận định">
+					<field name="time_format"/>
+				</search>
+            </field>
+        </record>
+        
+        <record id="act_window_snc_nhan_dinh_tuan" model="ir.actions.act_window">
+            <field name="name">Nhận định tuần</field>
+            <field name="res_model">snc.nhan.dinh.tuan</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>            
+            <field name="context">{'read.user_id': 'current'}</field>
+        </record>
+	
+	</data>
+</openerp>

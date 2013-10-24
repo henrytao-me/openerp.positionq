@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	
+    	<record id="view_v_groups_tree" model="ir.ui.view">
+            <field name="name">view_v_groups_tree</field>
+            <field name="model">v.groups</field>
+            <field name="arch" type="xml">
+                <tree string="Groups">
+                    <field name="name"/>                                       
+                </tree>
+            </field>
+        </record>
+    	
+        <record id="view_v_groups_form" model="ir.ui.view">
+		    <field name="name">view_v_groups_form</field>
+		    <field name="model">v.groups</field>
+		    <field name="type">form</field>		    
+		    <field name="arch" type="xml">
+		    	<form string="Groups" version="7.0">
+					<sheet>
+						<group>
+							<field name="name"></field>
+						</group>
+                        <notebook>
+	                        <page string="Users">
+	                            <field name="users" domain="[('is_project_specific', '=', True)]"/>
+	                        </page>
+                        </notebook>
+					</sheet>
+                </form>		        
+		    </field>
+		</record>
+        
+        <record id="action_v_groups" model="ir.actions.act_window">
+            <field name="name">Người dùng</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">v.groups</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>            
+        </record>
+    </data>
+</openerp>
+

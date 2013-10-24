@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	
+    	<record id="view_v_objects_tree" model="ir.ui.view">
+            <field name="name">view_v_objects_tree</field>
+            <field name="model">v.objects</field>
+            <field name="arch" type="xml">
+                <tree string="Objects" version="7.0">                                        
+                    <field name="full_name"/>
+                    <field name="is_active"></field>
+                </tree>
+            </field>
+        </record>
+    	
+        <record id="view_v_objects_form" model="ir.ui.view">
+		    <field name="name">view_v_objects_form</field>
+		    <field name="model">v.objects</field>
+		    <field name="type">form</field>		    
+		    <field name="arch" type="xml">
+		    	<form string="Groups" version="7.0">
+					<sheet>
+						<div class="oe_title" style="width:auto">                            
+                            <h2><field name="full_name"/></h2>                            
+                        </div>
+						<group>
+							<group>
+								<field name="name"></field>	
+							</group>
+							<group>
+								<field name="parent_object"></field>
+								<field name="is_active"></field>
+							</group>
+						</group>
+						<notebook>
+							<page string="ir_model">
+								<field name="models"></field>
+							</page>
+							<page string="Đối tượng con">
+								<field name="children_object"></field>
+							</page>
+						</notebook>
+					</sheet>
+                </form>		        
+		    </field>
+		</record>
+		
+		<!-- Search view -->
+		<record id="view_search_v_objects" model="ir.ui.view">
+            <field name="name">view_search_v_objects</field>
+            <field name="model">v.objects</field>
+            <field name="arch" type="xml">
+	            <search string="Đối tượng">
+					<field name="full_name"/>
+				</search>
+            </field>
+        </record>
+        
+        <record id="action_v_objects" model="ir.actions.act_window">
+            <field name="name">Đối tượng</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">v.objects</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>            
+        </record>
+    </data>
+</openerp>
+

@@ -1,0 +1,10 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+
+"access_group_vieterp_design_1","access_group_vieterp_design_1","base.model_ir_actions_act_window","group_vieterp_design",1,1,1,1
+"access_group_vieterp_design_2","access_group_vieterp_design_2","base.model_ir_model","group_vieterp_design",1,1,1,1
+"access_group_vieterp_design_3","access_group_vieterp_design_3","base.model_ir_ui_menu","group_vieterp_design",1,1,1,1
+"access_group_vieterp_design_4","access_group_vieterp_design_4","base.model_ir_ui_view","group_vieterp_design",1,1,1,1
+"access_group_vieterp_design_5","access_group_vieterp_design_5","base.model_ir_model_fields","group_vieterp_design",1,1,1,1
+"access_group_vieterp_design_6","access_group_vieterp_design_6","base.model_res_groups","group_vieterp_design",1,1,1,1
+"access_group_vieterp_design_7","access_group_vieterp_design_7","base.model_res_users","group_vieterp_design",1,1,1,1
+"access_group_vieterp_design_8","access_group_vieterp_design_8","base.model_ir_model_access","group_vieterp_design",1,1,1,1

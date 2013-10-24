@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		
+		<!-- view -->
+		
+		<record id="view_tree_nhan_dinh_ngay_thong_ke_all" model="ir.ui.view">
+			<field name="name">view_tree_nhan_dinh_ngay_thong_ke_all</field>
+			<field name="model">snc.nhan.dinh.ngay.thong.ke</field>
+			<field name="priority" eval="100"/>
+			<field name="arch" type="xml">
+				<custom string="Nhận định ngày - tổng hợp" version="7.0"
+					template_name = "snc_nhan_dinh_ngay_thong_ke_all"
+					template_data = "function_name">
+					<action name = "%(action_tree_nhan_dinh_ngay_thong_ke)d" 
+							id = 'action_tree_nhan_dinh_ngay_thong_ke'
+							string = "Thống kê nhận định ngày"></action>
+					<action name = "%(action_tree_nhan_dinh_ngay_thong_ke_chi_tiet)d"
+							id = 'action_tree_nhan_dinh_ngay_thong_ke_chi_tiet'
+							string = 'Chi tiết nhận định ngày'></action>
+				</custom>
+			</field>
+		</record>
+		
+        <!-- action -->
+        
+        <record id="action_tree_nhan_dinh_ngay_thong_ke_all" model="ir.actions.act_window">
+            <field name="name">Thống kê nhận định ngày</field>
+            <field name="res_model">snc.nhan.dinh.ngay.thong.ke</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">custom</field>
+            <field name="view_id" ref="view_tree_nhan_dinh_ngay_thong_ke_all"/>            
+        </record>
+        
+        
+	
+	</data>
+</openerp>

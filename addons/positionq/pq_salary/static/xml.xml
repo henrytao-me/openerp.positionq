@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template_id" xml:space="preserve">
+
+	<div t-name="pq_salary_w1"></div>
+	<div t-name="pq_salary_w1.custom" class="table_container center_all" ng-controller="pq_salary_w1">
+		<table>
+			<thead>
+				<tr>
+					<th></th>
+					<th ng-repeat="yeu_to in res.yeu_to">{{yeu_to.name}}</th>
+					<th>Trọng số</th>
+					<th>Tỷ trọng</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="x in res.yeu_to">
+					<td>{{x.name}}</td>
+					<td ng-repeat="y in res.yeu_to" style="background-color:{{bgcolor(check($index, $parent.$index, 'g'))}}">
+						<div ng-show="check($index, $parent.$index, 'g')">
+							<div ng-show="widget.get('effective_readonly')">{{res.data[x.id]['yeu_to'][y.id].trong_so}}</div>
+							<div ng-hide="widget.get('effective_readonly')">
+								<input style="background-color:{{bgcolor(check($index, $parent.$index, 'g'))}}" class="transparent" type="text" ng-model="res.data[x.id]['yeu_to'][y.id].trong_so" />
+							</div>
+						</div>
+						<div ng-show="check($index, $parent.$index, 'e')">-</div>
+						<div ng-show="check($index, $parent.$index, 'l')">{{res.data[x.id]['yeu_to'][y.id].trong_so}}</div>
+					</td>
+					<td>{{res.data[x.id].trong_so}}</td>
+					<td>{{percent(res.data[x.id].ty_trong)}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- ****** -->
+	<div t-name="pq_salary_w2"></div>
+	<div t-name="pq_salary_w2.custom" class="table_container center_all" ng-controller="pq_salary_w2">
+		<table>
+			<thead>
+				<tr>
+					<th rowspan="2">Yếu tố</th>
+					<th rowspan="2">Tỷ trọng</th>
+					<th colspan="3">Tiêu chí đánh giá</th>
+				</tr>
+				<tr>
+					<th>Tên</th>
+					<th>Trọng số</th>
+					<th>Tỷ trọng</th>
+				</tr>
+			</thead>
+			<tbody ng-repeat="yeu_to in res">
+				<tr ng-repeat="tieu_chi in yeu_to.tieu_chi">
+					<td rowspan="{{length(yeu_to.tieu_chi)}}" ng-show="$index==0">{{yeu_to.name}}</td>
+					<td rowspan="{{length(yeu_to.tieu_chi)}}" ng-show="$index==0">{{percent(yeu_to.ty_trong)}}</td>
+					<td>{{tieu_chi.name}}</td>
+					<td>
+						<div ng-show="widget.get('effective_readonly')">{{tieu_chi.trong_so}}</div>
+						<div ng-hide="widget.get('effective_readonly')">
+							<input class="transparent" type="text" ng-model="tieu_chi.trong_so" />
+						</div>
+					</td>
+					<td>
+						<div>{{percent(tieu_chi.ty_trong)}}</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- ****** -->
+	<div t-name="pq_salary_w3"></div>
+	<div t-name="pq_salary_w3.custom" class="table_container center_all" ng-controller="pq_salary_w3">
+		<table>
+			<thead>
+				<tr>
+					<th rowspan="3">Yếu tố</th>
+					<th rowspan="3">Tỷ trọng</th>
+					<th colspan="{{3 + res.bac.length}}">Tiêu chí đánh giá</th>
+				</tr>
+				<tr>
+					<th rowspan="2">Tên</th>
+					<th rowspan="2">Tỷ trọng</th>
+					<th rowspan="2">Trọng số</th>
+					<th colspan="{{res.bac.length}}">Bậc</th>
+				</tr>
+				<tr>
+					<th ng-repeat="bac in res.bac">{{bac.name}}</th>
+				</tr>
+			</thead>
+			<tbody ng-repeat="yeu_to in res.data">
+				<tr ng-repeat="tieu_chi in yeu_to.tieu_chi">
+					<td rowspan="{{length(yeu_to.tieu_chi)}}" ng-show="$index==0">{{yeu_to.name}}</td>
+					<td rowspan="{{length(yeu_to.tieu_chi)}}" ng-show="$index==0">{{percent(yeu_to.ty_trong)}}</td>
+					<td>{{tieu_chi.name}}</td>
+					<td style="background-color:{{bgcolor()}}">
+						<div ng-show="widget.get('effective_readonly')">{{tieu_chi.trong_so}}</div>
+						<div ng-hide="widget.get('effective_readonly')">
+							<input class="transparent" type="text" ng-model="tieu_chi.trong_so" style="background-color:{{bgcolor()}}" />
+						</div>
+					</td>
+					<td>{{percent(tieu_chi.ty_trong)}}</td>
+					<td ng-repeat="bac in res.bac" style="min-width:50px;">{{((tieu_chi.bac[bac.id] || {}).trong_so) || 0}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- vi tri - yeu to -->
+	<div t-name="vi_tri_yeu_to_diem" ng-controller="vi_tri_yeu_to_diem" style="position:relative">
+		<div class="table_container center_all vi_tri_yeu_to_diem" style="position:absolute;left:0px;top:0px;right:0px;">
+			<table>
+				<thead>
+					<tr>
+						<th rowspan="5" style="min-width:35px;">STT</th>
+						<th rowspan="5" style="min-width:150px">Vị trí</th>
+						<th rowspan="5">Bộ phận</th>
+						<th rowspan="5">Nhóm</th>
+						<th rowspan="5">Điểm</th>
+						<t></t>
+						<t t-foreach="res.yeu_to" t-as="yeu_to">
+							<th t-att-colspan="yeu_to.len + yeu_to.tieu_chi.length * 3">
+								<t t-esc="yeu_to.name"></t>
+							</th>	        	
+			        	</t>
+					</tr>
+					<tr>
+						<t t-foreach="res.yeu_to" t-as="yeu_to">
+							<t t-foreach="yeu_to.tieu_chi" t-as="tieu_chi">
+								<th t-att-colspan="tieu_chi.len"><t t-esc="tieu_chi.name"></t></th>
+								<th rowspan="4">Tổng điểm</th>
+								<th rowspan="4">Mức độ</th>
+								<th rowspan="4">Điểm công việc</th>
+							</t>
+						</t>
+					</tr>
+					<tr>
+						<t t-foreach="res.yeu_to" t-as="yeu_to">
+							<t t-foreach="yeu_to.tieu_chi" t-as="tieu_chi">
+								<t t-foreach="tieu_chi.tcc1" t-as="tcc1">
+									<th t-att-colspan="tcc1.len"><t t-esc="tcc1.name"></t></th>
+								</t>
+							</t>
+						</t>
+					</tr>
+					<tr>
+						<t t-foreach="res.yeu_to" t-as="yeu_to">
+							<t t-foreach="yeu_to.tieu_chi" t-as="tieu_chi">
+								<t t-foreach="tieu_chi.tcc1" t-as="tcc1">
+									<t t-foreach="tcc1.tcc2" t-as="tcc2">
+										<th><t t-esc="tcc2.name"></t></th>
+									</t>
+								</t>
+							</t>
+						</t>
+					</tr>
+					<tr>
+						<t t-foreach="res.yeu_to" t-as="yeu_to">
+							<t t-foreach="yeu_to.tieu_chi" t-as="tieu_chi">
+								<t t-foreach="tieu_chi.tcc1" t-as="tcc1">
+									<t t-foreach="tcc1.tcc2" t-as="tcc2">
+										<th><t t-esc="tcc2.trong_so"></t></th>
+									</t>
+								</t>
+							</t>
+						</t>
+					</tr>
+				</thead>
+				<tbody>
+					<t t-foreach="res.vi_tri.length" t-as="i">
+						<t t-set="vi_tri" t-value="res.vi_tri[i]"></t>
+						<t t-set="a" t-value="vi_tri.id"></t>
+						<tr>
+							<td><t t-esc="i + 1"></t></td>
+							<td><t t-esc="vi_tri.name"></t></td>
+							<td><t t-esc="vi_tri.bo_phan[1]"></t></td>
+							<td><t t-esc="vi_tri.nhom_vi_tri[1]"></t></td>
+							<td><t t-esc="res.matrix[a].diem"></t></td>
+							
+							<t t-foreach="res.yeu_to" t-as="yeu_to">
+								<t t-set="b" t-value="yeu_to.id"></t>
+								
+								<t t-foreach="yeu_to.tieu_chi" t-as="tieu_chi">
+									<t t-set="c" t-value="tieu_chi.id"></t>
+									
+									<t t-foreach="tieu_chi.tcc1" t-as="tcc1">
+										<t t-set="d" t-value="tcc1.id"></t>
+										
+										<t t-foreach="tcc1.tcc2" t-as="tcc2">
+											<t t-set="e" t-value="tcc2.id"></t>
+											
+											<td>
+												<t t-if="res.matrix[a]['yeu_to'][b]['tieu_chi'][c]['tcc1'][d].method == 10">
+													
+													<t t-if="widget.get('effective_readonly')">
+														<input type="checkbox" t-att-ng-checked="'res.matrix['+a+'].yeu_to['+b+'].tieu_chi['+c+'].tcc1['+d+'].tcc2['+e+'].value'" t-att-ng-model="'res.matrix['+a+'].yeu_to['+b+'].tieu_chi['+c+'].tcc1['+d+'].tcc2['+e+'].value'" disabled="disabled" />
+													</t>
+													
+													<t t-if="!widget.get('effective_readonly')">
+														<input type="checkbox" t-att-ng-checked="'res.matrix['+a+'].yeu_to['+b+'].tieu_chi['+c+'].tcc1['+d+'].tcc2['+e+'].value'" t-att-ng-model="'res.matrix['+a+'].yeu_to['+b+'].tieu_chi['+c+'].tcc1['+d+'].tcc2['+e+'].value'" />
+													</t>
+													
+												</t>
+												
+												<t t-if="res.matrix[a]['yeu_to'][b]['tieu_chi'][c]['tcc1'][d].method == 20">
+													
+													<t t-if="widget.get('effective_readonly')">
+														<input type="radio" t-att-value="e" t-att-name="'radio_'+[a,b,c,d].join('_')" t-att-ng-model="'res.matrix['+a+'].yeu_to['+b+'].tieu_chi['+c+'].tcc1['+d+'].value'" disabled="disabled" />
+													</t>
+													
+													<t t-if="!widget.get('effective_readonly')">
+														<input type="radio" t-att-value="e" t-att-name="'radio_'+[a,b,c,d].join('_')" t-att-ng-model="'res.matrix['+a+'].yeu_to['+b+'].tieu_chi['+c+'].tcc1['+d+'].value'" />
+													</t>
+													
+												</t>
+												
+											</td>
+											
+										</t>
+									</t>
+									<td><t t-esc="res.matrix[a].yeu_to[b].tieu_chi[c].trong_so"></t></td>
+									<td><t t-esc="res.matrix[a].yeu_to[b].tieu_chi[c].muc_do"></t></td>
+									<td><t t-esc="res.matrix[a].yeu_to[b].tieu_chi[c].diem"></t></td>
+								</t>
+							</t>
+						</tr>
+					</t>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</templates>

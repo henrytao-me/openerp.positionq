@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+		<!-- List view -->
+		<record id="view_tree_pq_tcc1" model="ir.ui.view">
+			<field name="name">view_tree_pq_tcc1</field>
+			<field name="model">pq.tcc1</field>
+			<field name="arch" type="xml">
+				<tree string="Tiêu chí cấp 1" version="7.0" editable="top">
+					<field name="name"/>
+					<field name="tieu_chi"></field>
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Form view -->
+		<record id="view_form_pq_tcc1" model="ir.ui.view">
+			<field name="name">view_form_pq_tcc1</field>
+			<field name="model">pq.tcc1</field>
+			<field name="arch" type="xml">
+				<form string="Tiêu chí cấp 1" version="7.0">
+					<sheet>
+						<group colspan="4">
+							<group>
+								<field name="name"></field>	
+							</group>
+							<group>
+								<field name="method"></field>
+							</group>
+						</group>
+						<notebook>
+							<page string="Tiêu chí cấp 2">
+								<field name="tcc2">
+									<tree string="Tiêu chí cấp 2" editable="bottom">
+	                                    <field name="name"></field>
+	                                    <field name="trong_so"></field>
+	                               </tree>
+								</field>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<!-- Search view -->
+		<record id="view_search_pq_tcc1" model="ir.ui.view">
+            <field name="name">view_search_pq_tcc1</field>
+            <field name="model">pq.tcc1</field>
+            <field name="arch" type="xml">
+	            <search string="Tiêu chí cấp 1" version="7.0">
+					<field name="name"/>
+				</search>
+            </field>
+        </record>
+        
+        <!-- Actions -->
+        <record id="act_pq_tcc1" model="ir.actions.act_window">
+            <field name="name">Tiêu chí cấp 1</field>
+            <field name="res_model">pq.tcc1</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+	
+	</data>
+</openerp>

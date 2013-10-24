@@ -1,0 +1,8 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+
+"access_user_snc_article_audio","access_user_snc_article_audio","model_snc_article_audio","group_snc_bai_viet",1,1,1,1
+"access_user_snc_article_fix","access_user_snc_article_fix","model_snc_article_fix","group_snc_bai_viet",1,1,1,1
+"access_user_snc_article_source","access_user_snc_article_source","model_snc_article_source","group_snc_bai_viet",1,1,1,1
+"access_user_snc_article_topic","access_user_snc_article_topic","model_snc_article_topic","group_snc_bai_viet",1,1,1,1
+"access_user_snc_article","access_user_snc_article","model_snc_article","group_snc_bai_viet",1,1,1,1
+

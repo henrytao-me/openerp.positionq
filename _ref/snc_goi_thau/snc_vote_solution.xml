@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<!-- List view -->
+		<record id="view_tree_vote_solution" model="ir.ui.view">
+			<field name="name">view_tree_vote_solution</field>
+			<field name="model">snc.vote.solution</field>
+			<field name="arch" type="xml">
+				<tree string="Phương án bỏ phiếu" editable="top" version="7.0" >
+					<field name="title"/>
+					<field name="formula"/>
+					<field name="name"/>
+					<field name="sort"/>
+					<field name="user_id"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Form view -->
+		<record id="view_form_vote_solution" model="ir.ui.view">
+			<field name="name">view_form_vote_solution</field>
+			<field name="model">snc.vote.solution</field>
+			<field name="arch" type="xml">
+				<form string="Phương án bỏ phiếu" version="7.0">
+					<sheet>
+						<group colspan="4">							
+							<field name="r_value" />							
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Search view -->
+		<!-- <record id="view_search_vote_solution" model="ir.ui.view">
+			<field name="name">view_search_vote_solution</field>
+			<field name="model">snc.vote.solution</field>
+			<field name="arch" type="xml">
+				<search string="Phương án bỏ phiếu">
+					<field name="name"/>
+					<field name="name" string="Tên phương án" filter_domain="[('name', 'ilike', self)]"/>
+				</search>
+			</field>
+		</record> -->
+
+		<!-- Actions -->
+		<!-- <record id="action_tree_vote_solution" model="ir.actions.act_window">
+			<field name="name">Phương án bỏ phiếu</field>
+			<field name="res_model">snc.vote.solution</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree</field>
+		</record> -->
+	</data>
+</openerp>

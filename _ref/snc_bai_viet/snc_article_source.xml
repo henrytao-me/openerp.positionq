@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<!-- List view -->
+		<record id="view_tree_article_source" model="ir.ui.view">
+			<field name="name">view_tree_article_source</field>
+			<field name="model">snc.article.source</field>
+			<field name="arch" type="xml">
+				<tree string="Nguồn bài viết" editable="top" >
+					<field name="name"/>
+					<field name="create_date"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Form view -->
+		<record id="view_form_article_source" model="ir.ui.view">
+			<field name="name">view_form_article_source</field>
+			<field name="model">snc.article.source</field>
+			<field name="arch" type="xml">
+				<form string="Nguồn bài viết" version="7.0">
+					<sheet>
+						<group>
+							<field name="name" default_focus="1" placeholder="Nguồn" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Search view -->
+		<record id="view_search_article_source" model="ir.ui.view">
+			<field name="name">view_search_article_source</field>
+			<field name="model">snc.article.source</field>
+			<field name="arch" type="xml">
+				<search string="Nguồn bài viết">
+					<field name="name"/>
+				</search>
+			</field>
+		</record>
+
+		<!-- Actions -->
+		<record id="action_tree_article_source" model="ir.actions.act_window">
+			<field name="name">Nguồn bài viết</field>
+			<field name="res_model">snc.article.source</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree</field>
+		</record>
+
+	</data>
+</openerp>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+		<!-- List view -->
+		<record id="view_tree_pq_nhom_vi_tri_yeu_to" model="ir.ui.view">
+			<field name="name">view_tree_pq_nhom_vi_tri_yeu_to</field>
+			<field name="model">pq.nhom.vi.tri.yeu.to</field>
+			<field name="arch" type="xml">
+				<tree string="Nhóm vị trí - Yếu tố" version="7.0" editable="top">
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Form view -->
+		<record id="view_form_pq_nhom_vi_tri_yeu_to" model="ir.ui.view">
+			<field name="name">view_form_pq_nhom_vi_tri_yeu_to</field>
+			<field name="model">pq.nhom.vi.tri.yeu.to</field>
+			<field name="arch" type="xml">
+				<form string="Nhóm vị trí - Yếu tố" version="7.0">
+					<sheet>
+						<group colspan="4">
+							<field name="name"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<!-- Search view -->
+		<record id="view_search_pq_nhom_vi_tri_yeu_to" model="ir.ui.view">
+            <field name="name">view_search_pq_nhom_vi_tri_yeu_to</field>
+            <field name="model">pq.nhom.vi.tri.yeu.to</field>
+            <field name="arch" type="xml">
+	            <search string="Nhóm vị trí - Yếu tố" version="7.0">
+					<field name="name"/>
+				</search>
+            </field>
+        </record>
+        
+        <!-- Actions -->
+        <record id="act_pq_nhom_vi_tri_yeu_to" model="ir.actions.act_window">
+            <field name="name">Nhóm vị trí - Yếu tố</field>
+            <field name="res_model">pq.nhom.vi.tri.yeu.to</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+	
+	</data>
+</openerp>

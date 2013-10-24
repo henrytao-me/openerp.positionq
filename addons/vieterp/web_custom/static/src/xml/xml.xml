@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template_id" xml:space="preserve">
+
+	<div t-name="CustomView">
+	</div>
+
+</templates>

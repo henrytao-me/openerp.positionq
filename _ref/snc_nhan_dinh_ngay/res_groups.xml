@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	
+        <record id="act_window_res_groups" model="ir.actions.act_window">
+            <field name="name">Phân quyền</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.groups</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('alias', 'in', [ 'group_snc_nhan_dinh_ngay_user', 
+            										'group_snc_nhan_dinh_ngay_manager'])]</field>
+        </record>
+        <record id="act_window_res_groups_tree" model="ir.actions.act_window.view">
+            <field eval="10" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="snc_access.view_groups_tree_for_module"></field>
+            <field name="act_window_id" ref="act_window_res_groups"/>
+        </record>
+        <record id="act_window_res_groups_form" model="ir.actions.act_window.view">
+            <field eval="20" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="snc_access.view_groups_form_for_module"></field>
+            <field name="act_window_id" ref="act_window_res_groups"/>
+        </record>
+        
+    </data>
+</openerp>
+

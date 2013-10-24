@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		
+		<record id="view_tree_nhan_dinh_ngay_thong_ke" model="ir.ui.view">
+			<field name="name">view_tree_nhan_dinh_ngay_thong_ke</field>
+			<field name="model">snc.nhan.dinh.ngay.thong.ke</field>
+			<field name="priority" eval="10"/>
+			<field name="arch" type="xml">
+				<custom string="Nhận định" version="7.0"
+						template_name="snc_nhan_dinh_ngay_thong_ke"
+						template_data="thong_ke">
+				</custom>
+			</field>
+		</record>
+		
+		<!-- Search view -->
+		
+		<record id="view_search_nhan_dinh_ngay_thong_ke" model="ir.ui.view">
+            <field name="name">view_search_nhan_dinh_thong_ke</field>
+            <field name="model">snc.nhan.dinh.ngay.thong.ke</field>
+            <field name="arch" type="xml">
+	            <search string="Nhận định">
+					<field name="from_date" context="{'date_filter': True, 'from_date': self}"/>
+					<field name="to_date" context="{'date_filter': True, 'to_date': self}"/>
+				</search>
+            </field>
+        </record>
+        
+        <!-- Actions -->
+        
+        <record id="action_tree_nhan_dinh_ngay_thong_ke" model="ir.actions.act_window">
+            <field name="name">Thống kê nhận định ngày</field>
+            <field name="res_model">snc.nhan.dinh.ngay.thong.ke</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">custom</field>
+            <field name="view_id" ref="view_tree_nhan_dinh_ngay_thong_ke"/>            
+        </record>
+        
+	</data>
+</openerp>

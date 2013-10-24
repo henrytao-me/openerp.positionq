@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+		<!-- List view -->
+		<record id="view_tree_goi_thau" model="ir.ui.view">
+			<field name="name">view_tree_goi_thau</field>
+			<field name="model">snc.goi.thau</field>
+			<field name="arch" type="xml">
+				<tree string="Gói thầu">
+					<field name="title"/>
+					<field name="ngay_gio_het_hieu_luc" invisible="1"/>
+					<field name="ngay_gio_het_hieu_luc_format"/>
+					<field name="gia_loi"/>
+					<field name="state"/>
+				</tree>
+			</field>
+		</record>
+		
+		
+		<!-- Form view -->
+		<record id="view_form_goi_thau" model="ir.ui.view">
+			<field name="name">view_form_goi_thau</field>
+			<field name="model">snc.goi.thau</field>
+			<field name="arch" type="xml">
+				<form string="Gói thầu" version="7.0">
+					<header>
+	                    <!-- <button name="button_dang_goi_thau" states="draft,canceled" string="Đăng" class="oe_highlight" type="object"/>
+	                    <button name="button_ngung_dang_goi_thau" states="posted" string="Ngừng đăng" class="oe_highlight" type="object"/> -->
+	                    <field name="state" widget="statusbar" clickable="True" />
+	                </header>
+					<sheet>
+						<field name="hinh_dai_dien" widget="image" class="oe_left oe_avatar" />
+	                    <div class="oe_title" style="width:75%%">
+	                    	<div class="oe_view_only">
+	                    		<h2><field name="title" default_focus="1" placeholder="Tiêu đề" /></h2>
+	                    		<div>
+	                    			<div attrs="{'invisible': [('hieu_luc','=', False)]}" style="display:inline-block;padding:5px;">(Còn hiệu lực)</div>
+	                    			<div attrs="{'invisible': [('hieu_luc','=', True)]}" class="oe_highlight" style="display:inline-block;padding:5px;">(Hết hiệu lực)</div>
+	                    			<field name="hieu_luc" invisible="1"/>	
+	                    		</div>	                    			
+	                    		<!-- <field name="alias" /> -->
+	                    	</div>
+	                    	<div class="oe_edit_only">
+	                    		<h2><field name="name" default_focus="1" placeholder="Tiêu đề" /></h2>
+	                    		<field name="ma_so_goi_thau_title" placeholder="" style="width: 15%%" />
+	                    		<field name="ma_so_goi_thau" placeholder="" style="width: 15%%" />
+	                    		<field name="ngay_dang_title" placeholder="" style="width: 20%%" />
+	                    		<field name="ngay_dang" placeholder="" style="width: 20%%" />	
+	                    	</div>
+	                    </div>
+                        <group> 
+                        	<group>
+                        		<field name="ngay_gio_het_hieu_luc"/>
+                        	</group>
+                        	<group>
+                        		<field name="gia_loi"/>                        		
+                        		<field name="tien_te" />	                            	
+                        		<field name="don_vi_tinh" />
+                        	</group>
+                        </group>
+                        <notebook>
+                        	<page string="Nội dung ngắn gọn">
+	                        	<field name="noi_dung_ngan_gon" nolabel="1"/>
+                        	</page>
+                        	<page string="Nội dung chi tiết">
+	                        	<field name="noi_dung_chi_tiet" nolabel="1"/>
+                        	</page>
+                        	<page string="Chi tiết sản phẩm">
+	                        	<field name="chi_tiet_goi_thau_ids" context="{'goi_thau_id': active_id, 'gia_loi': gia_loi}"/>
+                        	</page>
+                        </notebook>
+					</sheet>
+					<div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+				</form>
+			</field>
+		</record>
+		
+		
+		<!-- Search view -->
+		<record id="view_search_goi_thau" model="ir.ui.view">
+            <field name="name">view_search_goi_thau</field>
+            <field name="model">snc.goi.thau</field>
+            <field name="arch" type="xml">
+	            <search string="Gói thầu">
+	            	<field name="name" />
+	            	<field name="ngay_dang"/>
+	            	<field name="ngay_gio_het_hieu_luc"/>
+	            	<field name="noi_dung_ngan_gon"/>
+	            	<field name="noi_dung_chi_tiet"/>
+	            	<field name="state"/>
+					<!-- <field name="tien_te_id" string="Tiền tệ" filter_domain="[('tien_te_id', 'ilike', self)]"/> -->
+					<!-- <field name="don_vi_tinh_id" string="Đơn vị tính" filter_domain="[('don_vi_tinh_id', 'ilike', self)]"/> -->
+					<group  expand="1" string="Gom nhóm theo...">
+                       <filter string="Trạng thái" icon="gtk-select-color" domain="[]" context="{'group_by': 'state'}"/>
+                   	</group>
+				</search>
+            </field>
+        </record>
+        
+        <!-- Actions -->
+        <record id="action_tree_goi_thau" model="ir.actions.act_window">
+            <field name="name">Gói thầu</field>
+            <field name="res_model">snc.goi.thau</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+		
+	
+	</data>
+</openerp>

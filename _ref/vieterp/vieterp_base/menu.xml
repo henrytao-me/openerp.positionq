@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- Hidden -->	
+		<menuitem name="Hidden from users" sequence="200"
+			id="menu_hidden" parent="base.menu_administration"/>
+			
+	</data>
+</openerp>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+		<!-- List view -->
+		<record id="view_tree_lme_trading" model="ir.ui.view">
+			<field name="name">view_tree_lme_trading</field>
+			<field name="model">snc.lme.trading</field>
+			<field name="arch" type="xml">
+				<tree string="LME Trading">
+					<!-- <field name="type" invisible="1"/> -->
+					<field name="name"/>
+					<field name="ngay"/>
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Form view -->
+		<record id="view_form_lme_trading" model="ir.ui.view">
+			<field name="name">view_form_lme_trading</field>
+			<field name="model">snc.lme.trading</field>
+			<field name="arch" type="xml">
+				<form string="LME Trading" version="7.0">
+					<sheet>
+						<group colspan="4">
+							<!-- <field name="type"/> -->
+							<field name="name" invisible="1"/>
+							<field name="ngay"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<!-- Search view -->
+		<record id="view_search_lme_trading" model="ir.ui.view">
+            <field name="name">view_search_lme_trading</field>
+            <field name="model">snc.lme.trading</field>
+            <field name="arch" type="xml">
+	            <search string="LME Trading">
+					<field name="name"/>
+				</search>
+            </field>
+        </record>
+        
+        
+        <!-- Calendar view -->
+        <record model="ir.ui.view" id="view_calendar_lme_trading">
+            <field name="model">snc.lme.trading</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <calendar string="LME Trading" date_start="ngay" color="name">
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+        
+        
+        <!-- Actions -->
+        <record id="action_calendar_lme_trading" model="ir.actions.act_window">
+            <field name="name">LME Trading</field>
+            <field name="res_model">snc.lme.trading</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">calendar</field>
+        </record>
+        
+        
+        
+        
+        
+        
+        
+        <record id="view_custom_snc_lme_trading" model="ir.ui.view">
+			<field name="name">view_custom_snc_lme_trading</field>
+			<field name="model">snc.lme.trading</field>
+			<field name="arch" type="xml">
+				<custom string="LME Trading" version="7.0"					
+					template_name="snc_lme.lme_trading_custom"
+					template_data="lme_trading_custom">									
+				</custom>
+			</field>
+		</record>
+		
+		<record id="act_window_custom_snc_lme_trading" model="ir.actions.act_window">
+            <field name="name">LME Trading</field>
+            <field name="res_model">snc.lme.trading</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">custom</field>
+        </record>
+        
+        
+	
+	</data>
+</openerp>

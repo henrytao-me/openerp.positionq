@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+		<!-- List view -->
+		<record id="view_tree_pq_nhom_vi_tri" model="ir.ui.view">
+			<field name="name">view_tree_pq_nhom_vi_tri</field>
+			<field name="model">pq.nhom.vi.tri</field>
+			<field name="sequence" eval="10"/>
+			<field name="arch" type="xml">
+				<tree string="Nhóm vị trí" version="7.0" editable="bottom">
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record id="view_tree_pq_nhom_vi_tri_ty_trong_yeu_to" model="ir.ui.view">
+			<field name="name">view_tree_pq_nhom_vi_tri_ty_trong_yeu_to</field>
+			<field name="model">pq.nhom.vi.tri</field>
+			<field name="sequence" eval="20"/>
+			<field name="arch" type="xml">
+				<tree string="Nhóm vị trí" version="7.0">
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Form view -->
+		<record id="view_form_pq_nhom_vi_tri" model="ir.ui.view">
+			<field name="name">view_form_pq_nhom_vi_tri</field>
+			<field name="model">pq.nhom.vi.tri</field>
+			<field name="sequence" eval="10"/>
+			<field name="arch" type="xml">
+				<form string="Nhóm vị trí" version="7.0">
+					<sheet>
+						<group colspan="4">
+							<field name="name"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record id="view_form_pq_nhom_vi_tri_ty_trong_yeu_to" model="ir.ui.view">
+			<field name="name">view_form_pq_nhom_vi_tri_ty_trong_yeu_to</field>
+			<field name="model">pq.nhom.vi.tri</field>
+			<field name="sequence" eval="20"/>
+			<field name="arch" type="xml">
+				<form string="Nhóm vị trí" version="7.0">
+					<sheet>
+						<group colspan="4">
+							<field name="name"/>
+						</group>
+						<notebook colspan="4">
+							<page string="Ma trận yếu tố đánh giá">
+								<field name="pq_salary_w1" widget="pq_salary_w1"></field>
+							</page>
+							<!-- <page string="Tỷ trọng tiêu chí đánh giá">
+								<field name="pq_salary_w2" widget="pq_salary_w2"></field>
+							</page> -->
+							<page string="Tỷ trọng tiêu chí đánh giá">
+								<field name="pq_salary_w3" widget="pq_salary_w3"></field>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<!-- Search view -->
+		<record id="view_search_pq_nhom_vi_tri" model="ir.ui.view">
+            <field name="name">view_search_pq_nhom_vi_tri</field>
+            <field name="model">pq.nhom.vi.tri</field>
+            <field name="arch" type="xml">
+	            <search string="Nhóm vị trí" version="7.0">
+					<field name="name"/>
+				</search>
+            </field>
+        </record>
+        
+        <!-- Actions -->
+        <record id="act_pq_nhom_vi_tri" model="ir.actions.act_window">
+            <field name="name">Nhóm vị trí</field>
+            <field name="res_model">pq.nhom.vi.tri</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_tree_pq_nhom_vi_tri"/>
+        </record>
+        
+       	<record id="act_pq_nhom_vi_tri_ty_trong_yeu_to" model="ir.actions.act_window">
+            <field name="name">B1 - Tỷ trọng</field>
+            <field name="res_model">pq.nhom.vi.tri</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+		<record id="act_pq_nhom_vi_tri_ty_trong_yeu_to_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_tree_pq_nhom_vi_tri_ty_trong_yeu_to"></field>
+            <field name="act_window_id" ref="act_pq_nhom_vi_tri_ty_trong_yeu_to"/>
+        </record>
+        <record id="act_pq_nhom_vi_tri_ty_trong_yeu_to_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_form_pq_nhom_vi_tri_ty_trong_yeu_to"></field>
+            <field name="act_window_id" ref="act_pq_nhom_vi_tri_ty_trong_yeu_to"/>
+        </record>
+	
+	</data>
+</openerp>

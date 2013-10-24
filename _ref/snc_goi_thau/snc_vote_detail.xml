@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<!-- List view -->
+		<record id="view_tree_vote_detail" model="ir.ui.view">
+			<field name="name">view_tree_vote_detail</field>
+			<field name="model">snc.vote.detail</field>
+			<field name="arch" type="xml">
+				<tree string="Chi tiết bỏ phiếu" version="7.0" editable="bottom">
+					<!-- <field name="name"/> -->
+					<field name="vote_id" invisible='1'/>
+					<field name="user_id"/>
+					<field name="value" context="{'vote_id': vote_id, 'voting': '1'}"/>
+					<field name="create_date"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Form view -->
+		<!-- <record id="view_form_vote_detail" model="ir.ui.view">
+			<field name="name">view_form_vote_detail</field>
+			<field name="model">snc.vote.detail</field>
+			<field name="arch" type="xml">
+				<form string="Chi tiết bỏ phiếu" version="7.0">
+					<sheet>
+						<group colspan="4">
+							<field name="name" domain="[('id','=',vote_id)]" invisible="1"/>
+							<field name="user_id" invisible="1"/>
+							<field name="solution_value" on_change="func_on_change_solution_value(solution_value)"/>
+							<field name="solution_value_new" on_change="func_on_change_solution_value_new(solution_value_new)"/>
+							<field name="vote_value" invisible='1'/>
+							<field name="create_date" invisible='1'/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record> -->
+
+	</data>
+</openerp>

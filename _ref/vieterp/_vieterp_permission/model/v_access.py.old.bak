@@ -1,0 +1,387 @@
+# -*- coding: utf-8 -*-
+
+from openerp.osv import osv, fields
+from openerp.osv.fields import datetime as datetime_field
+from openerp.tools.translate import _
+import logging
+from datetime import datetime
+from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
+from unidecode import unidecode
+import types
+
+class v_access(osv.osv):
+    
+    SELECTION = (('2', 'Yes'),
+                ('1', 'No'),
+                ('0', 'Inherit'))
+    
+    def function_level(self, cr, uid, ids, fields, args, context=None):
+        res = {}
+        for obj in self.read(cr, uid, ids, ['group_id', 'user_id', 'object_id']):
+            level = 3
+            if not obj['group_id']:
+                level -= 1
+            if not obj['user_id']:
+                level -= 1
+            if not obj['object_id']:
+                level -= 1
+            res[obj['id']] = level
+        return res
+    
+    def _function_real(self, cr, uid, ids, context=None):
+        if not context:
+            context = {}        
+        context.update({'update_real_perm': False})
+        obj_data = self.read(cr, uid, ids, 
+                             ['level', 'group_id', 'user_id', 'object_id',
+                              'perm_read', 'perm_unlink', 'perm_write', 
+                              'perm_create', 'perm_manage'])
+        obj_data.sort(key=lambda x: x['level'])
+        for obj in obj_data:
+            group_id = obj['group_id'] if not obj['group_id'] else obj['group_id'][0]
+            user_id = obj['user_id'] if not obj['user_id'] else obj['user_id'][0]
+            object_id = obj['object_id'] if not obj['object_id'] else obj['object_id'][0]
+            vals = {
+                'real_perm_read': False,
+                'real_perm_unlink': False,
+                'real_perm_write': False,
+                'real_perm_create': False,
+                'real_perm_manage': False
+            }
+            #init check
+            cond = []
+            #check level 1
+            if obj['level'] == 1:
+                cond = []        
+            #check level 2
+            elif obj['level'] == 2:
+                cond = [[('group_id', '=', group_id), ('user_id', '=', False), ('object_id', '=', False)],
+                        [('group_id', '=', False), ('user_id', '=', user_id), ('object_id', '=', False)],
+                        [('group_id', '=', False), ('user_id', '=', False), ('object_id', '=', object_id)]]                
+            #check level 3
+            else:
+                cond = [[('group_id', '=', group_id), ('user_id', '=', user_id), ('object_id', '=', False)],
+                        [('group_id', '=', group_id), ('user_id', '=', False), ('object_id', '=', object_id)],
+                        [('group_id', '=', False), ('user_id', '=', user_id), ('object_id', '=', object_id)],
+                        [('group_id', '=', group_id), ('user_id', '=', False), ('object_id', '=', False)],
+                        [('group_id', '=', False), ('user_id', '=', user_id), ('object_id', '=', False)],
+                        [('group_id', '=', False), ('user_id', '=', False), ('object_id', '=', object_id)]]
+            #begin check               
+            tmp_ids = []
+            tmp_vals = {}
+            for i in cond:
+                tmp_ids += self.search(cr, uid, i)
+            tmp_data = self.read(cr, uid, tmp_ids, ['level', 'real_perm_read', 'real_perm_unlink', 
+                                                    'real_perm_write', 'real_perm_create', 'real_perm_manage',
+                                                    'perm_read', 'perm_unlink', 'perm_write', 'perm_create', 'perm_manage'])
+            tmp_data.sort(key=lambda x: x['level'], reverse=True)            
+            level_perm = {}
+            level_inherit = {}
+            for tmp_obj in tmp_data:
+                if not level_perm:
+                    level_perm = {
+                        'perm_read': tmp_obj['level'],
+                        'perm_unlink': tmp_obj['level'],
+                        'perm_write': tmp_obj['level'],
+                        'perm_create': tmp_obj['level'],
+                        'perm_manage': tmp_obj['level'],
+                    }   
+                for i in level_perm.copy():
+                    if tmp_obj['level'] != level_perm[i] and level_inherit.get(i, '0') == '0':
+                        level_perm.update({i: tmp_obj['level']})                        
+                tmp_vals.update({
+                    'real_perm_read': tmp_obj['real_perm_read'] if tmp_obj['real_perm_read'] == True 
+                        and level_perm['perm_read'] == tmp_obj['level'] else tmp_vals.get('real_perm_read', False),
+                    'real_perm_unlink': tmp_obj['real_perm_unlink'] if tmp_obj['real_perm_unlink'] == True 
+                        and level_perm['perm_unlink'] == tmp_obj['level'] else tmp_vals.get('real_perm_unlink', False),
+                    'real_perm_write': tmp_obj['real_perm_write'] if tmp_obj['real_perm_write'] == True 
+                        and level_perm['perm_write'] == tmp_obj['level'] else tmp_vals.get('real_perm_write', False),
+                    'real_perm_create': tmp_obj['real_perm_create'] if tmp_obj['real_perm_create'] == True 
+                        and level_perm['perm_create'] == tmp_obj['level'] else tmp_vals.get('real_perm_create', False),
+                    'real_perm_manage': tmp_obj['real_perm_manage'] if tmp_obj['real_perm_manage'] == True 
+                        and level_perm['perm_manage'] == tmp_obj['level'] else tmp_vals.get('real_perm_manage', False), 
+                })
+                level_inherit.update({
+                    'perm_read': tmp_obj['perm_read'] if level_inherit.get('perm_read', '0') == '0' 
+                                                    else level_inherit.get('perm_read', '0'),
+                    'perm_unlink': tmp_obj['perm_unlink'] if level_inherit.get('perm_unlink', '0') == '0' 
+                                                    else level_inherit.get('perm_unlink', '0'),
+                    'perm_write': tmp_obj['perm_write'] if level_inherit.get('perm_write', '0') == '0' 
+                                                    else level_inherit.get('perm_write', '0'),
+                    'perm_create': tmp_obj['perm_create'] if level_inherit.get('perm_create', '0') == '0' 
+                                                    else level_inherit.get('perm_create', '0'),
+                    'perm_manage': tmp_obj['perm_manage'] if level_inherit.get('perm_manage', '0') == '0' 
+                                                    else level_inherit.get('perm_manage', '0'),
+                })
+            vals.update({
+                'real_perm_read': True if obj['perm_read'] == '2' else (False if obj['perm_read'] == '1' else tmp_vals.get('real_perm_read', False)), 
+                'real_perm_unlink': True if obj['perm_unlink'] == '2' else (False if obj['perm_unlink'] == '1' else tmp_vals.get('real_perm_unlink', False)),
+                'real_perm_write': True if obj['perm_write'] == '2' else (False if obj['perm_write'] == '1' else tmp_vals.get('real_perm_write', False)),
+                'real_perm_create': True if obj['perm_create'] == '2' else (False if obj['perm_create'] == '1' else tmp_vals.get('real_perm_create', False)),
+                'real_perm_manage': True if obj['perm_manage'] == '2' else (False if obj['perm_manage'] == '1' else tmp_vals.get('real_perm_manage', False)),
+            })            
+            #update real perm
+            self.write(cr, uid, obj['id'], vals, context=context) 
+        return True
+    
+    def _real_perm(self, cr, uid, ids, context=None):
+        res = []
+        groups_id = {}
+        users_id = {}
+        objects_id = {}
+        #
+        if not isinstance(ids, types.ListType):
+            ids = [ids]
+        #
+        for obj in self.read(cr, uid, ids, ['group_id', 'user_id', 'object_id']):
+            if obj['group_id']:
+                groups_id[obj['group_id'][0]] = True
+            if obj['user_id']:
+                users_id[obj['user_id'][0]] = True
+            if obj['object_id']:
+                objects_id[obj['object_id'][0]] = True
+        groups_id = groups_id.keys()
+        users_id = users_id.keys()
+        objects_id = objects_id.keys()
+        res = self.search(cr, uid, ['|', '|', ('group_id', 'in', groups_id), 
+                                    ('user_id', 'in', users_id),
+                                    ('object_id', 'in', objects_id)])
+        return res
+    
+    _name = 'v.access'
+    _description = 'Customized access control management'
+    _columns = {
+        'group_id': fields.many2one('v.groups', string="Nhóm người dùng"),
+        'user_id': fields.many2one('res.users', string="Người dùng"),
+        'object_id': fields.many2one('v.objects', string="Đối tượng"),
+                
+        'perm_read': fields.selection(SELECTION, string='Xem', required=True),
+        'perm_unlink': fields.selection(SELECTION, string='Xoá', required=True),
+        'perm_write': fields.selection(SELECTION, string='Sửa', required=True),
+        'perm_create': fields.selection(SELECTION, string='Tạo', required=True),
+        'perm_manage': fields.selection(SELECTION, string='Quản trị', required=True),
+        
+        'level': fields.function(function_level, method=True, string="Level", 
+                                 type="integer", store=True),
+        
+        'ready': fields.boolean('Ready'),
+        
+        'real_perm_read': fields.boolean('Xem'),
+        'real_perm_unlink': fields.boolean('Xóa'),
+        'real_perm_write': fields.boolean('Sửa'),
+        'real_perm_create': fields.boolean('Tạo'),
+        'real_perm_manage': fields.boolean('Quản trị'),
+        
+        '_free': fields.char('Free', readonly=True)
+    }
+    _defaults = {
+        'perm_read': lambda *x: '0',
+        'perm_unlink': lambda *x: '0',
+        'perm_write': lambda *x: '0',
+        'perm_create': lambda *x: '0',
+        'perm_manage': lambda *x: '0',
+        'ready': lambda *x: True,
+        '_free': lambda *x: ''
+    }
+    _order = 'group_id, user_id, object_id'
+    
+    _is_reload = True
+    
+    def write(self, cr, uid, ids, vals, context=None):
+        if not context:
+            context = {}
+        res = super(v_access, self).write(cr, uid, ids, vals, context=context)
+        #check manual update permission
+        is_update_real_perm = False
+        if context.get('update_real_perm', True):
+            ls = ['perm_read', 'perm_unlink', 'perm_write', 'perm_create', 'perm_manage', '_free']
+            for i in ls:
+                if vals.has_key(i):
+                    is_update_real_perm = True
+                    break
+            if is_update_real_perm:
+                update_ids = self._real_perm(cr, uid, ids, context=context)
+                self._function_real(cr, uid, update_ids, context=context)
+        #update ir.model.access
+        if is_update_real_perm and context.get('ui_write', 0) == 1:
+            groups_id = {}
+            users_id = {}
+            objects_id = {}
+            if not isinstance(ids, types.ListType):
+                ids = [ids]
+            for obj in self.read(cr, uid, ids, ['group_id', 'user_id', 'object_id']):
+                if obj['group_id']:
+                    groups_id[obj['group_id'][0]] = True
+                if obj['user_id']:
+                    users_id[obj['user_id'][0]] = True
+                if obj['object_id']:
+                    objects_id[obj['object_id'][0]] = True
+            for u in self.pool.get('res.users').read(cr, uid, users_id.keys(), ['vgroups_id']):
+                for g in u['vgroups_id']:
+                    groups_id[g] = True
+            self.update_group_object_permission(cr, uid, groups_id.keys(), objects_id.keys())
+        return res
+    
+    def search(self, cr, uid, args, offset=0, limit=None, order=None, context=None, count=False):
+        self.reload_access(cr, uid)
+        res = super(v_access, self).search(cr, uid, args, offset=offset, limit=limit, 
+                                           order=order, context=context, count=count)
+        return res
+    
+    def reload_single(self, cr, uid, group_id = False, user_id = False, object_id = False, is_create = False):
+        ids = self.search(cr, uid, [('group_id', '=', group_id),
+                                    ('user_id', '=', user_id), 
+                                    ('object_id', '=', object_id)])
+        if ids:
+            self.write(cr, uid, ids[0], {'ready': True})
+        else:
+            if is_create == True:
+                self.create(cr, uid, {'group_id': group_id, 'user_id': user_id, 'object_id': object_id})
+        return True
+    
+    def reload_access(self, cr, uid):
+        if self._is_reload == False:
+            return False
+        self._is_reload = False        
+        #pre update access rights
+        ids = self.search(cr, uid, [])
+        if ids:
+            self.write(cr, uid, ids, {'ready': False})
+        #check all access rights & remove all draft
+        groups_id = self.pool.get('v.groups').search(cr, uid, [])
+        objects_id = self.pool.get('v.objects').search(cr, uid, [('is_active', '=', True)])
+        for group in self.pool.get('v.groups').read(cr, uid, groups_id, ['users']):
+            group_id = group['id']
+            self.reload_single(cr, uid, group_id)
+            for user_id in group['users']:
+                self.reload_single(cr, uid, False, user_id)
+                self.reload_single(cr, uid, group_id, user_id)
+                for object_id in objects_id:
+                    self.reload_single(cr, uid, False, False, object_id)
+                    self.reload_single(cr, uid, group_id, False, object_id)
+                    self.reload_single(cr, uid, False, user_id, object_id)                    
+                    self.reload_single(cr, uid, group_id, user_id, object_id, True)
+        #done update access rights
+        ids = self.search(cr, uid, [('ready', '=', False)])
+        self.unlink(cr, uid, ids)
+        #update permision in store function          
+        ids = self.search(cr, uid, [])
+        self.write(cr, uid, ids, {'_free': ''})
+        #update ir.model.access
+        self.update_group_object_permission(cr, uid)
+        #
+        return True
+    
+    ###############################################################################################
+    
+    def change_permission(self, cr, uid, id, perm, value, context=None):
+        #fix input value
+        id = int(id)
+        value = str(value)
+        res = {}
+        #check id
+        ids = self.search(cr, uid, [('id', '=', id)])
+        if ids:            
+            self.write(cr, uid, ids[0], {perm: value}, context=context)
+            update_ids = self._real_perm(cr, uid, ids[0], context=context)
+            for obj in self.read(cr, uid, update_ids, [perm, 'real_'+perm]):
+                res[obj['id']] = obj
+        return res
+    
+    def get_group_permission(self, cr, uid, args, context=None):
+        res = {}
+        #init args
+        for key in ['group_id', 'user_id', 'object_id']:
+            has_key = False
+            for arg in args:
+                 if arg[0] == key:
+                     has_key = True
+            if has_key == False:
+                args.append((key, '=', False))
+        #
+        ids = self.search(cr, uid, args)
+        res_id = 0
+        if ids: 
+           res_id = ids[0] 
+        else:
+            vals = {}
+            for arg in args:
+                vals[arg[0]] = arg[2]
+            new_id = self.create(cr, uid, vals, context=context)
+            res_id = new_id
+        res = self.read(cr, uid, res_id)            
+        return res
+    
+    ###############################################################################################
+    
+    def get_user_permission(self, cr, uid, user_id, model_id):
+        res = {}
+        try:
+            groups_id = self.pool.get('res.users').read(cr, uid, user_id, ['vgroups_id'])['vgroups_id']
+            objects_id = self.pool.get('ir.model').read(cr, uid, model_id, ['v_object'])['v_object']
+            for group_id in groups_id:
+                for object_id in objects_id:
+                    ids = self.search(cr, uid, [('group_id', '=', group_id),
+                                                ('user_id', '=', user_id),
+                                                ('object_id', '=', object_id)])
+                    if ids: 
+                        tmp = self.read(cr, uid, ids[0], ['real_perm_read', 'real_perm_write',
+                                                          'real_perm_create', 'real_perm_unlink', 'real_perm_manage'])
+                        res.update({
+                            'perm_read': tmp['real_perm_read'] if tmp['real_perm_read'] == True else res.get('perm_read', False),
+                            'perm_write': tmp['real_perm_write'] if tmp['real_perm_write'] == True else res.get('perm_write', False),
+                            'perm_create': tmp['real_perm_create'] if tmp['real_perm_create'] == True else res.get('perm_create', False),
+                            'perm_unlink': tmp['real_perm_unlink'] if tmp['real_perm_unlink'] == True else res.get('perm_unlink', False),
+                            'perm_manage': tmp['real_perm_manage'] if tmp['real_perm_manage'] == True else res.get('perm_manage', False),
+                        })
+        except:
+            raise
+            pass
+        return res
+    
+    def update_user_permission(self, cr, uid, user_id, model_id):
+        permission = self.get_user_permission(cr, uid, user_id, model_id)
+        if not permission:
+            return False
+        try:
+            #get special group
+            group_id = self.pool.get('res.users').read(cr, uid, user_id, ['special_group'])['special_group'][0]
+            ids = self.pool.get('ir.model.access').search(cr, uid, [('group_id', '=', group_id),
+                                                                    ('model_id', '=', model_id)])
+            
+            if ids:
+                self.pool.get('ir.model.access').write(cr, uid, ids, permission)
+            else:
+                self.pool.get('ir.model.access').create(cr, uid, {'name': 'v_access',
+                                                                  'is_active': True,
+                                                                  'model_id': model_id,
+                                                                  'group_id': group_id,
+                                                                  'perm_read': permission.get('perm_read', False),
+                                                                  'perm_write': permission.get('perm_write', False),
+                                                                  'perm_create': permission.get('perm_create', False),
+                                                                  'perm_unlink': permission.get('perm_unlink', False),
+                                                                  'perm_manage': permission.get('perm_manage', False)})  
+        except:
+            raise
+            return False
+        return True
+    
+    def update_group_object_permission(self, cr, uid, group_cond=[], object_cond=[]):
+        for user_id in self.pool.get('v.groups').get_all_user(cr, uid, group_cond):
+            #remove all permission
+            special_group = self.pool.get('res.users').read(cr, uid, user_id, ['special_group'])['special_group'][0]
+            uids = self.pool.get('ir.model.access').search(cr, uid, [('group_id', '=', special_group)])
+            self.pool.get('ir.model.access').write(cr, uid, uids, {'perm_read': False,
+                                                                   'perm_write': False,
+                                                                   'perm_create': False,
+                                                                   'perm_unlink': False,
+                                                                   'perm_manage': False})
+            #update permission
+            for model_id in self.pool.get('v.objects').get_all_model(cr, uid, object_cond):
+                self.update_user_permission(cr, uid, user_id, model_id)
+        return True
+    
+v_access()
+
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+

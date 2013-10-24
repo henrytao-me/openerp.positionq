@@ -1,0 +1,48 @@
+.mybg{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAIAAABL1vtsAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjZCQzRDMEUyMEM0NDExRTA5Njk1OUQyRDMxRDhERkM2IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjZCQzRDMEUzMEM0NDExRTA5Njk1OUQyRDMxRDhERkM2Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NkJDNEMwRTAwQzQ0MTFFMDk2OTU5RDJEMzFEOERGQzYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NkJDNEMwRTEwQzQ0MTFFMDk2OTU5RDJEMzFEOERGQzYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5rs4YJAAAAPUlEQVR42mJ89+4dAxL48+cPCwsLA26AqYCJgWIwbIxgAQYPZoDh14OmgAUteEdjZNSI0QQ+msBxAYAAAwCyASbO2bHDPQAAAABJRU5ErkJggg==) !important;
+	background-repeat: repeat;
+	background-position: center center;
+	z-index: -1;
+}
+
+.table_container {
+	width: 100%;
+	overflow-x: scroll;
+}
+.table_container > table {
+	border-collapse: collapse;
+	background-color: #FFF;
+	table-layout: fixed;
+	display: table;
+	/*width: 0px;*/
+}
+.table_container > table > thead > tr > th {
+	/*width: 120px;*/
+}
+.table_container > table td, .table_container > table th {
+	border: 1px solid #CCCCCC;
+	padding: 2px;
+	vertical-align: middle;
+}
+.table_container > table td input[type="text"] {
+	width: 100%;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+.table_container > table td input[type="text"].transparent{
+	border: 0px;
+	text-align: center;
+}
+.table_container.center_all td, .table_container.center_all th{
+	text-align: center;
+}
+.table_container.vi_tri_yeu_to_diem > table th {
+	min-width: 100px;
+	vertical-align: top;
+}

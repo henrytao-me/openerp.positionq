@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+<div t-name="widget_poll" class="vieterp_widget widget_poll">
+	<div style="float:right">
+		<button class="oe_button oe_highlight poll_button_save" type="button"><t t-esc="widget._t_save"/></button>
+		<button class="oe_button poll_button_refresh" type="button"><t t-esc="widget._t_refresh"/></button>
+		<button class="oe_button poll_button_add" type="button"><t t-esc="widget._t_add"/></button>	
+	</div>
+	<div style="clear: both;height:5px;"></div>	
+	<div class="container"></div>
+</div>
+
+<table t-name="widget_poll.table" class="poll_content">
+	<thead>
+		<tr>
+			<th></th>
+			<t t-foreach="hoz_cols" t-as="column">
+				<th><div><t t-esc="column"/></div></th>
+            </t>
+		</tr>
+	</thead>
+	<tbody>
+		<t t-foreach="ver_cols.length" t-as="index">
+		    <t t-call="widget_poll.table.row">
+		    	<t t-set="title" t-value="ver_cols[index]"/>
+		        <t t-set="row" t-value="data[index]"/>
+		    </t>
+		</t>
+	</tbody>
+</table>
+
+<tr t-name="widget_poll.table.row" valign="middle" class="poll_row">
+	<td><t t-esc="title"/></td>
+	<t t-foreach="row" t-as="data">
+		<td>
+			<div t-att-data-type="data.type" class="poll_cell">
+				<t t-if="data.type=='textbox'">
+					<input type="textbox" class="poll_input" t-att-value="data.value"
+						t-att-data-type="data.type" 
+						t-att-data-ver-id="data.ver_id"
+						t-att-data-hoz-id="data.hoz_id"/>	
+					<input t-att-name="'radio_'+data.ver_id" data-depend="textbox" type="radio" t-att-value="data.value" style="display:none" />
+				</t>
+				
+				<t t-if="data.type=='radio'">
+					<input t-att-name="'radio_'+data.ver_id" type="radio" class="poll_input"
+						t-att-data-type="data.type"
+						t-att-data-ver-id="data.ver_id"
+						t-att-data-hoz-id="data.hoz_id" />
+				</t>
+			</div>
+		</td>
+	</t>
+</tr>
+	
+</templates>
+
+
+
+

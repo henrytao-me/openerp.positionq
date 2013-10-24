@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="snc_nhan_dinh" xml:space="preserve">
+
+<div t-name="snc_nhan_dinh_tuan_thong_ke">
+	<table class="oe_list_content oe_table_border" style="width:100%;">
+	    <thead>
+	        <tr>
+	        	<th rowspan="2">Tuần</th>
+	        	<t t-foreach="template_data.users" t-as="column">
+	        		<th colspan="3"><t t-esc="column[1]"></t></th>	
+	        	</t>
+	        </tr>
+	        <tr>
+	        	<t t-foreach="template_data.users" t-as="column">	        	
+		        	<th>SS ||</th>
+		        	<th>SS %</th>
+		        	<th>XH</th>
+	        	</t>
+	        </tr>
+	    </thead>
+	    <tbody>
+			<t t-foreach="template_data.thong_ke.length" t-as="index">
+			    <t t-call="snc_nhan_dinh_tuan_thong_ke.row">
+			        <t t-set="record" t-value="template_data.thong_ke[index]"/>        
+			    </t>
+			</t>
+	    </tbody>
+	    <tfoot>
+	    	<tr>
+	    		<td></td>    		
+	    		<t t-foreach="template_data.users" t-as="column">
+		        	<th></th>
+		        	<th></th>
+		        	<th></th>
+	        	</t>
+	    	</tr>
+	    </tfoot>
+	</table>
+	
+	<div style="height:20px;"></div>
+	<h2 style="margin-left:10px;font-size:18px;">Chi tiết nhận định tuần</h2>
+	
+	<table class="oe_list_content oe_table_border" style="width:100%;">
+	    <thead>
+	        <tr>
+	        	<th rowspan="2">Ngày</th>
+	        	<th rowspan="2">Loại giá</th>
+	        	<th rowspan="2">Thực tế</th>
+	        	<t t-foreach="template_data.users" t-as="column">
+	        		<th colspan="4"><t t-esc="column[1]"></t></th>	
+	        	</t>
+	        </tr>
+	        <tr>
+	        	<t t-foreach="template_data.users" t-as="column">
+		        	<th>Giá</th>
+		        	<th>SS ||</th>
+		        	<th>SS %</th>
+		        	<th>XH</th>
+	        	</t>
+	        </tr>
+	    </thead>
+	    <tbody>
+			<t t-foreach="template_data.thong_ke_chi_tiet.length" t-as="index">
+			    <t t-call="snc_nhan_dinh_tuan_thong_ke_chi_tiet.row">
+			        <t t-set="record" t-value="template_data.thong_ke_chi_tiet[index]"/>        
+			    </t>
+			</t>
+	    </tbody>
+	    <tfoot>
+	    	<tr>
+	    		<td></td>
+	    		<td></td>
+	    		<td></td>
+	    		<t t-foreach="template_data.users" t-as="column">
+		        	<th></th>
+		        	<th></th>
+		        	<th></th>
+		        	<th></th>
+	        	</t>
+	    	</tr>
+	    </tfoot>
+	</table>
+	
+</div>
+
+<t t-name="snc_nhan_dinh_tuan_thong_ke.row">
+	<tr>
+		<td><t t-esc="record['time']"></t></td>
+		<t t-foreach="template_data.users" t-as="user">
+			<t t-if="record['data'][user[0]]">
+				<td><t t-esc="toFixed(record['data'][user[0]]['diff_abs'], 2)"></t></td>
+				<td><t t-esc="toFixed(record['data'][user[0]]['diff_percent'], 2)"></t></td>
+				<td><t t-esc="toFixed(record['data'][user[0]]['diff_trend'], 2)"></t></td>	
+			</t>
+			<t t-if="!record['data'][user[0]]">
+				<td></td>
+				<td></td>
+				<td></td>	
+			</t>
+    	</t>
+	</tr>
+</t>
+
+<t t-name="snc_nhan_dinh_tuan_thong_ke_chi_tiet.row">
+	<tr>
+		<td rowspan="3"><t t-esc="record.time"></t></td>
+		<td>Cao nhất</td>
+		<td><t t-esc="toFixed(record.real['high'], 2)"></t></td>
+		<t t-foreach="template_data.users" t-as="user">
+			<t t-if="record.data[user[0]]">
+				<td><t t-esc="toFixed(record.data[user[0]]['high'], 2)"></t></td>
+				<td><t t-esc="toFixed(record.data[user[0]]['diff_high_abs'], 2)"></t></td>
+				<td><t t-esc="toFixed(record.data[user[0]]['diff_high_percent'], 2)"></t></td>
+				<td></td>	
+			</t>
+			<t t-if="!record.data[user[0]]">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>				
+			</t>
+    	</t>		
+	</tr>
+	<tr>
+		<td>Thấp nhất</td>
+		<td><t t-esc="toFixed(record.real['low'], 2)"></t></td>
+		<t t-foreach="template_data.users" t-as="user">
+			<t t-if="record.data[user[0]]">
+				<td><t t-esc="toFixed(record.data[user[0]]['low'], 2)"></t></td>
+				<td><t t-esc="toFixed(record.data[user[0]]['diff_low_abs'], 2)"></t></td>
+				<td><t t-esc="toFixed(record.data[user[0]]['diff_low_percent'], 2)"></t></td>				
+				<td></td>
+			</t>
+			<t t-if="!record.data[user[0]]">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>				
+			</t>		
+		</t>
+	</tr>
+	<tr>
+		<td>Xu hướng</td>		
+		<t t-if="record.real['trend'] == '-1'"><td style="background-color:#faa019">Giảm</td></t>
+		<t t-if="record.real['trend'] == '1'"><td style="background-color:#2ab3fc">Tăng</td></t>
+		<t t-if="record.real['trend'] != '1' and record.real['trend'] != '-1'"><td></td></t>		
+		<t t-foreach="template_data.users" t-as="user">
+			<t t-if="record.data[user[0]]">
+				<t t-if="record.data[user[0]]['trend'] == '-1'"><td style="background-color:#faa019">Giảm</td></t>
+				<t t-if="record.data[user[0]]['trend'] == '1'"><td style="background-color:#2ab3fc">Tăng</td></t>
+				<t t-if="record.data[user[0]]['trend'] != '1' and record.data[user[0]]['trend'] != '-1'"><td>a</td></t>
+				<td></td>
+				<td></td>
+				<td><t t-if="record.data[user[0]]['diff_trend'] != 0" t-esc="record.data[user[0]]['diff_trend']"></t></td>	
+			</t>
+			<t t-if="!record.data[user[0]]">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>				
+			</t>
+		</t>
+	</tr>
+</t>
+	
+</templates>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template_id" xml:space="preserve">
+
+<div t-name="view_custom_snc_vote_thong_ke">
+	<table width="100%" class="simple_table ptb">
+		<tr>
+			<td>Số</td>
+			<td style="text-align:right"><t t-esc="template_data.code"></t></td>
+		</tr>
+		<tr>
+			<td>Ngày</td>
+			<td style="text-align:right"><t t-esc="template_data.vote_date"></t></td>
+		</tr>
+		<tr>
+			<td>Trạng thái</td>
+			<td style="text-align:right;">
+				<t t-if="template_data.state == 'open'">
+					<div style="display:inline-block;padding:3px;background-color:#3da15b;color:#fff">Đang mở</div>
+				</t>
+				<t t-if="template_data.state == 'closed'">
+					<div style="display:inline-block;padding:3px;background-color:#dc5f59;color:#fff">Đã đóng</div>	
+				</t>
+			</td>
+		</tr>
+		<tr>
+			<td>Thời gian đóng</td>
+			<td style="text-align:right"><t t-esc="template_data.close_date"></t></td>
+		</tr>
+		<tr>
+			<td>Giá đóng</td>
+			<td style="text-align:right"><span style="font-weight:bold;font-size:14px;"><t t-esc="template_data.close_price"></t></span></td>						
+		</tr>
+		<tr>
+			<td>Người bỏ phiếu</td>
+			<td style="text-align:right"><t t-esc="template_data.vote_users"></t></td>
+		</tr>
+	</table>
+</div>
+	
+</templates>

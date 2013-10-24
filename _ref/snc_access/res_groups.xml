@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	
+    	<record id="view_groups_tree_inherit" model="ir.ui.view">
+            <field name="name">res.groups.tree</field>
+            <field name="model">res.groups</field>
+            <field name="arch" type="xml">
+                <tree string="Groups">
+                	<field name="category_id"></field>
+                	<field name="name"></field>
+                	<field name="is_public"></field>
+                </tree>
+            </field>
+        </record>
+        
+    	<record id="view_groups_form_inherit" model="ir.ui.view">
+		    <field name="name">view_groups_form_inherit</field>
+		    <field name="model">res.groups</field>
+		    <field name="type">form</field>
+		    <field name="inherit_id" ref="base.view_groups_form"/>
+		    <field name="arch" type="xml">
+		    	<field name="name" position="after">
+		    		<field name="is_public"/>
+		    	</field>
+		    </field>
+		</record>
+		
+		<record id="base.action_res_groups" model="ir.actions.act_window">
+            <field name="view_mode">tree,form</field>
+        </record>
+		<record id="action_res_groups_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_groups_tree_inherit"></field>
+            <field name="act_window_id" ref="base.action_res_groups"/>
+        </record>
+        <record id="action_res_groups_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="base.view_groups_form"></field>
+            <field name="act_window_id" ref="base.action_res_groups"/>
+        </record>
+
+
+
+
+		
+		<record id="view_groups_tree" model="ir.ui.view">
+            <field name="name">res.groups.tree</field>
+            <field name="model">res.groups</field>
+            <field name="arch" type="xml">
+                <tree string="Groups">
+                	<field name="category_id"></field>
+                	<field name="name"></field>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_groups_tree_for_module" model="ir.ui.view">
+            <field name="name">res.groups.tree</field>
+            <field name="model">res.groups</field>
+            <field name="arch" type="xml">
+                <tree string="Groups" create="false" delete="false">                	
+                	<field name="name"></field>
+                </tree>
+            </field>
+        </record>
+    			
+
+
+
+		
+    	<record id="view_groups_form" model="ir.ui.view">
+            <field name="name">res.groups.form</field>
+            <field name="model">res.groups</field>
+            <field name="arch" type="xml">
+                <form string="Groups" version="7.0">
+                  <sheet>
+                    <group col="4">
+                        <field name="category_id"/>
+                        <field name="name"/>
+                    </group>
+                    <notebook>
+                        <page string="Users">
+                            <field name="users" domain="[('is_public', '=', True)]" 
+                            					filter="[('is_public', '=', True)]" />
+                        </page>
+                        <!-- <page string="Inherited">
+                            <label string="Users added to this group are automatically added in the following groups."/>
+                            <field name="implied_ids"/>
+                        </page>
+                        <page string="Menus">
+                            <field name="menu_access"/>
+                        </page>
+                        <page string="Views">
+                            <field name="view_access"/>
+                        </page>
+                        <page string="Access Rights">
+                            <field name="model_access">
+                                <tree string="Access Rules" editable="top">
+                                    <field name="model_id"/>
+                                    <field name="perm_read"/>
+                                    <field name="perm_write"/>
+                                    <field name="perm_create"/>
+                                    <field name="perm_unlink"/>
+                                    <field name="name"/>
+                                </tree>
+                                <form string="Access Controls" version="7.0">
+                                    <group col="4">
+                                        <field name="name"/>
+                                        <field name="active"/>
+                                        <field name="model_id"/>
+                                        <newline/>
+                                        <field name="perm_read"/>
+                                        <field name="perm_write"/>
+                                        <field name="perm_create"/>
+                                        <field name="perm_unlink"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Rules">
+                            <field name="rule_groups">
+                                <tree string="Rules">
+                                    <field name="name"/>
+                                    <field name="model_id"/>
+                                    <field name="global"/>
+                                </tree>
+                            </field>
+                        </page> -->
+                        <page string="Notes">
+                            <field name="comment"/>
+                        </page>
+                    </notebook>
+                  </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_groups_form_for_module" model="ir.ui.view">
+            <field name="name">res.groups.form</field>
+            <field name="model">res.groups</field>
+            <field name="arch" type="xml">
+                <form string="Groups" version="7.0" create="false" delete="false">
+                  <sheet>                    
+                    <notebook>
+                        <page string="Users">
+                            <field name="users" domain="[('is_public', '=', True)]"
+                            	 				filter="[('is_public', '=', True)]"></field>
+                        </page>
+                        <page string="Notes">
+                            <field name="comment"/>
+                        </page>                
+                    </notebook>
+                  </sheet>
+                </form>
+            </field>
+        </record>
+    	
+    	
+    	
+    	
+    	
+        <record id="act_window_res_groups" model="ir.actions.act_window">
+            <field name="name">Nhóm người dùng</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.groups</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('is_public', '=', True)]</field>
+            <field name="context">{'is_public': True}</field>
+        </record>
+        <record id="act_window_res_groups_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_groups_tree"></field>
+            <field name="act_window_id" ref="act_window_res_groups"/>
+        </record>
+        <record id="act_window_res_groups_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_groups_form"></field>
+            <field name="act_window_id" ref="act_window_res_groups"/>
+        </record>
+        
+        
+    </data>
+</openerp>
+

@@ -1,0 +1,30 @@
+/* CSS Document */
+.none{
+	display: none !important;	
+}
+.clearfloat{
+	clear: both;
+	height: 0px;	
+}
+ul.inline{
+	margin: 0px;
+	padding: 0px;
+	display: block;	
+	list-style-type: none;	
+}
+ul.inline > li{
+	margin: 0px;
+	padding: 0px;
+	display: inline-block;
+}
+ul.block{
+	margin: 0px;
+	padding: 0px;
+	display: block;	
+	list-style-type: none;
+}
+ul.block > li{
+	margin: 0px;
+	padding: 0px;
+	display: block;	
+}

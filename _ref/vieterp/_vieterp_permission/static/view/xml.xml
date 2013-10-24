@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="snc_nhan_dinh" xml:space="preserve">
+	
+<table t-name="v_access.list" class="oe_list_content vieterp_permission">
+    <t t-set="columns_count" t-value="visible_columns.length + (options.selectable ? 1 : 0) + (options.deletable ? 1 : 0)"/>
+    <thead>
+        <tr t-if="(!!options.action_buttons and !options.$buttons) or (!!options.pager and !options.$pager)">
+            <th t-att-colspan="columns_count">
+                <div class="oe_list_buttons"/>
+                <div class="oe_list_sidebar"/>
+                <div class="oe_list_pager"/>
+            </th>
+        </tr>
+        <tr t-if="options.header" class="oe_list_header_columns">
+            <t t-foreach="columns" t-as="column">
+                <th t-if="column.meta">
+                    <t t-esc="column.string"/>
+                </th>
+            </t>
+            <!-- <th t-if="options.selectable" width="1" >
+                <input type="checkbox" class="oe_list_record_selector"/>
+            </th> -->
+            <t t-foreach="columns" t-as="column">
+                <th t-if="!column.meta and column.invisible !== '1'" 
+                	t-att-data-id="column.id"                	
+                    t-attf-class="ekit_success oe_list_header_#{column.widget or column.type} #{((options.sortable and column.tag !== 'button') ? 'oe_sortable' : null)} #{column.class or ''}"><div>
+                    <t t-if="column.tag !== 'button'"><t t-esc="column.string"/></t>
+                </div></th>
+            </t>
+            <th t-if="options.deletable" class="oe_list_record_delete" width="13px"/>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+        	<t t-foreach="columns" t-as="column">
+                <th t-if="column.meta"></th>
+            </t>
+            <!-- <td t-if="options.selectable"></td> -->
+            <t t-foreach="columns" t-as="column">
+            	<td t-if="!column.meta and column.invisible !== '1'" t-attf-class="oe_list_footer oe_number #{column.class or ''}" t-att-data-field="column.id" t-att-title="column.label"></td>
+            </t>
+            <td t-if="options.deletable"/>
+        </tr>
+    </tfoot>  
+</table>
+
+<t t-name="v_access.rows" t-foreach="records.length" t-as="index">
+    <t t-call="v_access.row">
+        <t t-set="record" t-value="records.at(index)"/>
+    </t>
+</t>
+
+<tr t-name="v_access.row"
+        t-att-data-id="record.get('id')"
+        t-att-style="view.style_for(record)">
+    <t t-set="asData" t-value="record.toForm().data"/>
+    <t t-foreach="columns" t-as="column">
+        <td t-if="column.meta"> </td>
+    </t>
+    <!-- <th t-if="options.selectable" class="oe_list_record_selector" width="1">
+        <t t-set="checked" t-value="options.select_view_id == record.get('id') ? 'checked' : null"/>
+        <input t-if="options.radio" type="radio" name="radiogroup" t-att-checked="checked"/>
+        <input t-if="!options.radio" type="checkbox" name="radiogroup" t-att-checked="checked"/>
+    </th> -->
+    <t t-set="perm_value" t-value="false"></t>
+    <t t-set="perm_index" t-value="0"></t>
+    <t t-foreach="columns" t-as="column">
+        <t t-set="number" t-value="column.type === 'integer' or column.type == 'float'"/>
+        <t t-set="modifiers" t-value="column.modifiers_for(asData)"/>
+        
+        <t t-if="column.id==='perm_read' or 
+        		 column.id==='perm_write' or 
+        		 column.id==='perm_create' or
+        		 column.id==='perm_unlink' or
+        		 column.id==='perm_manage'">
+        	<td t-if="!column.meta and column.invisible !== '1'" 
+	        	t-att-title="column.help"
+	            t-attf-class="perm_container oe_list_field_cell oe_list_field_#{column.widget or column.type} #{number ? 'oe_number' : ''} #{column.tag === 'button' ? 'oe-button' : ''} #{modifiers.readonly ? 'oe_readonly' : ''} #{modifiers.required ? 'oe_required' : ''} #{column.class or ''}"
+	            t-att-data-field="column.id"
+	            t-att-data-value="record.get(column.id)"            
+	            t-att-data-real-value="perm_index > 0 ? perm_value : ''"
+	            t-att-data-id="record.get('id')"
+	            ><input type="button" class="btn_perm"></input></td>
+	           	
+	           	<!-- t-att-style="'background-color:' + (perm_index > 0 ? (perm_value == true ? '#3da15b' : '') : '')" -->	
+       	</t>
+       	
+       	<t t-if="!(column.id==='perm_read' or 
+        		 column.id==='perm_write' or 
+        		 column.id==='perm_create' or
+        		 column.id==='perm_unlink' or
+        		 column.id==='perm_manage')">
+        	<td t-if="!column.meta and column.invisible !== '1'" 
+	        	t-att-title="column.help"
+	            t-attf-class="oe_list_field_cell oe_list_field_#{column.widget or column.type} #{number ? 'oe_number' : ''} #{column.tag === 'button' ? 'oe-button' : ''} #{modifiers.readonly ? 'oe_readonly' : ''} #{modifiers.required ? 'oe_required' : ''} #{column.class or ''}"
+	            t-att-data-field="column.id"
+	            ><t t-raw="render_cell(record, column)"/></td>	
+       	</t>
+        
+            
+        
+        <t t-if="perm_index > 0">
+        	<t t-set="perm_index" t-value="perm_index - 1"></t>
+        </t>
+        <t t-if="column.id==='real_perm_read' or 
+        		 column.id==='real_perm_write' or 
+        		 column.id==='real_perm_create' or
+        		 column.id==='real_perm_unlink' or
+        		 column.id==='real_perm_manage'">
+        	<t t-set="perm_index" t-value="1"></t>
+        	<t t-set="perm_value" t-value="record.get(column.id)"></t>
+        </t>
+    </t>
+    <td t-if="options.deletable" class='oe_list_record_delete' width="13px">
+        <button type="button" name="delete" class="oe_i">d</button>
+    </td>
+</tr>
+
+
+	
+</templates>

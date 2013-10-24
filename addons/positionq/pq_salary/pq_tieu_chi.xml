@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+		<!-- List view -->
+		<record id="view_tree_pq_tieu_chi" model="ir.ui.view">
+			<field name="name">view_tree_pq_tieu_chi</field>
+			<field name="model">pq.tieu.chi</field>
+			<field name="arch" type="xml">
+				<tree string="Tiêu chí" version="7.0" editable="bottom">
+					<field name="name"/>
+					<field name="yeu_to"></field>
+				</tree>
+			</field>
+		</record>
+		
+		<record id="view_tree_pq_tieu_chi_cap" model="ir.ui.view">
+			<field name="name">view_tree_pq_tieu_chi_cap</field>
+			<field name="model">pq.tieu.chi</field>
+			<field name="arch" type="xml">
+				<tree string="Tiêu chí" version="7.0">
+					<field name="name"/>
+					<field name="yeu_to"></field>
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Form view -->
+		<record id="view_form_pq_tieu_chi" model="ir.ui.view">
+			<field name="name">view_form_pq_tieu_chi</field>
+			<field name="model">pq.tieu.chi</field>
+			<field name="arch" type="xml">
+				<form string="Tiêu chí" version="7.0">
+					<sheet>
+						<group colspan="4">
+							<group>
+								<field name="name"></field>
+								<field name="yeu_to"></field>	
+							</group>
+							<group>
+								<field name="method"></field>
+							</group>
+						</group>
+						<notebook colspan="4">
+							<page string="Tiêu chí cấp 1">
+								<field name="tcc1">
+									<tree string="Tiêu chí cấp 1">
+	                                    <field name="name"></field>
+	                                    <field name="method"></field>
+	                               </tree>
+								</field>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<!-- Search view -->
+		<record id="view_search_pq_tieu_chi" model="ir.ui.view">
+            <field name="name">view_search_pq_tieu_chi</field>
+            <field name="model">pq.tieu.chi</field>
+            <field name="arch" type="xml">
+	            <search string="Tiêu chí" version="7.0">
+					<field name="name"/>
+				</search>
+            </field>
+        </record>
+        
+        <!-- Actions -->
+        <record id="act_pq_tieu_chi" model="ir.actions.act_window">
+            <field name="name">Tiêu chí</field>
+            <field name="res_model">pq.tieu.chi</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_tree_pq_tieu_chi"/>
+        </record>
+        
+        <record id="act_pq_tieu_chi_cap" model="ir.actions.act_window">
+            <field name="name">B2 - Trọng số tiêu chí</field>
+            <field name="res_model">pq.tieu.chi</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+		<record id="act_pq_tieu_chi_cap_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_tree_pq_tieu_chi_cap"></field>
+            <field name="act_window_id" ref="act_pq_tieu_chi_cap"/>
+        </record>
+        <record id="act_pq_tieu_chi_cap_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_form_pq_tieu_chi"></field>
+            <field name="act_window_id" ref="act_pq_tieu_chi_cap"/>
+        </record>
+	
+	</data>
+</openerp>

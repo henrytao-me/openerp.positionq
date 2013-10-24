@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		
+		<menuitem name="Ngày" parent="snc_base.menu_ptt_cc_nd_qt"
+			id="menu_ptt_cc_nd_qt_ngay" sequence="10"/>
+		
+			<menuitem name="Thiết lập" parent="menu_ptt_cc_nd_qt_ngay"
+				id="menu_ptt_cc_nd_qt_ngay_tl" sequence="10" action="act_window_snc_nhan_dinh_ngay_setup"/>
+			
+			<menuitem name="Phân quyền" parent="menu_ptt_cc_nd_qt_ngay"
+				id="menu_ptt_cc_nd_qt_ngay_pq" sequence="20" action="act_window_res_groups"/>
+			
+		<menuitem name="Ngày" parent="snc_base.menu_ptt_cc_nd_ts"
+			id="menu_ptt_cc_nd_ts_ngay" sequence="10" action="action_tree_nhan_dinh_ngay_trong_so"/>
+			
+		<menuitem name="Ngày" parent="snc_base.menu_ptt_cc_nd_tk"
+			id="menu_ptt_cc_nd_tk_ngay" sequence="10" action="action_tree_nhan_dinh_ngay_thong_ke"/>	
+		
+		<menuitem name="Ngày" parent="snc_base.menu_ptt_cc_nd_nd"
+			id="menu_ptt_cc_nd_nd_ngay" sequence="10" action="act_window_snc_nhan_dinh_ngay"/>
+					
+	</data>
+</openerp>

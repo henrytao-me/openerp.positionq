@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+<div t-name="form_widget_custom">
+	<div class="form_widget_custom_container"></div>
+</div>
+
+<div t-name="form_widget_custom.template_name">
+	<h2 style="font-weight:bold">Widget Custom - FormView</h2>
+	<div>
+		<p style="font-weight:bold">Usage:</p>
+		<p>...</p>
+	</div>
+</div>
+	
+</templates>
+
+
+
+

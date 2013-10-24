@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<!-- List view -->
+		<record id="view_tree_article_topic" model="ir.ui.view">
+			<field name="name">view_tree_article_topic</field>
+			<field name="model">snc.article.topic</field>
+			<field name="arch" type="xml">
+				<tree string="Chủ đề bài viết" editable="top" >
+					<field name="name"/>
+					<field name="sort"/>
+					<field name="is_active"/>
+					<field name="create_date"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Form view -->
+		<record id="view_form_article_topic" model="ir.ui.view">
+			<field name="name">view_form_article_topic</field>
+			<field name="model">snc.article.topic</field>
+			<field name="arch" type="xml">
+				<form string="Chủ đề" version="7.0">
+					<sheet>
+						<group>
+							<field name="name" default_focus="1" placeholder="Tên chủ đề" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Search view -->
+		<record id="view_search_article_topic" model="ir.ui.view">
+			<field name="name">view_search_article_topic</field>
+			<field name="model">snc.article.topic</field>
+			<field name="arch" type="xml">
+				<search string="Chủ đề">
+					<field name="name"/>
+					<field name="alias" string="Alias" filter_domain="[('alias', 'ilike', self)]"/>
+				</search>
+			</field>
+		</record>
+
+		<!-- Actions -->
+		<record id="action_tree_article_topic" model="ir.actions.act_window">
+			<field name="name">Chủ đề bài viết</field>
+			<field name="res_model">snc.article.topic</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree</field>
+		</record>
+
+	</data>
+</openerp>

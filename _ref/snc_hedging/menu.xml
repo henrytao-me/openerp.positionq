@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		
+		<menuitem name="Hedging" sequence="400"
+				id="menu_ptt_hedging" parent="snc_base.menu_ptt"/>
+				
+				<menuitem name="Hedging" sequence="10"
+					id="menu_ptt_hedging_hedging" parent="menu_ptt_hedging"
+					action="vieterp_base.action_tmp"/>
+		
+	</data>
+</openerp>

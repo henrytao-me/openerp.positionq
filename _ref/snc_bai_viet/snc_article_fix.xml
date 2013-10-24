@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+		<!-- List view -->
+		<record id="view_tree_article_fix" model="ir.ui.view">
+			<field name="name">view_tree_article_fix</field>
+			<field name="model">snc.article.fix</field>
+			<field name="arch" type="xml">
+				<tree string="Bài viết cố định" >
+					<field name="name"/>
+					<field name="alias"/>
+					<field name="create_date_format"/>
+					<field name="user_id"/>
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Form view -->
+		<record id="view_form_article_fix" model="ir.ui.view">
+			<field name="name">view_form_article_fix</field>
+			<field name="model">snc.article.fix</field>
+			<field name="arch" type="xml">
+				<form string="Bài viết cố định" version="7.0">
+					<sheet>
+						<h2><field name="name" default_focus="1" placeholder="Tiêu đề bài viết" /></h2>
+                        <field name="content" placeholder="Nội dung" />
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<!-- Search view -->
+		<record id="view_search_article_fix" model="ir.ui.view">
+            <field name="name">view_search_article_fix</field>
+            <field name="model">snc.article.fix</field>
+            <field name="arch" type="xml">
+	            <search string="Bài viết cố định">
+					<field name="name"/>
+				</search>
+            </field>
+        </record>
+        
+        
+        
+        
+        <!-- Actions -->
+        <record id="action_tree_article_fix" model="ir.actions.act_window">
+            <field name="name">Bài viết cố định</field>
+            <field name="res_model">snc.article.fix</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+	
+	</data>
+</openerp>
