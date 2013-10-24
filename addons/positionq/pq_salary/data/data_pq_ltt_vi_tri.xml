@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_ct_hdqt_tgd">
+        	<field name="name">CT HĐQT kiêm TGĐ</field>
+        	<field name="level">16</field>
+        </record>
+        
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_tgd">
+        	<field name="name">Tổng giám đốc</field>
+        	<field name="level">15</field>
+        </record>
+        
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_ptgd">
+        	<field name="name">Phó Tổng giám đốc</field>
+        	<field name="level">14</field>
+        </record>
+        
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_gdk">
+        	<field name="name">Giám đốc khối</field>
+        	<field name="level">13</field>
+        </record>
+        
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_qlciv">
+        	<field name="name">Quản lý cấp IV (Giám đốc BP)</field>
+        	<field name="level">12</field>
+        </record>
+        
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_qlciii">
+        	<field name="name">Quản lý cấp III</field>
+        	<field name="level">11</field>
+        </record>
+        
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_qlcii">
+        	<field name="name">Quản lý cấp II (phó Trưởng phòng, phó GĐ BP)</field>
+        	<field name="level">10</field>
+        </record>
+        
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_qlci">
+        	<field name="name">Quản lý cấp I</field>
+        	<field name="level">9</field>
+        </record>
+        
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_cvcii">
+        	<field name="name">Chuyên viên cấp II</field>
+        	<field name="level">8</field>
+        </record>
+        
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_cvci">
+        	<field name="name">Chuyên viên cấp I</field>
+        	<field name="level">7</field>
+        </record>
+        
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_nvlii">
+        	<field name="name">Nhân viên cấp II</field>
+        	<field name="level">6</field>
+        </record>
+        
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_nvc1">
+        	<field name="name">Nhân viên cấp I</field>
+        	<field name="level">5</field>
+        </record>
+        
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_ldctnl2">
+        	<field name="name">Lao động có tay nghề loại 2</field>
+        	<field name="level">4</field>
+        </record>
+        
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_ldctnl1">
+        	<field name="name">Lao động có tay nghề loại 1</field>
+        	<field name="level">3</field>
+        </record>
+        
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_ldckn">
+        	<field name="name">Lao động có kỹ năng</field>
+        	<field name="level">2</field>
+        </record>
+        
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_ldpt">
+        	<field name="name">Lao động phổ thông</field>
+        	<field name="level">1</field>
+        </record>
+        
+	</data>
+</openerp>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		
+        <record model="pq.ltt.muc.do" id="pq_ltt_muc_do_1">
+        	<field name="name">Mức 1 (Tối thiểu)</field>
+        </record>
+        
+        <record model="pq.ltt.muc.do" id="pq_ltt_muc_do_2">
+        	<field name="name">Mức 2</field>
+        </record>
+        
+        <record model="pq.ltt.muc.do" id="pq_ltt_muc_do_3">
+        	<field name="name">Mức 3</field>
+        </record>
+        
+        <record model="pq.ltt.muc.do" id="pq_ltt_muc_do_4">
+        	<field name="name">Mức 4 (Điểm giữa)</field>
+        </record>
+        
+        <record model="pq.ltt.muc.do" id="pq_ltt_muc_do_5">
+        	<field name="name">Mức 5</field>
+        </record>
+        
+        <record model="pq.ltt.muc.do" id="pq_ltt_muc_do_6">
+        	<field name="name">Mức 6</field>
+        </record>
+        
+        <record model="pq.ltt.muc.do" id="pq_ltt_muc_do_7">
+        	<field name="name">Mức 7 (Tối đa)</field>
+        </record>
+        
+	</data>
+</openerp>

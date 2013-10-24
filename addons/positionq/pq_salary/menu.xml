@@ -32,6 +32,9 @@
 				
 				<menuitem name="Vị trí" id="menu_salary_salary_vi_tri" parent="menu_salary_salary" 
 					action="act_pq_vi_tri" sequence="80"/>
+				
+				<menuitem name="Lương thị trường" id="menu_salary_salary_luong_thi_truong" parent="menu_salary_salary" 
+					action="act_pq_ltt" sequence="90"/>
 			
 			<menuitem id="menu_salary_process" name="Quy trình tính lương" parent="menu_salary" sequence="200" />
 				

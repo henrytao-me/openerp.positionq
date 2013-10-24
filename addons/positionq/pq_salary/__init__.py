@@ -12,5 +12,9 @@ import pq_nhom_vi_tri_yeu_to
 import pq_vi_tri_yeu_to
 import pq_config
 
+import pq_ltt
+import pq_ltt_vi_tri
+import pq_ltt_muc_do
+
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
 

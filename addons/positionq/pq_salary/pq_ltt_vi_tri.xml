@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+		<!-- List view -->
+		<record id="view_tree_pq_ltt_vi_tri" model="ir.ui.view">
+			<field name="name">view_tree_pq_ltt_vi_tri</field>
+			<field name="model">pq.ltt.vi.tri</field>
+			<field name="sequence" eval="10"/>
+			<field name="arch" type="xml">
+				<tree string="Lương thị trường - Vị trí" version="7.0" editable="bottom">
+					<field name="name"></field>
+					<field name="level"></field>
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Form view -->
+		<record id="view_form_pq_ltt_vi_tri" model="ir.ui.view">
+			<field name="name">view_form_pq_ltt_vi_tri</field>
+			<field name="model">pq.ltt.vi.tri</field>
+			<field name="sequence" eval="10"/>
+			<field name="arch" type="xml">
+				<form string="Lương thị trường - Vị trí" version="7.0">
+					<sheet>
+						<group colspan="4">
+							<field name="name"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<!-- Search view -->
+		<record id="view_search_pq_ltt_vi_tri" model="ir.ui.view">
+            <field name="name">view_search_pq_ltt_vi_tri</field>
+            <field name="model">pq.ltt.vi.tri</field>
+            <field name="arch" type="xml">
+	            <search string="Lương thị trường - Vị trí" version="7.0">
+					<field name="name"/>
+				</search>
+            </field>
+        </record>
+        
+        <!-- Actions -->
+        <record id="act_pq_ltt_vi_tri" model="ir.actions.act_window">
+            <field name="name">Lương thị trường - Vị trí</field>
+            <field name="res_model">pq.ltt.vi.tri</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_tree_pq_ltt_vi_tri"/>
+        </record>
+	
+	</data>
+</openerp>

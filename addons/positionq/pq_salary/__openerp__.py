@@ -30,7 +30,14 @@
         'pq_nhom_vi_tri_yeu_to.xml',
         'pq_vi_tri_yeu_to.xml',
         'pq_config.xml',
-                    
+        
+        'pq_ltt.xml',
+        'pq_ltt_vi_tri.xml',
+        'pq_ltt_muc_do.xml',
+        
+        'data/data_pq_ltt_vi_tri.xml',
+        'data/data_pq_ltt_muc_do.xml',
+             
         'menu.xml',
     ],   
     'js': [
