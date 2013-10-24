@@ -6,6 +6,9 @@
 		
 			<menuitem id="menu_salary_salary" name="Thông tin cơ bản" parent="menu_salary" sequence="100" />
 			
+				<menuitem name="Thiết lập" id="menu_salary_salary_config" parent="menu_salary_salary" 
+					action="act_pq_config" sequence="5"/>
+			
 				<menuitem name="Nhóm vị trí" id="menu_salary_salary_nhom_vi_tri" parent="menu_salary_salary" 
 					action="act_pq_nhom_vi_tri" sequence="10"/>
 				

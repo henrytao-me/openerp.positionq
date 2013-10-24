@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<!-- List view -->
+		<record id="view_tree_pq_config" model="ir.ui.view">
+			<field name="name">view_tree_pq_config</field>
+			<field name="model">pq.config</field>
+			<field name="arch" type="xml">
+				<tree string="Thiết lập" version="7.0" editable="bottom">
+					<field name="name" invisible="1" />
+					<field name="so_bac"></field>
+					<field name="bac_min"></field>
+					<field name="bac_max"></field>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Form view -->
+		<record id="view_form_pq_config" model="ir.ui.view">
+			<field name="name">view_form_pq_config</field>
+			<field name="model">pq.config</field>
+			<field name="arch" type="xml">
+				<form string="Thiết lập" version="7.0">
+					<sheet>
+						<group colspan="4">
+							<field name="name"></field>
+							<field name="so_bac"></field>
+							<field name="bac_min"></field>
+							<field name="bac_max"></field>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Search view -->
+		<record id="view_search_pq_config" model="ir.ui.view">
+			<field name="name">view_search_pq_config</field>
+			<field name="model">pq.config</field>
+			<field name="arch" type="xml">
+				<search string="Thiết lập" version="7.0">
+					<field name="name"/>
+				</search>
+			</field>
+		</record>
+
+		<!-- Actions -->
+		<record id="act_pq_config" model="ir.actions.act_window">
+			<field name="name">Thiết lập</field>
+			<field name="res_model">pq.config</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+	</data>
+</openerp>

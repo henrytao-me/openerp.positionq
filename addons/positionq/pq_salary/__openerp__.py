@@ -29,6 +29,7 @@
         'pq_bo_phan.xml',
         'pq_nhom_vi_tri_yeu_to.xml',
         'pq_vi_tri_yeu_to.xml',
+        'pq_config.xml',
                     
         'menu.xml',
     ],   

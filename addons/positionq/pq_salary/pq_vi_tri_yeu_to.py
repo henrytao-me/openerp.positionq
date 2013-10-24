@@ -159,7 +159,8 @@ class pq_vi_tri_yeu_to(osv.osv):
                'matrix': {}}
         
         # get info
-        numOfBac = 5        
+        bac_info = self.pool.get('pq.config').get_info(cr, uid)
+        numOfBac = bac_info.get('so_bac', 5)
         
         # get vi_tri
         ids = self.pool.get('pq.vi.tri').search(cr, uid, args)

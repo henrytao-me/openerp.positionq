@@ -300,7 +300,8 @@ class pq_nhom_vi_tri_yeu_to(osv.osv):
     def get_tieu_chi_bac_matrix(self, cr, uid, nhom_vi_tri_id):
         res = {}
         # get bac
-        numOfBac = 5
+        bac_info = self.pool.get('pq.config').get_info(cr, uid)
+        numOfBac = bac_info.get('so_bac', 5)
         bac = []
         i = 0
         while i < numOfBac:
@@ -313,8 +314,8 @@ class pq_nhom_vi_tri_yeu_to(osv.osv):
             for tcid in res[ytid]['tieu_chi']:
                 res[ytid]['tieu_chi'][tcid]['bac'] = {}
                 # get bac
-                fvalue = round(res[ytid]['tieu_chi'][tcid]['ty_trong'] * 100)
-                lvalue = round(res[ytid]['tieu_chi'][tcid]['ty_trong'] * 1000)
+                fvalue = round(res[ytid]['tieu_chi'][tcid]['ty_trong'] * bac_info.get('bac_min', 100))
+                lvalue = round(res[ytid]['tieu_chi'][tcid]['ty_trong'] * bac_info.get('bac_max', 1000))
                 step = round((lvalue - fvalue) / len(bac))
                 bac_value = {}
                 for key, b in enumerate(bac):

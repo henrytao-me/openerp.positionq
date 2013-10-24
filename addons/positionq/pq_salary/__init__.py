@@ -10,6 +10,7 @@ import pq_vi_tri
 import pq_bo_phan
 import pq_nhom_vi_tri_yeu_to
 import pq_vi_tri_yeu_to
+import pq_config
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
 
