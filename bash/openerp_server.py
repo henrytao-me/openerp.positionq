@@ -34,7 +34,7 @@ elif _platform == "darwin":
 elif _platform == "win32":
     user_home = 'C:\\'
 #
-openerp_path = os.path.join(user_home, 'workspace', 'github', 'positionq')
+openerp_path = os.path.join(user_home, 'workspace', 'github', 'openerp.positionq')
 addons_path = os.path.join(openerp_path, 'addons')
 launcher_path = os.path.join(openerp_path, 'openerp-server')
 
