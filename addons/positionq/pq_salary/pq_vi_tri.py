@@ -29,10 +29,19 @@ class pq_vi_tri(osv.osv):
     
     def func_luong_diem(self, cr, uid, ids, fields, args, context=None):
         res = {}
+        nhom_luong = {}
         for obj in self.read(cr, uid, ids, ['nhom_vi_tri', 'diem']):
             value = 0
-            
-            res[obj['id']] = value
+            if not nhom_luong.get(obj['nhom_vi_tri'][0]):
+                tids = self.pool.get('pq.nhom.luong').search(cr, uid, [('nhom_vi_tri', '=', obj['nhom_vi_tri'][0])])
+                nhom_luong[obj['nhom_vi_tri'][0]] = self.pool.get('pq.nhom.luong').read(cr, uid, tids, ['min_point',
+                                                                                                        'max_point',
+                                                                                                        'ltt_diem'])
+            for tobj in nhom_luong.get(obj['nhom_vi_tri'][0]):
+                if obj['diem'] >= tobj['min_point'] and (obj['diem'] <= tobj['max_point'] or tobj['max_point'] == 0):
+                    value = tobj['ltt_diem']
+                    break
+            res[obj['id']] = value * obj['diem']
         return res
     
     _name = 'pq.vi.tri'
