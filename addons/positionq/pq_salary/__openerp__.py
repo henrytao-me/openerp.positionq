@@ -37,6 +37,7 @@
         
         'data/data_pq_ltt_vi_tri.xml',
         'data/data_pq_ltt_muc_do.xml',
+        'data/data_pq_ltt.xml',
              
         'menu.xml',
     ],   

@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		
+		<!-- CT HĐQT kiêm TGĐ -->
+		
+		<record model="pq.ltt" id="pq_ltt_1_1">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ct_hdqt_tgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_1"></field>
+        	<field name="luong">89.82</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_1_2">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ct_hdqt_tgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_2"></field>
+        	<field name="luong">102.65</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_1_3">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ct_hdqt_tgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_3"></field>
+        	<field name="luong">115.48</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_1_4">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ct_hdqt_tgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_4"></field>
+        	<field name="luong">128.32</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_1_5">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ct_hdqt_tgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_5"></field>
+        	<field name="luong">141.15</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_1_6">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ct_hdqt_tgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_6"></field>
+        	<field name="luong">153.98</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_1_7">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ct_hdqt_tgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_7"></field>
+        	<field name="luong">166.81</field>
+        </record>
+        
+        <!-- Tổng giám đốc -->
+        
+        <record model="pq.ltt" id="pq_ltt_2_1">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_tgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_1"></field>
+        	<field name="luong">72.13</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_2_2">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_tgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_2"></field>
+        	<field name="luong">82.44</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_2_3">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_tgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_3"></field>
+        	<field name="luong">92.74</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_2_4">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_tgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_4"></field>
+        	<field name="luong">103.04</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_2_5">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_tgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_5"></field>
+        	<field name="luong">113.35</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_2_6">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_tgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_6"></field>
+        	<field name="luong">123.65</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_2_7">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_tgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_7"></field>
+        	<field name="luong">133.96</field>
+        </record>
+        
+        <!-- Phó Tổng giám đốc -->
+        
+        <record model="pq.ltt" id="pq_ltt_3_1">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ptgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_1"></field>
+        	<field name="luong">57.93</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_3_2">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ptgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_2"></field>
+        	<field name="luong">66.21</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_3_3">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ptgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_3"></field>
+        	<field name="luong">74.49</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_3_4">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ptgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_4"></field>
+        	<field name="luong">82.76</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_3_5">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ptgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_5"></field>
+        	<field name="luong">91.04</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_3_6">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ptgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_6"></field>
+        	<field name="luong">99.32</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_3_7">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ptgd"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_7"></field>
+        	<field name="luong">107.59</field>
+        </record>
+        
+        <!-- Phó Tổng giám đốc -->
+        
+        <record model="pq.ltt" id="pq_ltt_4_1">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_gdk"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_1"></field>
+        	<field name="luong">38.77</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_4_2">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_gdk"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_2"></field>
+        	<field name="luong">44.30</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_4_3">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_gdk"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_3"></field>
+        	<field name="luong">49.84</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_4_4">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_gdk"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_4"></field>
+        	<field name="luong">55.38</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_4_5">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_gdk"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_5"></field>
+        	<field name="luong">60.92</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_4_6">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_gdk"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_6"></field>
+        	<field name="luong">66.46</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_4_7">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_gdk"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_7"></field>
+        	<field name="luong">71.99</field>
+        </record>
+        
+        <!-- Quản lý cấp IV (Giám đốc BP) -->
+        
+        <record model="pq.ltt" id="pq_ltt_5_1">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlciv"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_1"></field>
+        	<field name="luong">37.35</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_5_2">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlciv"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_2"></field>
+        	<field name="luong">42.68</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_5_3">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlciv"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_3"></field>
+        	<field name="luong">48.02</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_5_4">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlciv"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_4"></field>
+        	<field name="luong">53.35</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_5_5">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlciv"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_5"></field>
+        	<field name="luong">58.69</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_5_6">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlciv"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_6"></field>
+        	<field name="luong">64.02</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_5_7">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlciv"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_7"></field>
+        	<field name="luong">69.36</field>
+        </record>
+        
+        <!-- Quản lý cấp III -->
+        
+        <record model="pq.ltt" id="pq_ltt_6_1">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlciii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_1"></field>
+        	<field name="luong">24.93</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_6_2">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlciii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_2"></field>
+        	<field name="luong">28.50</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_6_3">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlciii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_3"></field>
+        	<field name="luong">32.06</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_6_4">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlciii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_4"></field>
+        	<field name="luong">35.62</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_6_5">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlciii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_5"></field>
+        	<field name="luong">39.18</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_6_6">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlciii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_6"></field>
+        	<field name="luong">42.74</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_6_7">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlciii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_7"></field>
+        	<field name="luong">46.31</field>
+        </record>
+        
+        <!-- Quản lý cấp II (phó Trưởng phòng, phó GĐ BP) -->
+        
+        <record model="pq.ltt" id="pq_ltt_7_1">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlcii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_1"></field>
+        	<field name="luong">24.02</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_7_2">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlcii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_2"></field>
+        	<field name="luong">27.46</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_7_3">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlcii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_3"></field>
+        	<field name="luong">30.89</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_7_4">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlcii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_4"></field>
+        	<field name="luong">34.32</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_7_5">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlcii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_5"></field>
+        	<field name="luong">37.75</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_7_6">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlcii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_6"></field>
+        	<field name="luong">41.18</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_7_7">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlcii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_7"></field>
+        	<field name="luong">44.62</field>
+        </record>
+        
+        <!-- Quản lý cấp I -->
+        
+        <record model="pq.ltt" id="pq_ltt_8_1">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_1"></field>
+        	<field name="luong">16.03</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_8_2">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_2"></field>
+        	<field name="luong">18.32</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_8_3">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_3"></field>
+        	<field name="luong">20.61</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_8_4">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_4"></field>
+        	<field name="luong">22.90</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_8_5">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_5"></field>
+        	<field name="luong">25.19</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_8_6">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_6"></field>
+        	<field name="luong">27.48</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_8_7">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_qlci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_7"></field>
+        	<field name="luong">29.77</field>
+        </record>
+        
+        <!-- Chuyên viên cấp   II -->
+        
+        <record model="pq.ltt" id="pq_ltt_9_1">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_cvcii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_1"></field>
+        	<field name="luong">15.40</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_9_2">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_cvcii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_2"></field>
+        	<field name="luong">17.60</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_9_3">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_cvcii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_3"></field>
+        	<field name="luong">19.80</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_9_4">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_cvcii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_4"></field>
+        	<field name="luong">22.00</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_9_5">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_cvcii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_5"></field>
+        	<field name="luong">24.20</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_9_6">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_cvcii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_6"></field>
+        	<field name="luong">26.40</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_9_7">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_cvcii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_7"></field>
+        	<field name="luong">28.59</field>
+        </record>
+        
+        <!-- Chuyên viên cấp I -->
+        
+        <record model="pq.ltt" id="pq_ltt_10_1">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_cvci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_1"></field>
+        	<field name="luong">12.34</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_10_2">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_cvci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_2"></field>
+        	<field name="luong">14.10</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_10_3">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_cvci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_3"></field>
+        	<field name="luong">15.87</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_10_4">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_cvci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_4"></field>
+        	<field name="luong">17.63</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_10_5">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_cvci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_5"></field>
+        	<field name="luong">19.39</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_10_6">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_cvci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_6"></field>
+        	<field name="luong">21.15</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_10_7">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_cvci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_7"></field>
+        	<field name="luong">22.92</field>
+        </record>
+        
+        <!-- Nhân viên cấp II -->
+        
+        <record model="pq.ltt" id="pq_ltt_11_1">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_nvlii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_1"></field>
+        	<field name="luong">8.24</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_11_2">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_nvlii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_2"></field>
+        	<field name="luong">9.42</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_11_3">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_nvlii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_3"></field>
+        	<field name="luong">10.59</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_11_4">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_nvlii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_4"></field>
+        	<field name="luong">11.77</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_11_5">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_nvlii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_5"></field>
+        	<field name="luong">12.95</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_11_6">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_nvlii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_6"></field>
+        	<field name="luong">14.12</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_11_7">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_nvlii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_7"></field>
+        	<field name="luong">15.30</field>
+        </record>
+        
+        <!-- Nhân viên cấp I -->
+        
+        <record model="pq.ltt" id="pq_ltt_12_1">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_nvci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_1"></field>
+        	<field name="luong">7.92</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_12_2">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_nvci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_2"></field>
+        	<field name="luong">9.05</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_12_3">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_nvci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_3"></field>
+        	<field name="luong">10.18</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_12_4">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_nvci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_4"></field>
+        	<field name="luong">11.32</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_12_5">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_nvci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_5"></field>
+        	<field name="luong">12.45</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_12_6">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_nvci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_6"></field>
+        	<field name="luong">13.58</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_12_7">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_nvci"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_7"></field>
+        	<field name="luong">14.71</field>
+        </record>
+        
+        <!-- Lao động có tay nghề loại 2 -->
+        
+        <record model="pq.ltt" id="pq_ltt_13_1">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldctnlii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_1"></field>
+        	<field name="luong">6.36</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_13_2">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldctnlii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_2"></field>
+        	<field name="luong">7.27</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_13_3">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldctnlii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_3"></field>
+        	<field name="luong">8.18</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_13_4">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldctnlii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_4"></field>
+        	<field name="luong">9.08</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_13_5">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldctnlii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_5"></field>
+        	<field name="luong">9.99</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_13_6">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldctnlii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_6"></field>
+        	<field name="luong">10.90</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_13_7">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldctnlii"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_7"></field>
+        	<field name="luong">11.81</field>
+        </record>
+        
+        <!-- Lao động có tay nghề loại 1 -->
+        
+        <record model="pq.ltt" id="pq_ltt_14_1">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldctnli"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_1"></field>
+        	<field name="luong">5.10</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_14_2">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldctnli"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_2"></field>
+        	<field name="luong">5.83</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_14_3">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldctnli"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_3"></field>
+        	<field name="luong">6.56</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_14_4">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldctnli"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_4"></field>
+        	<field name="luong">7.28</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_14_5">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldctnli"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_5"></field>
+        	<field name="luong">8.01</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_14_6">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldctnli"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_6"></field>
+        	<field name="luong">8.74</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_14_7">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldctnli"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_7"></field>
+        	<field name="luong">9.47</field>
+        </record>
+        
+        <!-- Lao động có kỹ năng -->
+        
+        <record model="pq.ltt" id="pq_ltt_15_1">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldckn"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_1"></field>
+        	<field name="luong">3.42</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_15_2">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldckn"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_2"></field>
+        	<field name="luong">3.90</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_15_3">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldckn"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_3"></field>
+        	<field name="luong">4.39</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_15_4">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldckn"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_4"></field>
+        	<field name="luong">4.88</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_15_5">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldckn"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_5"></field>
+        	<field name="luong">5.37</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_15_6">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldckn"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_6"></field>
+        	<field name="luong">5.86</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_15_7">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldckn"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_7"></field>
+        	<field name="luong">6.34</field>
+        </record>
+        
+        <!-- Lao động phổ thông -->
+        
+        <record model="pq.ltt" id="pq_ltt_16_1">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldpt"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_1"></field>
+        	<field name="luong">2.73</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_16_2">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldpt"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_2"></field>
+        	<field name="luong">3.12</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_16_3">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldpt"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_3"></field>
+        	<field name="luong">3.51</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_16_4">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldpt"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_4"></field>
+        	<field name="luong">3.90</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_16_5">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldpt"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_5"></field>
+        	<field name="luong">4.29</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_16_6">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldpt"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_6"></field>
+        	<field name="luong">4.68</field>
+        </record>
+        <record model="pq.ltt" id="pq_ltt_16_7">
+        	<field name="ltt_vi_tri" ref="pq_ltt_vi_tri_ldpt"></field>
+        	<field name="ltt_muc_do" ref="pq_ltt_muc_do_7"></field>
+        	<field name="luong">5.07</field>
+        </record>
+        
+	</data>
+</openerp>

@@ -57,17 +57,17 @@
         	<field name="level">6</field>
         </record>
         
-        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_nvc1">
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_nvci">
         	<field name="name">Nhân viên cấp I</field>
         	<field name="level">5</field>
         </record>
         
-        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_ldctnl2">
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_ldctnlii">
         	<field name="name">Lao động có tay nghề loại 2</field>
         	<field name="level">4</field>
         </record>
         
-        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_ldctnl1">
+        <record model="pq.ltt.vi.tri" id="pq_ltt_vi_tri_ldctnli">
         	<field name="name">Lao động có tay nghề loại 1</field>
         	<field name="level">3</field>
         </record>
