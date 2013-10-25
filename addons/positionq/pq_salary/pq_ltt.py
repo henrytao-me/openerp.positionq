@@ -30,6 +30,30 @@ class pq_ltt(osv.osv):
         
     ]
     
+    def get_data(self, cr, uid):
+        res = {}
+        # get ltt_vi_tri
+        ltt_vi_tri = self.pool.get('pq.ltt.vi.tri').read(cr, uid, 
+                                                         self.pool.get('pq.ltt.vi.tri').search(cr, uid, [], order="level desc"), ['name',
+                                                                                                                                  'level'])
+        # get ltt_muc_do
+        ltt_muc_do = self.pool.get('pq.ltt.muc.do').read(cr, uid, 
+                                                         self.pool.get('pq.ltt.muc.do').search(cr, uid, []), ['name'])
+        
+        # get ltt
+        ltt = {}
+        for obj in self.read(cr, uid, self.search(cr, uid, []), ['ltt_vi_tri',
+                                                                 'ltt_muc_do',
+                                                                 'luong']):
+            ltt.setdefault(obj['ltt_vi_tri'][0], {})
+            ltt[obj['ltt_vi_tri'][0]][obj['ltt_muc_do'][0]] = obj
+        
+        # return
+        res = {'ltt_vi_tri': ltt_vi_tri,
+               'ltt_muc_do': ltt_muc_do,
+               'ltt': ltt}
+        return res
+    
 pq_ltt()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

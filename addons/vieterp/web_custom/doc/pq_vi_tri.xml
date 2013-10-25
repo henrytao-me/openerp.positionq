@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+		<!-- List view -->
+		<record id="view_tree_pq_vi_tri" model="ir.ui.view">
+			<field name="name">view_tree_pq_vi_tri</field>
+			<field name="model">pq.vi.tri</field>
+			<field name="arch" type="xml">
+				<tree string="Vị trí" version="7.0" editable="bottom">
+					<field name="name"/>
+					<field name="bo_phan"></field>
+					<field name="nhom_vi_tri"></field>
+					<field name="muc_luong_hien_tai"></field>
+					<field name="so_luong_nhan_vien"></field>
+					<field name="tong_luong_hien_tai"></field>
+				</tree>
+			</field>
+		</record>
+		
+		<record id="view_tree_pq_vi_tri_diem" model="ir.ui.view">
+			<field name="name">view_tree_pq_vi_tri_diem</field>
+			<field name="model">pq.vi.tri</field>
+			<field name="arch" type="xml">
+				<custom string="Đánh giá vị trí" version="7.0" widget="vi_tri_yeu_to_diem"></custom>
+			</field>
+		</record>
+		
+		<!-- Form view -->
+		<record id="view_form_pq_vi_tri" model="ir.ui.view">
+			<field name="name">view_form_pq_vi_tri</field>
+			<field name="model">pq.vi.tri</field>
+			<field name="arch" type="xml">
+				<form string="Vị trí" version="7.0">
+					<sheet>
+						<group colspan="4">
+							<field name="name"></field>
+							<field name="bo_phan"></field>
+							<field name="nhom_vi_tri"></field>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<!-- Search view -->
+		<record id="view_search_pq_vi_tri" model="ir.ui.view">
+            <field name="name">view_search_pq_vi_tri</field>
+            <field name="model">pq.vi.tri</field>
+            <field name="arch" type="xml">
+	            <search string="Vị trí" version="7.0">
+					<field name="name"/>
+				</search>
+            </field>
+        </record>
+        
+        <!-- Actions -->
+        <record id="act_pq_vi_tri" model="ir.actions.act_window">
+            <field name="name">Vị trí</field>
+            <field name="res_model">pq.vi.tri</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_tree_pq_vi_tri"></field>
+        </record>
+        
+        <record id="act_pq_vi_tri_diem" model="ir.actions.act_window">
+            <field name="name">B3 - Đánh giá vị trí</field>
+            <field name="res_model">pq.vi.tri</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">custom</field>
+            <field name="view_id" ref="view_tree_pq_vi_tri_diem"></field>
+        </record>
+	
+	</data>
+</openerp>

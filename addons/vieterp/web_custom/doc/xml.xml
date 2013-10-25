@@ -228,33 +228,5 @@
 			</table>
 		</div>
 	</div>
-	
-	<div t-name="view_custom_pq_ltt">
-		<h1 style="padding-left:10px;"><t t-esc="widget.parent.options.action.name"></t></h1>
-		<table class="full_width">
-			<thead>
-				<tr>
-					<th style="text-align:center">Cấp bậc</th>
-					<th>Vị trí công việc</th>
-					<t t-foreach="res.ltt_muc_do" t-as="ltt_muc_do">
-						<th style="text-align:center"><t t-esc="ltt_muc_do.name"></t></th>	
-					</t>					
-				</tr>
-			</thead>
-			<tbody>
-				<t t-foreach="res.ltt_vi_tri" t-as="ltt_vi_tri">
-					<t t-set="a" t-value="ltt_vi_tri.id"></t>
-					<tr>
-						<td style="text-align:center"><t t-esc="ltt_vi_tri.level"></t></td>
-						<td><t t-esc="ltt_vi_tri.name"></t></td>
-						<t t-foreach="res.ltt_muc_do" t-as="ltt_muc_do">
-							<t t-set="b" t-value="ltt_muc_do.id"></t>
-							<td style="text-align:center"><t t-esc="res.ltt[a][b].luong"></t></td>
-						</t>
-					</tr>
-				</t>
-			</tbody>
-		</table>
-	</div>
 
 </templates>

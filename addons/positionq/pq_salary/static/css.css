@@ -46,3 +46,12 @@
 	min-width: 100px;
 	vertical-align: top;
 }
+
+/*------*/
+table.full_width{
+	width: 100%;
+}
+table.full_width td, table.full_width th {
+	border: 1px solid #CCCCCC;
+	padding: 2px;
+}
