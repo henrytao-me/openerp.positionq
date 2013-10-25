@@ -132,7 +132,7 @@
         </record>
         
        	<record id="act_pq_nhom_vi_tri_ty_trong_yeu_to" model="ir.actions.act_window">
-            <field name="name">B1 - Tỷ trọng</field>
+            <field name="name">Tỷ trọng</field>
             <field name="res_model">pq.nhom.vi.tri</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -149,7 +149,7 @@
         </record>
         
         <record id="act_pq_nhom_vi_tri_nhom_luong" model="ir.actions.act_window">
-            <field name="name">B4 - Ấn định lương thị trường</field>
+            <field name="name">Ấn định lương thị trường</field>
             <field name="res_model">pq.nhom.vi.tri</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>

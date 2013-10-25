@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+		<!-- List view -->
+		<record id="view_tree_pq_thang_luong" model="ir.ui.view">
+			<field name="name">view_tree_pq_thang_luong</field>
+			<field name="model">pq.thang.luong</field>
+			<field name="sequence" eval="10"/>
+			<field name="arch" type="xml">
+				<tree string="Thang lương" version="7.0" editable="bottom">
+					<field name="name"></field>
+					<field name="ty_le"></field>
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Form view -->
+		<record id="view_form_pq_thang_luong" model="ir.ui.view">
+			<field name="name">view_form_pq_thang_luong</field>
+			<field name="model">pq.thang.luong</field>
+			<field name="sequence" eval="10"/>
+			<field name="arch" type="xml">
+				<form string="Thang lương" version="7.0">
+					<sheet>
+						<group colspan="4">
+							<field name="name"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<!-- Search view -->
+		<record id="view_search_pq_thang_luong" model="ir.ui.view">
+            <field name="name">view_search_pq_thang_luong</field>
+            <field name="model">pq.thang.luong</field>
+            <field name="arch" type="xml">
+	            <search string="Thang lương" version="7.0">
+					<field name="name"/>
+				</search>
+            </field>
+        </record>
+        
+        <!-- Actions -->
+        <record id="act_pq_thang_luong" model="ir.actions.act_window">
+            <field name="name">Thang lương</field>
+            <field name="res_model">pq.thang.luong</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+        
+	</data>
+</openerp>

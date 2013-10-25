@@ -81,7 +81,7 @@
         </record>
         
         <record id="act_pq_vi_tri_diem" model="ir.actions.act_window">
-            <field name="name">B3 - Đánh giá vị trí</field>
+            <field name="name">Đánh giá vị trí</field>
             <field name="res_model">pq.vi.tri</field>
             <field name="view_type">form</field>
             <field name="view_mode">custom</field>
@@ -89,7 +89,7 @@
         </record>
         
         <record id="act_pq_vi_tri_luong" model="ir.actions.act_window">
-            <field name="name">B7 - Tổng kết lương</field>
+            <field name="name">Tổng kết lương</field>
             <field name="res_model">pq.vi.tri</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree</field>
