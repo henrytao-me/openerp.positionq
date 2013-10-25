@@ -52,6 +52,9 @@
 				
 				<menuitem name="B5 - Thang lương" id="menu_salary_process_thang_luong" parent="menu_salary_process" 
 					action="act_pq_thang_luong" sequence="50"/>
+				
+				<menuitem name="B6 - Tiêu chí lương" id="menu_salary_process_tieu_chi_luong" parent="menu_salary_process" 
+					action="act_pq_tieu_chi_luong" sequence="60"/>
 					
 				<menuitem name="B7 - Tổng kết lương" id="menu_salary_process_tong_ket_luong" parent="menu_salary_process" 
 					action="act_pq_vi_tri_luong" sequence="70"/>
