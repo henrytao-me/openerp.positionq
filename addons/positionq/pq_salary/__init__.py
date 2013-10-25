@@ -15,6 +15,7 @@ import pq_config
 import pq_ltt
 import pq_ltt_vi_tri
 import pq_ltt_muc_do
+import pq_nhom_luong
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
 

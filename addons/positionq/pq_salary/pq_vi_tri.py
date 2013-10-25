@@ -27,6 +27,14 @@ class pq_vi_tri(osv.osv):
             res[obj['id']] = value
         return res
     
+    def func_luong_diem(self, cr, uid, ids, fields, args, context=None):
+        res = {}
+        for obj in self.read(cr, uid, ids, ['nhom_vi_tri', 'diem']):
+            value = 0
+            
+            res[obj['id']] = value
+        return res
+    
     _name = 'pq.vi.tri'
     _description = 'Vi tri'
     _columns = {
@@ -40,6 +48,8 @@ class pq_vi_tri(osv.osv):
         'so_luong_nhan_vien': fields.float('Số lượng nhân viên', digits=(16,2)),
         'tong_luong_hien_tai': fields.function(func_tong_luong_hien_tai, method=True, string='Tổng lương hiện tại', 
                                                type="float", digits=(16,2)),
+        
+        'luong_diem': fields.function(func_luong_diem, method=True, string="Lương theo điểm", type="float", digits=(16,2)),
         
         'create_date': fields.datetime('Ngày giờ tạo', readonly=True),
         'user_id': fields.many2one('res.users', string="Người tạo",readonly=True),

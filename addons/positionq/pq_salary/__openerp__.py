@@ -34,6 +34,7 @@
         'pq_ltt.xml',
         'pq_ltt_vi_tri.xml',
         'pq_ltt_muc_do.xml',
+        'pq_nhom_luong.xml',
         
         'data/data_pq_ltt_vi_tri.xml',
         'data/data_pq_ltt_muc_do.xml',

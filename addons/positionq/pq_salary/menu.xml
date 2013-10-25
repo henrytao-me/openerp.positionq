@@ -46,6 +46,9 @@
 				
 				<menuitem name="B3 - Đánh giá vị trí" id="menu_salary_process_danh_gia_vi_tri" parent="menu_salary_process" 
 					action="act_pq_vi_tri_diem" sequence="30"/>
-					
+				
+				<menuitem name="B4 - Ấn định lương thị trường" id="menu_salary_process_an_dinh_luong_thi_truong" parent="menu_salary_process" 
+					action="act_pq_nhom_vi_tri_nhom_luong" sequence="40"/>
+				
 	</data>
 </openerp>

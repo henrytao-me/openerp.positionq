@@ -25,6 +25,17 @@
 			</field>
 		</record>
 		
+		<record id="view_tree_pq_nhom_vi_tri_nhom_luong" model="ir.ui.view">
+			<field name="name">view_tree_pq_nhom_vi_tri_nhom_luong</field>
+			<field name="model">pq.nhom.vi.tri</field>
+			<field name="sequence" eval="20"/>
+			<field name="arch" type="xml">
+				<tree string="Nhóm vị trí" version="7.0">
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+		
 		<!-- Form view -->
 		<record id="view_form_pq_nhom_vi_tri" model="ir.ui.view">
 			<field name="name">view_form_pq_nhom_vi_tri</field>
@@ -67,6 +78,39 @@
 			</field>
 		</record>
 		
+		<record id="view_form_pq_nhom_vi_tri_nhom_luong" model="ir.ui.view">
+			<field name="name">view_form_pq_nhom_vi_tri_nhom_luong</field>
+			<field name="model">pq.nhom.vi.tri</field>
+			<field name="sequence" eval="20"/>
+			<field name="arch" type="xml">
+				<form string="Nhóm vị trí" version="7.0">
+					<sheet>
+						<group colspan="4">
+							<field name="name"/>
+						</group>
+						<notebook colspan="4">
+							<page string="Nhóm lương">
+								<field name="nhom_luong">
+									<tree string="" editable="bottom">
+										<field name="name" invisible="1"></field>
+										<field name="min_point"></field>
+										<field name="max_point"></field>
+										<field name="method"></field>
+										<field name="custom_point"></field>
+										<field name="ltt_vi_tri"></field>
+										<field name="ltt_muc_do"></field>
+										<field name="diem_chuan"></field>
+										<field name="ltt_chuan"></field>
+										<field name="ltt_diem" string="Lương TB / điểm"></field>
+									</tree>
+								</field>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
 		<!-- Search view -->
 		<record id="view_search_pq_nhom_vi_tri" model="ir.ui.view">
             <field name="name">view_search_pq_nhom_vi_tri</field>
@@ -102,6 +146,23 @@
             <field name="view_mode">form</field>
             <field name="view_id" ref="view_form_pq_nhom_vi_tri_ty_trong_yeu_to"></field>
             <field name="act_window_id" ref="act_pq_nhom_vi_tri_ty_trong_yeu_to"/>
+        </record>
+        
+        <record id="act_pq_nhom_vi_tri_nhom_luong" model="ir.actions.act_window">
+            <field name="name">B4 - Ấn định lương thị trường</field>
+            <field name="res_model">pq.nhom.vi.tri</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+		<record id="act_pq_nhom_vi_tri_nhom_luong_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_tree_pq_nhom_vi_tri_nhom_luong"></field>
+            <field name="act_window_id" ref="act_pq_nhom_vi_tri_nhom_luong"/>
+        </record>
+        <record id="act_pq_nhom_vi_tri_nhom_luong_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_form_pq_nhom_vi_tri_nhom_luong"></field>
+            <field name="act_window_id" ref="act_pq_nhom_vi_tri_nhom_luong"/>
         </record>
 	
 	</data>

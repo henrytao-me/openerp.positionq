@@ -30,6 +30,8 @@ class pq_nhom_vi_tri(osv.osv):
         'pq_salary_w2': fields.function(func_custom, string='pq_salary_w2', type='integer', multi=True, store=True),
         'pq_salary_w3': fields.function(func_custom, string='pq_salary_w3', type='integer', multi=True, store=True),
         
+        'nhom_luong': fields.one2many('pq.nhom.luong', 'nhom_vi_tri', string="Nhóm lương"),
+        
         'create_date': fields.datetime('Ngày giờ tạo', readonly=True),
         'user_id': fields.many2one('res.users', string="Người tạo", readonly=True),
     }

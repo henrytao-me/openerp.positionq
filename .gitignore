@@ -2,3 +2,4 @@ _bak
 _ref
 .project
 .setttings
+*.pyc
