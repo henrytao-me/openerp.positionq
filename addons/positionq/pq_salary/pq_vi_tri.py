@@ -74,6 +74,98 @@ class pq_vi_tri(osv.osv):
         self.pool.get('pq.vi.tri.yeu.to').auto_sync(cr, uid, vi_tri_id=res)     
         return res
     
+    def get_tong_ket_luong(self, cr, uid):
+        res = {'vi_tri': [],
+               'thang_luong': []}
+        
+        # vi_tri
+        ids = self.search(cr, uid, [])
+        vi_tri = self.read(cr, uid, ids, ['name', 'bo_phan', 'nhom_vi_tri', 
+                                          'muc_luong_hien_tai', 'so_luong_nhan_vien', 'tong_luong_hien_tai', 
+                                          'diem', 'luong_diem'])
+        res['vi_tri'] = vi_tri
+        
+        # thang_luong
+        ids = self.pool.get('pq.thang.luong').search(cr, uid, [])
+        thang_luong = self.pool.get('pq.thang.luong').read(cr, uid, ids, ['name', 'ty_le'])
+        res['thang_luong'] = thang_luong
+        
+        # tieu_chi_luong
+        ids = self.pool.get('pq.tieu.chi.luong').search(cr, uid, [])
+        tieu_chi_luong = self.pool.get('pq.tieu.chi.luong').read(cr, uid, ids, ['chenh_lech', 'muc_chenh_lech',
+                                                                                'ty_le', 'muc_ty_le'])
+        # (-2: out of index) (-1: ht) (other: muc luong) 
+        for obj in tieu_chi_luong:
+            # muc_chenh_lech
+            a = 0
+            try:
+                a = int(obj['muc_chenh_lech'])
+            except:
+                pass
+            if a > len(res['thang_luong']):
+                a = -1 
+            obj['muc_chenh_lech'] = a - 1
+            
+            # muc_ty_le
+            a = 0
+            try:
+                a = int(obj['muc_ty_le'])
+            except:
+                pass
+            if a > len(res['thang_luong']):
+                a = -1 
+            obj['muc_ty_le'] = a - 1
+        
+        # get result
+        for vi_tri in res['vi_tri']:
+            # add thang_luong to vi_tri
+            vi_tri['thang_luong'] = {}
+            for thang_luong in res['thang_luong']:
+                vi_tri['thang_luong'][thang_luong['id']] = vi_tri['luong_diem'] * thang_luong['ty_le']
+            
+            # so voi muc luong hien tai
+            vi_tri['ss_luong_hien_tai'] = 0
+            if vi_tri['muc_luong_hien_tai'] != 0:
+                vi_tri['ss_luong_hien_tai'] = vi_tri['luong_diem'] / vi_tri['muc_luong_hien_tai'] - 1
+            
+            # tinh luong dieu chinh
+            vi_tri['luong_dieu_chinh'] = 0
+            for tc_luong in tieu_chi_luong:
+                _chenh_lech = tc_luong['chenh_lech']
+                _muc_chenh_lech = tc_luong['muc_chenh_lech']
+                _ty_le = tc_luong['ty_le']
+                _muc_ty_le = tc_luong['muc_ty_le']
+                
+                # get muc_chenh_lech
+                if _muc_chenh_lech == -1:
+                    _muc_chenh_lech = vi_tri['muc_luong_hien_tai']
+                elif tc_luong['muc_chenh_lech'] >= 0:
+                    _muc_chenh_lech = vi_tri['thang_luong'][res['thang_luong'][_muc_chenh_lech]['id']]
+                else:
+                    _muc_chenh_lech = 0
+                
+                # get muc_ty_le
+                if _muc_ty_le == -1:
+                    _muc_ty_le = vi_tri['muc_luong_hien_tai']
+                elif tc_luong['muc_chenh_lech'] >= 0:
+                    _muc_ty_le = vi_tri['thang_luong'][res['thang_luong'][_muc_ty_le]['id']]
+                else:
+                    _muc_ty_le = 0
+                
+                if vi_tri['muc_luong_hien_tai'] > 0:
+                    if (_muc_chenh_lech / vi_tri['muc_luong_hien_tai'] - 1) <= _chenh_lech:
+                        vi_tri['luong_dieu_chinh'] = _ty_le * _muc_ty_le
+                        break
+                
+            # final
+            vi_tri['ss_luong_dieu_chinh'] = 0
+            vi_tri['tong_luong_dieu_chinh'] = vi_tri['luong_dieu_chinh'] * vi_tri['so_luong_nhan_vien']
+            if vi_tri['muc_luong_hien_tai'] != 0:
+                vi_tri['ss_luong_dieu_chinh'] = vi_tri['luong_dieu_chinh'] / vi_tri['muc_luong_hien_tai'] - 1
+                
+        
+        return res
+    
 pq_vi_tri()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

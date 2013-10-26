@@ -47,6 +47,11 @@
 	vertical-align: top;
 }
 
+.table_container.min100 > table th {
+	min-width: 100px;
+	vertical-align: top;
+}
+
 /*------*/
 table.full_width{
 	width: 100%;

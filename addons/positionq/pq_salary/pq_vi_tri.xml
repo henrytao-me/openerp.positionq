@@ -43,6 +43,15 @@
 			</field>
 		</record>
 		
+		<!-- Custom view -->
+		<record id="view_custom_pq_vi_tri_luong" model="ir.ui.view">
+			<field name="name">view_custom_pq_vi_tri_luong</field>
+			<field name="model">pq.vi.tri</field>
+			<field name="arch" type="xml">
+				<custom string="Vị trí lương" version="7.0" widget="view_custom_pq_vi_tri_luong" ></custom>
+			</field>
+		</record>
+		
 		<!-- Form view -->
 		<record id="view_form_pq_vi_tri" model="ir.ui.view">
 			<field name="name">view_form_pq_vi_tri</field>
@@ -92,8 +101,9 @@
             <field name="name">Tổng kết lương</field>
             <field name="res_model">pq.vi.tri</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree</field>
-            <field name="view_id" ref="view_tree_pq_vi_tri_luong"></field>
+            <field name="view_mode">custom</field>
+            <field name="target">inlineview</field>
+            <field name="view_id" ref="view_custom_pq_vi_tri_luong"></field>
         </record>
 	
 	</data>

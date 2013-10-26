@@ -812,6 +812,16 @@ $(function(){
 			form.submit();
 		},
 		///////////////////////////////////
+		toFixed: function(num, digits){
+			if(digits == undefined || digits == null){
+				digits = 2;
+			};
+			if(num == undefined || num == null || num == ''){
+				return '';
+			};
+			return num.toFixed(digits);
+		},
+		///////////////////////////////////
 		validUsername: function(username){
 			var regexp = /^[a-z]([0-9a-z_])+$/i;	//Username may consist of a-z, 0-9, underscores, begin with a letter.
 			if(regexp.test(username)){

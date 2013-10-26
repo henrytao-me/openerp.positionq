@@ -27,9 +27,9 @@ class pq_tieu_chi_luong(osv.osv):
     }
     _defaults = {
         'chenh_lech': lambda *x: 0,
-        'muc_chenh_lech': lambda *x: 'm1',
+        'muc_chenh_lech': lambda *x: '1',
         'ty_le': lambda *x: 1,
-        'muc_ty_le': lambda *x: 'm1',
+        'muc_ty_le': lambda *x: '1',
         'user_id': lambda self, cr, uid, context = None: uid,
     }
     _sql_constraints = [

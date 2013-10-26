@@ -440,7 +440,6 @@ openerp.pq_salary = function(instance) {
 			this.r = r;
 			this.init_ui();
 			this.load_data();
-			console.log(this.parent);
 		},
 		
 		get: function(key){
@@ -476,5 +475,68 @@ openerp.pq_salary = function(instance) {
 			self.parent.$el.empty().append($table);
 		}
 	});
+	
+	/*
+	 *
+	 * view_custom_pq_vi_tri_luong
+	 *
+	 */
 
+	instance.web.custom.widgets.add('view_custom_pq_vi_tri_luong', 'instance.web.custom.tmp.view_custom_pq_vi_tri_luong');
+	instance.web.custom.tmp.view_custom_pq_vi_tri_luong = instance.web.Widget.extend({
+		template: 'view_custom_pq_vi_tri_luong',
+		parent: null,
+		r: null,
+		data: null,
+
+		init: function(parent, r) {
+			this.parent = parent;
+			this.r = r;
+			this.init_ui();
+			this.load_data();
+		},
+		
+		get: function(key){
+			switch(key){
+			case 'effective_readonly':
+				return this.view_mode;
+				break;
+			};
+			return false;
+		},
+		
+		init_ui: function(){
+			var self = this;
+		},
+		
+		load_data: function() {
+			var self = this;
+			// get data from server
+			var model = new instance.web.Model('pq.vi.tri');
+			model.call('get_tong_ket_luong', []).then(function(res, status) {
+				self.data = res;
+				self.render_data();
+			});
+		},
+		
+		render_data: function(){
+			var self = this;
+			// render template
+			var $table = $(instance.web.qweb.render(self.template, {
+				res: self.data,
+				widget: self,
+				percent: function(value) {
+					return (parseInt(value * 10000) / 100) + '%';
+				},
+				round: function(value){
+					return $.ekit.toFixed(value, 2) || 0;
+				},
+				format: function(value){
+					
+				}
+			}));
+			self.parent.$el.empty().append($table);
+		}
+	});
+	
 };
