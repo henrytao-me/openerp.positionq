@@ -35,9 +35,10 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 }
-.table_container > table td input[type="text"].transparent{
+.table_container > table td input[type="text"].transparent, input[type="text"].transparent{
 	border: 0px;
 	text-align: center;
+	outline: none;
 }
 .table_container.center_all td, .table_container.center_all th{
 	text-align: center;

@@ -258,8 +258,7 @@
 	</div>
 	
 	<div t-name="view_custom_pq_vi_tri_luong">
-		<h1 style="padding-left:10px;"><t t-esc="widget.parent.options.action.name"></t></h1>
-		<div style="position:relative">
+		<div style="position:relative" ng-controller="view_custom_pq_vi_tri_luong">
 			<div class="table_container center_all min100" style="position:absolute;left:0px;top:0px;right:0px;">
 				<table>
 					<thead>
@@ -312,9 +311,18 @@
 								<td><t t-esc="round(vi_tri.luong_dieu_chinh)"></t></td>
 								<td><t t-esc="percent(vi_tri.ss_luong_dieu_chinh)"></t></td>
 								<td><t t-esc="round(vi_tri.tong_luong_dieu_chinh)"></t></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td t-att-style="'background-color:'+bgColor()+';'">
+									<t t-if="widget.get('effective_readonly')">
+										<t t-esc="round(vi_tri.luong_thuc_te)"></t>
+									</t>
+									<t t-if="!widget.get('effective_readonly')">
+										<input t-att-style="'background-color:'+bgColor()+';'" 
+											class="transparent" type="text"
+											t-att-ng-model="'res.vi_tri['+i+'].luong_thuc_te'" />
+									</t>
+								</td>
+								<td><t t-esc="percent(vi_tri.ss_luong_thuc_te)"></t></td>
+								<td><t t-esc="round(vi_tri.tong_luong_thuc_te)"></t></td>
 							</tr>
 						</t>
 					</tbody>

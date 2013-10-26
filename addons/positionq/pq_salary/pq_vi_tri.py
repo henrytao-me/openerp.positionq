@@ -60,12 +60,15 @@ class pq_vi_tri(osv.osv):
         
         'luong_diem': fields.function(func_luong_diem, method=True, string="Lương theo điểm", type="float", digits=(16,2)),
         
+        'luong_thuc_te': fields.float('Lương thực tế', digits=(16,2)),
+        
         'create_date': fields.datetime('Ngày giờ tạo', readonly=True),
         'user_id': fields.many2one('res.users', string="Người tạo",readonly=True),
     }
     _defaults = {
         'muc_luong_hien_tai': lambda *x: 0,
         'so_luong_nhan_vien': lambda *x: 0,
+        'luong_thuc_te': lambda *x: 0,
         'user_id': lambda self, cr, uid, context=None: uid,
     }
     
@@ -82,7 +85,8 @@ class pq_vi_tri(osv.osv):
         ids = self.search(cr, uid, [])
         vi_tri = self.read(cr, uid, ids, ['name', 'bo_phan', 'nhom_vi_tri', 
                                           'muc_luong_hien_tai', 'so_luong_nhan_vien', 'tong_luong_hien_tai', 
-                                          'diem', 'luong_diem'])
+                                          'diem', 'luong_diem',
+                                          'luong_thuc_te'])
         res['vi_tri'] = vi_tri
         
         # thang_luong
@@ -160,11 +164,20 @@ class pq_vi_tri(osv.osv):
             # final
             vi_tri['ss_luong_dieu_chinh'] = 0
             vi_tri['tong_luong_dieu_chinh'] = vi_tri['luong_dieu_chinh'] * vi_tri['so_luong_nhan_vien']
+            
+            vi_tri['ss_luong_thuc_te'] = 0
+            vi_tri['tong_luong_thuc_te'] = vi_tri['luong_thuc_te'] * vi_tri['so_luong_nhan_vien']
+            
             if vi_tri['muc_luong_hien_tai'] != 0:
                 vi_tri['ss_luong_dieu_chinh'] = vi_tri['luong_dieu_chinh'] / vi_tri['muc_luong_hien_tai'] - 1
-                
+                vi_tri['ss_luong_thuc_te'] = vi_tri['luong_thuc_te'] / vi_tri['muc_luong_hien_tai'] - 1
         
         return res
+    
+    def set_tong_ket_luong(self, cr, uid, data):
+        for vi_tri in data['vi_tri']:
+            self.write(cr, uid, vi_tri['id'], {'luong_thuc_te': vi_tri['luong_thuc_te']})
+        return
     
 pq_vi_tri()
 
