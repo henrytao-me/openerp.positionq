@@ -12,7 +12,8 @@
         'base',
         'web_shortcuts',
         # VietERP modules
-        'vieterp_web'
+        'vieterp_web',
+        'vieterp_custom'
     ],    
     'update_xml': [
         # All menus
