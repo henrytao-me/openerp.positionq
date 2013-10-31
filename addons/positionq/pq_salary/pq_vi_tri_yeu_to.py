@@ -153,10 +153,15 @@ class pq_vi_tri_yeu_to(osv.osv):
                 res[o[item][0]] = self.obj2dict(cr, uid, tmp[:], keys[:])
         return res
     
-    def get_matrix(self, cr, uid, bo_phan_id=None, nhom_vi_tri_id=None):
+    def get_bo_phan_nhom_vi_tri(self, cr, uid):
         res = {'bo_phan': [],
-               'nhom_vi_tri': [],
-               'vi_tri': [],
+               'nhom_vi_tri': []}
+        res['bo_phan'] = self.pool.get('pq.bo.phan').read(cr, uid, self.pool.get('pq.bo.phan').search(cr, uid, []), ['name'])
+        res['nhom_vi_tri'] = self.pool.get('pq.nhom.vi.tri').read(cr, uid, self.pool.get('pq.nhom.vi.tri').search(cr, uid, []), ['name'])
+        return res
+    
+    def get_matrix(self, cr, uid, bo_phan_id=None, nhom_vi_tri_id=None):
+        res = {'vi_tri': [],
                'yeu_to': [],
                'matrix': {}}
         
@@ -165,14 +170,11 @@ class pq_vi_tri_yeu_to(osv.osv):
         numOfBac = bac_info.get('so_bac', 5)
         
         # filter by bo_phan & nhom_vi_tri
-        res['bo_phan'] = self.pool.get('pq.bo.phan').read(cr, uid, self.pool.get('pq.bo.phan').search(cr, uid, []), ['name'])
-        res['nhom_vi_tri'] = self.pool.get('pq.nhom.vi.tri').read(cr, uid, self.pool.get('pq.nhom.vi.tri').search(cr, uid, []), ['name'])
         args = []
-        bo_phan_id = 1
-        if bo_phan_id:
-            args.append(('bo_phan', '=', bo_phan_id))
-        if nhom_vi_tri_id:
-            args.append(('nhom_vi_tri', '=', nhom_vi_tri_id))
+        if bo_phan_id and int(bo_phan_id) != 0:
+            args.append(('bo_phan', '=', int(bo_phan_id)))
+        if nhom_vi_tri_id and int(nhom_vi_tri_id) != 0:
+            args.append(('nhom_vi_tri', '=', int(nhom_vi_tri_id)))
         
         # get vi_tri
         ids = self.pool.get('pq.vi.tri').search(cr, uid, args)

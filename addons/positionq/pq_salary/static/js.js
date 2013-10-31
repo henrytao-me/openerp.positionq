@@ -323,12 +323,13 @@ openerp.pq_salary = function(instance) {
 		r : null,
 		data : null,
 		view_mode : true,
+		buttons: null,
 
 		init : function(parent, r) {
 			this.parent = parent;
 			this.r = r;
 			this.init_ui();
-			this.load_data();
+			// this.load_data();
 			if (!$('.mybg').isExist()) {
 				$('body').prepend($('<div class="mybg">'));
 			};
@@ -350,10 +351,13 @@ openerp.pq_salary = function(instance) {
 				edit : $('<button class="oe_button oe_form_button_save oe_highlight">Edit</button>'),
 				save : $('<button class="oe_button oe_form_button_save oe_highlight">Save</button>'),
 				discard : $('<a class="oe_bold oe_form_button_cancel" accesskey="D">Discard</a>'),
-				
+				bo_phan: $('<select>'),
+				nhom_vi_tri: $('<select>'),
+				search: $('<button>Search</button>'),
 			};
+			self.buttons = buttons;
 			var menubar = {
-				view : $('<span class="oe_form_buttons_view">').append(buttons.edit),
+				view : $('<span class="oe_form_buttons_view">').append(buttons.edit).append(buttons.bo_phan).append(buttons.nhom_vi_tri).append(buttons.search),
 				edit : $('<span class="oe_form_buttons_edit">').append(buttons.save).append($('<span class="oe_fade" style="margin-left:5px;margin-right:5px;">or</span>')).append(buttons.discard).hide()
 			};
 			this.parent.$el.parent().parent().parent().find('.oe_view_manager_buttons').append(menubar.view).append(menubar.edit);
@@ -379,13 +383,40 @@ openerp.pq_salary = function(instance) {
 				self.view_mode = true;
 				self.render_data();
 			});
+			/*
+			 * init toolbox
+			 */
+			//load bo_phan & vi_tri
+			var model = new instance.web.Model('pq.vi.tri.yeu.to');
+			model.call('get_bo_phan_nhom_vi_tri', []).then(function(res, status) {
+				// bo_phan
+				buttons.bo_phan.append($('<option value="0">Tất cả</option>'));
+				for(var i in res.bo_phan){
+					var $option = $('<option value="'+res.bo_phan[i].id+'">'+res.bo_phan[i].name+'</option>');
+					buttons.bo_phan.append($option);
+					if(i == 0){
+						$option.attr('selected', 'selected');
+					};
+				};
+				// nhom_vi_tri
+				buttons.nhom_vi_tri.append($('<option value="0">Tất cả</option>'));
+				for(var i in res.nhom_vi_tri){
+					buttons.nhom_vi_tri.append($('<option value="'+res.nhom_vi_tri[i].id+'">'+res.nhom_vi_tri[i].name+'</option>'));
+				};		
+				// load
+				self.load_data();
+				// event
+				buttons.search.click(function(){
+					self.load_data();
+				});	
+			});
 		},
 
 		load_data : function() {
 			var self = this;
 			// get data from server
 			var model = new instance.web.Model('pq.vi.tri.yeu.to');
-			model.call('get_matrix', []).then(function(res, status) {
+			model.call('get_matrix', [self.buttons.bo_phan.val(), self.buttons.nhom_vi_tri.val()]).then(function(res, status) {
 				self.data = res;
 				self.render_data();
 			});
