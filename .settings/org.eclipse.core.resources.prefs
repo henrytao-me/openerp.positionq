@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//_ref/snc_bai_viet/__openerp__.py=utf-8
 encoding//_ref/snc_bai_viet/snc_article_topic.py=utf-8
 encoding//addons/positionq/pq_base/__openerp__.py=utf-8
 encoding//addons/positionq/pq_salary/__init__.py=utf-8
@@ -23,6 +24,7 @@ encoding//addons/vieterp/vieterp_base/__openerp__.py=utf-8
 encoding//bash/libs/oorpc.py=utf-8
 encoding//openerp/addons/base/ir/ir_actions.py=utf-8
 encoding//openerp/addons/base/res/res_config.py=utf-8
+encoding//openerp/addons/base/res/res_users.py=utf-8
 encoding//openerp/addons/base_setup/res_config.py=utf-8
 encoding//openerp/addons/crm/res_config.py=utf-8
 encoding//openerp/addons/sale/res_config.py=utf-8

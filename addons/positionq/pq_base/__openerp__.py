@@ -16,6 +16,9 @@
         'vieterp_base',
     ],
      'update_xml': [
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        
         'menu.xml',
     ],   
     'js': [

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        
+        <!-- <record id="pq_base.group_positionq_admin" model="res.groups">
+	        <field name="menu_access" eval="[(4, ref('menu_salary'))]"></field>	  
+	    </record> -->
+        
+    </data>
+</openerp>
