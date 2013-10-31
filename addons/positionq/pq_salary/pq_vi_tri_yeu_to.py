@@ -160,7 +160,7 @@ class pq_vi_tri_yeu_to(osv.osv):
         res['nhom_vi_tri'] = self.pool.get('pq.nhom.vi.tri').read(cr, uid, self.pool.get('pq.nhom.vi.tri').search(cr, uid, []), ['name'])
         return res
     
-    def get_matrix(self, cr, uid, bo_phan_id=None, nhom_vi_tri_id=None):
+    def get_matrix(self, cr, uid, bo_phan_id=None, nhom_vi_tri_id=None, args=[]):
         res = {'vi_tri': [],
                'yeu_to': [],
                'matrix': {}}

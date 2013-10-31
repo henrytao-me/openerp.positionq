@@ -106,8 +106,8 @@
 	</div>
 
 	<!-- vi tri - yeu to -->
-	<div t-name="vi_tri_yeu_to_diem" ng-controller="vi_tri_yeu_to_diem" style="position:relative">
-		<div class="table_container center_all vi_tri_yeu_to_diem" style="position:absolute;left:0px;top:0px;right:0px;">
+	<div t-name="vi_tri_yeu_to_diem" ng-controller="vi_tri_yeu_to_diem" style="position:fixed;top:124px;left:201px;right:0px;bottom:0px;">
+		<div class="table_container center_all vi_tri_yeu_to_diem" style="position:absolute;left:0px;top:0px;right:0px;bottom:0px;">
 			<table>
 				<thead>
 					<tr>
@@ -257,9 +257,9 @@
 		</table>
 	</div>
 	
-	<div t-name="view_custom_pq_vi_tri_luong">
-		<div style="position:relative" ng-controller="view_custom_pq_vi_tri_luong">
-			<div class="table_container center_all min100" style="position:absolute;left:0px;top:0px;right:0px;">
+	<div t-name="view_custom_pq_vi_tri_luong" style="position:fixed;top:124px;left:201px;right:0px;bottom:0px;">
+		<div style="" ng-controller="view_custom_pq_vi_tri_luong">
+			<div class="table_container center_all min100" style="position:absolute;left:0px;top:0px;right:0px;bottom:0px;">
 				<table>
 					<thead>
 						<tr>
