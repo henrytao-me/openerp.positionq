@@ -18,8 +18,8 @@
 				<menuitem name="Tiêu chí" id="menu_salary_salary_tieu_chi" parent="menu_salary_salary" 
 					action="act_pq_tieu_chi" sequence="30"/>
 					
-				<menuitem name="Bậc" id="menu_salary_salary_bac" parent="menu_salary_salary" 
-					action="act_pq_bac" sequence="40"/>
+				<!-- <menuitem name="Bậc" id="menu_salary_salary_bac" parent="menu_salary_salary" 
+					action="act_pq_bac" sequence="40"/> -->
 				
 				<!-- <menuitem name="Tiêu chí cấp 1" id="menu_salary_salary_tcc1" parent="menu_salary_salary" 
 					action="act_pq_tcc1" sequence="50"/>

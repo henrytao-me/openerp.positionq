@@ -349,7 +349,8 @@ openerp.pq_salary = function(instance) {
 			var buttons = {
 				edit : $('<button class="oe_button oe_form_button_save oe_highlight">Edit</button>'),
 				save : $('<button class="oe_button oe_form_button_save oe_highlight">Save</button>'),
-				discard : $('<a class="oe_bold oe_form_button_cancel" accesskey="D">Discard</a>')
+				discard : $('<a class="oe_bold oe_form_button_cancel" accesskey="D">Discard</a>'),
+				
 			};
 			var menubar = {
 				view : $('<span class="oe_form_buttons_view">').append(buttons.edit),

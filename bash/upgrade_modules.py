@@ -86,7 +86,7 @@ if __name__ == '__main__':
     ls = {
         '--host': 'localhost',
         '--port': '8069',
-        '--db_name': 'positionq',
+        '--db_name': 'demo',
         '--password': 'a',
         '--modules': 'pq_base, vieterp_base'
     }

@@ -143,17 +143,17 @@ class pq_nhom_vi_tri_yeu_to(osv.osv):
         'type': fields.function(func_type, method=True, string="Type", type="char", size=128, store=True),
         
         # nhom vi tri - yeu to
-        'trong_so': fields.function(func_trong_so, method=True, string='Trọng số', type="float", digits=(16, 2),
+        'trong_so': fields.function(func_trong_so, method=True, string='Trọng số', type="float", digits=(16, 4),
                                     store={'pq.nhom.vi.tri.yeu.to': (_trong_so, ['yeu_to_2_trong_so'], 10)}),
-        'ty_trong': fields.function(func_ty_trong, method=True, string='Tỷ trọng', type="float", digits=(16, 2),
+        'ty_trong': fields.function(func_ty_trong, method=True, string='Tỷ trọng', type="float", digits=(16, 4),
                                     store={'pq.nhom.vi.tri.yeu.to': (_ty_trong, ['yeu_to_2_trong_so'], 15)}),
         
         # nhom vi tri - yeu to - yeu to 
-        'yeu_to_2_trong_so': fields.float('Trọng số', digits=(16, 2)),
+        'yeu_to_2_trong_so': fields.float('Trọng số', digits=(16, 4)),
         
         # nhom vi tri - yeu to - tieu chi 
-        'tieu_chi_trong_so': fields.float('Trọng số', digits=(16, 2)),
-        'tieu_chi_ty_trong': fields.function(func_tieu_chi_ty_trong, method=True, string="Tỷ trọng", type="float", digits=(16, 2),),
+        'tieu_chi_trong_so': fields.float('Trọng số', digits=(16, 4)),
+        'tieu_chi_ty_trong': fields.function(func_tieu_chi_ty_trong, method=True, string="Tỷ trọng", type="float", digits=(16, 4)),
         
         'create_date': fields.datetime('Ngày giờ tạo', readonly=True),
         'user_id': fields.many2one('res.users', string="Người tạo", readonly=True),

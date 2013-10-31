@@ -136,6 +136,7 @@
             <field name="res_model">pq.nhom.vi.tri</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="act_pq_nhom_vi_tri_ty_trong_yeu_to_tree"></field>
         </record>
 		<record id="act_pq_nhom_vi_tri_ty_trong_yeu_to_tree" model="ir.actions.act_window.view">
             <field name="view_mode">tree</field>

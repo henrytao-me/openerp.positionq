@@ -44,8 +44,8 @@ class pq_nhom_luong(osv.osv):
                         value['diem_chuan'] = vi_tri['diem']
             
             # get ltt_chuan
-            tids = self.pool.get('pq.ltt').search(cr, uid, [('ltt_vi_tri', '=', obj.get('ltt_vi_tri', (None, None))[0]),
-                                                            ('ltt_muc_do', '=', obj.get('ltt_muc_do', (None, None))[0])])
+            tids = self.pool.get('pq.ltt').search(cr, uid, [('ltt_vi_tri', '=', (obj.get('ltt_vi_tri') or (0, None))[0]),
+                                                            ('ltt_muc_do', '=', (obj.get('ltt_muc_do') or (0, None))[0])])
             if tids: 
                value['ltt_chuan'] = self.pool.get('pq.ltt').read(cr, uid, tids[0], ['luong'])['luong']
             
