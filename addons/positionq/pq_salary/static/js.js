@@ -404,11 +404,13 @@ openerp.pq_salary = function(instance) {
 					buttons.nhom_vi_tri.append($('<option value="'+res.nhom_vi_tri[i].id+'">'+res.nhom_vi_tri[i].name+'</option>'));
 				};		
 				// load
-				self.load_data();
+				//self.load_data();
 				// event
 				buttons.search.click(function(){
 					self.load_data();
 				});	
+				
+				buttons.search.trigger('click');
 			});
 		},
 

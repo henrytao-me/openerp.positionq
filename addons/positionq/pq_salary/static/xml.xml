@@ -119,7 +119,7 @@
 						<t t-foreach="res.yeu_to" t-as="yeu_to">
 							<th t-att-colspan="yeu_to.len + yeu_to.tieu_chi.length * 3">
 								<t t-esc="yeu_to.name"></t>
-							</th>	        	
+							</th>
 			        	</t>
 					</tr>
 					<tr>
