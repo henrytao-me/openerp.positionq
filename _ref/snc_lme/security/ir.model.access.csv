@@ -1,6 +1,0 @@
-"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-
-"access_snc_lme_trading","access_snc_lme_trading","model_snc_lme_trading","group_snc_lme",1,1,1,1
-"access_snc_lme","access_snc_lme","model_snc_lme","group_snc_lme",1,1,1,1
-"access_snc_truc_gia_lme","access_snc_truc_gia_lme","model_snc_truc_gia_lme","group_snc_lme",1,1,1,1
-

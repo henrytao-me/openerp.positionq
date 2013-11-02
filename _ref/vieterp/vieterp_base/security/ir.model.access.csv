@@ -1,7 +1,0 @@
-"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-
-"full_access_currency_rate_update_service","full_access_currency_rate_update_service","vieterp_base.model_currency_rate_update_service",,1,1,1,1
-
-"access_group_vieterp_base_base_1","access_group_vieterp_base_base_1","model_vieterp_tmp","group_vieterp_base_base",1,1,1,1
-
-
