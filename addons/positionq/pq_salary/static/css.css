@@ -1,4 +1,4 @@
-.mybg{
+.mybg_bak{
 	position: fixed;
 	top: 0px;
 	left: 0px;
@@ -14,28 +14,28 @@
 	width: 100%;
 	overflow-x: scroll;
 }
-.table_container > table {
+.table_container table {
 	border-collapse: collapse;
 	background-color: #FFF;
 	table-layout: fixed;
 	display: table;
 	/*width: 0px;*/
 }
-.table_container > table > thead > tr > th {
+.table_container table > thead > tr > th {
 	/*width: 120px;*/
 }
-.table_container > table td, .table_container > table th {
+.table_container table td, .table_container table th {
 	border: 1px solid #CCCCCC;
 	padding: 2px;
 	vertical-align: middle;
 }
-.table_container > table td input[type="text"] {
+.table_container table td input[type="text"] {
 	width: 100%;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 }
-.table_container > table td input[type="text"].transparent, input[type="text"].transparent{
+.table_container table td input[type="text"].transparent, input[type="text"].transparent{
 	border: 0px;
 	text-align: center;
 	outline: none;
@@ -43,12 +43,12 @@
 .table_container.center_all td, .table_container.center_all th{
 	text-align: center;
 }
-.table_container.vi_tri_yeu_to_diem > table th {
+.table_container.vi_tri_yeu_to_diem table th {
 	min-width: 100px;
 	vertical-align: top;
 }
 
-.table_container.min100 > table th {
+.table_container.min100 table th {
 	min-width: 100px;
 	vertical-align: top;
 }

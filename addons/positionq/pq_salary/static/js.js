@@ -417,6 +417,9 @@ openerp.pq_salary = function(instance) {
 		load_data : function() {
 			var self = this;
 			// get data from server
+			
+			self.parent.$el.empty().append($('<div style="padding:20px;">Vui lòng đợi trong giây lát</div>'));
+			
 			var model = new instance.web.Model('pq.vi.tri.yeu.to');
 			model.call('get_matrix', [self.buttons.bo_phan.val(), self.buttons.nhom_vi_tri.val()]).then(function(res, status) {
 				self.data = res;
@@ -447,6 +450,24 @@ openerp.pq_salary = function(instance) {
 			});
 			angular.bootstrap($table[0], ['ngApp']);
 			self.parent.$el.empty().append($table);
+			// set size
+			$table.find('.topleft').css('height', $table.find('.topleft').height());
+			$table.find('.topright').css('height', $table.find('.topright').height());
+			$table.find('.topright').css('margin-left', '-1px');
+			$table.find('.topright').css('right', '15px');
+			
+			$table.find('.bottomleft').css('top', $table.find('.topleft').height());
+			$table.find('.bottomleft').css('width', $table.find('.topleft').width());
+			$table.find('.bottomleft').css('bottom', '15px');
+			
+			$table.find('.bottomright').css('margin-left', '-2px');
+			$table.find('.bottomright').css('left', $table.find('.topright').css('left'));
+			$table.find('.bottomright').css('top', $table.find('.bottomleft').css('top'));
+			
+			$table.find('.bottomright').scroll(function() {
+				$table.find('.bottomleft').scrollTop($(this).scrollTop());
+				$table.find('.topright').scrollLeft($(this).scrollLeft());
+			});
 		},
 
 		commit_data : function() {
@@ -585,6 +606,9 @@ openerp.pq_salary = function(instance) {
 		load_data : function() {
 			var self = this;
 			// get data from server
+			
+			self.parent.$el.empty().append($('<div style="padding:20px;">Vui lòng đợi trong giây lát</div>'));
+			
 			var model = new instance.web.Model('pq.vi.tri');
 			model.call('get_tong_ket_luong', []).then(function(res, status) {
 				self.data = res;
@@ -617,6 +641,27 @@ openerp.pq_salary = function(instance) {
 			});
 			angular.bootstrap($table[0], ['ngApp']);
 			self.parent.$el.empty().append($table);
+			
+			// set size
+			$table.find('.topleft').css('height', $table.find('.topleft').height());
+			
+			$table.find('.topright').css('left', $table.find('.topleft').width());
+			$table.find('.topright').css('height', $table.find('.topright').height());
+			$table.find('.topright').css('margin-left', '-1px');
+			$table.find('.topright').css('right', '15px');
+			
+			$table.find('.bottomleft').css('top', $table.find('.topleft').height());
+			$table.find('.bottomleft').css('width', $table.find('.topleft').width());
+			$table.find('.bottomleft').css('bottom', '15px');
+			
+			$table.find('.bottomright').css('margin-left', '-2px');
+			$table.find('.bottomright').css('left', $table.find('.topright').css('left'));
+			$table.find('.bottomright').css('top', $table.find('.bottomleft').css('top'));
+			
+			$table.find('.bottomright').scroll(function() {
+				$table.find('.bottomleft').scrollTop($(this).scrollTop());
+				$table.find('.topright').scrollLeft($(this).scrollLeft());
+			});
 		},
 
 		commit_data : function() {
