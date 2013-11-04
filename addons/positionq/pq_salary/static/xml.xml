@@ -108,14 +108,14 @@
 	<!-- vi tri - yeu to -->
 	<div t-name="vi_tri_yeu_to_diem" ng-controller="vi_tri_yeu_to_diem" style="position:fixed;top:124px;left:201px;right:0px;bottom:0px;overflow:hidden;">
 		<div class="table_container center_all vi_tri_yeu_to_diem">
-			<div class="topleft" style="position:absolute;left:0px;top:0px;width:562px;overflow:hidden;">
+			<div class="topleft" style="position:absolute;left:0px;top:0px;width:387px;overflow:hidden;">
 				<table>
 					<thead>
 						<tr>
 							<th rowspan="5" style="min-width:35px;">STT</th>
-							<th rowspan="5" style="min-width:150px;">Vị trí</th>
-							<th rowspan="5" style="min-width:150px;">Bộ phận</th>
-							<th rowspan="5" style="min-width:150px;">Nhóm</th>
+							<th rowspan="5" style="min-width:125px;">Vị trí</th>
+							<th rowspan="5" style="min-width:75px;">Bộ phận</th>
+							<th rowspan="5" style="min-width:75px;">Nhóm</th>
 							<th rowspan="5" style="min-width:50px;">Điểm</th>
 							<t t-foreach="res.yeu_to" t-as="yeu_to">
 								<th t-att-colspan="yeu_to.len + yeu_to.tieu_chi.length * 3">
@@ -168,7 +168,7 @@
 					</thead>
 				</table>
 			</div>			
-			<div class="topright" style="position:absolute;left:562px;right:0px;top:0px;overflow:hidden">
+			<div class="topright" style="position:absolute;left:387px;right:0px;top:0px;overflow:hidden">
 				<table>
 					<thead>
 						<tr>
@@ -231,9 +231,9 @@
 							<t t-set="a" t-value="vi_tri.id"></t>
 							<tr style="height:26px;">
 								<td style="min-width:35px;"><t t-esc="i + 1"></t></td>
-								<td><div style="width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.name"></t></div></td>
-								<td><div style="width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.bo_phan[1]"></t></div></td>
-								<td><div style="width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.nhom_vi_tri[1]"></t></div></td>
+								<td t-att-title="vi_tri.name" ><div style="width:125px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.name"></t></div></td>
+								<td t-att-title="vi_tri.bo_phan[1]"><div style="width:75px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.bo_phan[1]"></t></div></td>
+								<td t-att-title="vi_tri.nhom_vi_tri[1]"><div style="width:75px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.nhom_vi_tri[1]"></t></div></td>
 								<td style="min-width:50px;"><t t-esc="res.matrix[a].diem"></t></td>
 							</tr>
 						</t>
@@ -456,14 +456,14 @@
 	<div t-name="view_custom_pq_vi_tri_luong" style="position:fixed;top:124px;left:201px;right:0px;bottom:0px;">
 		<div style="" ng-controller="view_custom_pq_vi_tri_luong">
 			<div class="table_container center_all min100">
-				<div class="topleft" style="position:absolute;left:0px;top:0px;width:505px;overflow:hidden">
+				<div class="topleft" style="position:absolute;left:0px;top:0px;width:405px;overflow:hidden">
 					<table>
 						<thead>
 							<tr>
 								<th rowspan="2" style="min-width:35px;vertical-align:middle">STT</th>
 								<th rowspan="2" style="min-width:150px;text-align:left;vertical-align:middle">Vị trí</th>
-								<th rowspan="2" style="min-width:120px;text-align:left;vertical-align:middle">Bộ phận</th>
-								<th rowspan="2" style="min-width:180px;text-align:left;vertical-align:middle">Nhóm</th>
+								<th rowspan="2" style="min-width:100px;text-align:left;vertical-align:middle">Bộ phận</th>
+								<th rowspan="2" style="min-width:100px;text-align:left;vertical-align:middle">Nhóm</th>
 								<th rowspan="2" style="min-width:75px;vertical-align:middle">Mức lương hiện tại</th>
 								<th rowspan="2" style="min-width:75px;vertical-align:middle">Số lượng nhân viên</th>
 								<th rowspan="2" style="min-width:75px;vertical-align:middle">Tổng lương hiện tại</th>
@@ -522,16 +522,16 @@
 						</thead>
 					</table>
 				</div>
-				<div class="bottomleft" style="position:absolute;left:0px;top:0px;width:505px;bottom:0px;overflow:hidden">
+				<div class="bottomleft" style="position:absolute;left:0px;top:0px;width:405px;bottom:0px;overflow:hidden">
 					<table>
 						<tbody>
 							<t t-foreach="res.vi_tri.length" t-as="i">
 								<t t-set="vi_tri" t-value="res.vi_tri[i]"></t>
 								<tr style="height:26px;">
 									<td style="min-width:35px;"><t t-esc="i + 1"></t></td>
-									<td style="text-align:left"><div style="width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.name"></t></div></td>
-									<td style="text-align:left"><div style="width:120px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.bo_phan[1]"></t></div></td>
-									<td style="text-align:left"><div style="width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.nhom_vi_tri[1]"></t></div></td>
+									<td t-att-title="vi_tri.name" style="text-align:left"><div style="width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.name"></t></div></td>
+									<td t-att-title="vi_tri.bo_phan[1]" style="text-align:left"><div style="width:120px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.bo_phan[1]"></t></div></td>
+									<td t-att-title="vi_tri.nhom_vi_tri[1]" style="text-align:left"><div style="width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.nhom_vi_tri[1]"></t></div></td>
 								</tr>
 							</t>
 						</tbody>
