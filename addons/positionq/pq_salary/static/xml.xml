@@ -275,11 +275,11 @@
 													<t t-if="res.matrix[a]['yeu_to'][b]['tieu_chi'][c]['tcc1'][d].method == 20">
 														
 														<t t-if="widget.get('effective_readonly')">
-															<input type="radio" t-att-value="e" t-att-name="'radio_'+[a,b,c,d].join('_')" t-att-ng-model="'res.matrix['+a+'].yeu_to['+b+'].tieu_chi['+c+'].tcc1['+d+'].value'" disabled="disabled" />
+															<input type="radio" t-att-value="e" t-att-name="'radio_'+[a,'a',b,'b',c,'c',d,'d'].join('_')" t-att-ng-model="'res.matrix['+a+'].yeu_to['+b+'].tieu_chi['+c+'].tcc1['+d+'].value'" disabled="disabled" />
 														</t>
 														
 														<t t-if="!widget.get('effective_readonly')">
-															<input type="radio" t-att-value="e" t-att-name="'radio_'+[a,b,c,d].join('_')" t-att-ng-model="'res.matrix['+a+'].yeu_to['+b+'].tieu_chi['+c+'].tcc1['+d+'].value'" />
+															<input type="radio" t-att-value="e" t-att-name="'radio_'+[a,'a',b,'b',c,'c',d,'d'].join('_')" t-att-ng-model="'res.matrix['+a+'].yeu_to['+b+'].tieu_chi['+c+'].tcc1['+d+'].value'" />
 														</t>
 														
 													</t>
