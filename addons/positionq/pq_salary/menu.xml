@@ -2,62 +2,59 @@
 <openerp>
 	<data>
 		
-		<menuitem id="menu_salary" name="Salary" sequence="100" />
+		<menuitem id="menu_salary" name="Thiết lập hệ thống" sequence="100" />
 		
-			<menuitem id="menu_salary_salary" name="Thông tin cơ bản" parent="menu_salary" sequence="100" />
+			<menuitem id="menu_salary_salary" name="Thiết lập hệ thống" parent="menu_salary" sequence="100" />
 			
-				<menuitem name="Thiết lập" id="menu_salary_salary_config" parent="menu_salary_salary" 
-					action="act_pq_config" sequence="5"/>
+				<menuitem name="Thiết lập thang đo" id="menu_salary_salary_config" parent="menu_salary_salary" 
+					action="act_pq_config" sequence="10"/>
 				
-				<menuitem name="Nhóm vị trí" id="menu_salary_salary_nhom_vi_tri" parent="menu_salary_salary" 
-					action="act_pq_nhom_vi_tri" sequence="10"/>
-				
-				<menuitem name="Yếu tố" id="menu_salary_salary_yeu_to" parent="menu_salary_salary" 
+				<menuitem name="Yếu tố đánh giá" id="menu_salary_salary_yeu_to" parent="menu_salary_salary" 
 					action="act_pq_yeu_to" sequence="20"/>
-					
-				<menuitem name="Tiêu chí" id="menu_salary_salary_tieu_chi" parent="menu_salary_salary" 
+
+				<menuitem name="Tiêu chí đánh giá" id="menu_salary_salary_tieu_chi" parent="menu_salary_salary" 
 					action="act_pq_tieu_chi" sequence="30"/>
-					
-				<!-- <menuitem name="Bậc" id="menu_salary_salary_bac" parent="menu_salary_salary" 
-					action="act_pq_bac" sequence="40"/> -->
+
+				<menuitem name="Thiết lập ộ phận" id="menu_salary_salary_bo_phan" parent="menu_salary_salary" 
+					action="act_pq_bo_phan" sequence="40"/>
+
+				<menuitem name="Thiết lập nhóm vị trí" id="menu_salary_salary_nhom_vi_tri" parent="menu_salary_salary" 
+					action="act_pq_nhom_vi_tri" sequence="50"/>
 				
-				<!-- <menuitem name="Tiêu chí cấp 1" id="menu_salary_salary_tcc1" parent="menu_salary_salary" 
-					action="act_pq_tcc1" sequence="50"/>
+				<menuitem name="Thiết lập ị trí" id="menu_salary_salary_vi_tri" parent="menu_salary_salary" 
+					action="act_pq_vi_tri" sequence="60"/>
 				
-				<menuitem name="Tiêu chí cấp 2" id="menu_salary_salary_tcc2" parent="menu_salary_salary" 
-					action="act_pq_tcc2" sequence="60"/> -->
-					
-				<menuitem name="Bộ phận" id="menu_salary_salary_bo_phan" parent="menu_salary_salary" 
-					action="act_pq_bo_phan" sequence="70"/>
-				
-				<menuitem name="Vị trí" id="menu_salary_salary_vi_tri" parent="menu_salary_salary" 
-					action="act_pq_vi_tri" sequence="80"/>
-				
-				<menuitem name="Lương thị trường" id="menu_salary_salary_luong_thi_truong" parent="menu_salary_salary" 
-					action="act_pq_ltt_custom" sequence="90"/>
+				<menuitem name="Bảng ương thị trường" id="menu_salary_salary_luong_thi_truong" parent="menu_salary_salary" 
+					action="act_pq_ltt_custom" sequence="70"/>
 			
-			<menuitem id="menu_salary_process" name="Quy trình tính lương" parent="menu_salary" sequence="200" />
+		<menuitem id="menu_dgvt" name="Đánh giá vị trí" sequence="200" />
+
+			<menuitem id="menu_salary_process" name="Đánh giá vị trí" parent="menu_dgvt" sequence="200" />
 				
-				<menuitem name="B1 - Tỷ trọng yếu tố đánh giá" id="menu_salary_process_ty_trong_yeu_to" parent="menu_salary_process" 
+				<menuitem name="B1 - Tỷ trọng yếu tố / tiêu chí" id="menu_salary_process_ty_trong_yeu_to" parent="menu_salary_process" 
 					action="act_pq_nhom_vi_tri_ty_trong_yeu_to" sequence="10"/>
 					
-				<menuitem name="B2 - Trọng số tiêu chí" id="menu_salary_process_trong_so_tieu_chi" parent="menu_salary_process" 
+				<menuitem name="B2 - Định nghĩa tiêu chí cấp 1 / cấp 2" id="menu_salary_process_trong_so_tieu_chi" parent="menu_salary_process" 
 					action="act_pq_tieu_chi_cap" sequence="20"/>
 				
 				<menuitem name="B3 - Đánh giá vị trí" id="menu_salary_process_danh_gia_vi_tri" parent="menu_salary_process" 
 					action="act_pq_vi_tri_diem" sequence="30"/>
 				
-				<menuitem name="B4 - Ấn định lương thị trường" id="menu_salary_process_an_dinh_luong_thi_truong" parent="menu_salary_process" 
+		<menuitem id="menu_xdtl" name="Xây dựng thang lương" sequence="300" />
+
+			<menuitem id="menu_salary_build" name="Xây dựng thang lương" parent="menu_xdtl" sequence="200" />
+
+				<menuitem name="B4 - Ấn định lương thị trường" id="menu_salary_process_an_dinh_luong_thi_truong" parent="menu_salary_build" 
 					action="act_pq_nhom_vi_tri_nhom_luong" sequence="40"/>
 				
-				<menuitem name="B5 - Thang lương" id="menu_salary_process_thang_luong" parent="menu_salary_process" 
+				<menuitem name="B5 - Thang lương" id="menu_salary_process_thang_luong" parent="menu_salary_build" 
 					action="act_pq_thang_luong" sequence="50"/>
 				
-				<menuitem name="B6 - Tiêu chí lương" id="menu_salary_process_tieu_chi_luong" parent="menu_salary_process" 
+				<menuitem name="B6 - Tiêu chí lương" id="menu_salary_process_tieu_chi_luong" parent="menu_salary_build" 
 					action="act_pq_tieu_chi_luong" sequence="60"/>
 					
-				<menuitem name="B7 - Tổng kết lương" id="menu_salary_process_tong_ket_luong" parent="menu_salary_process" 
+				<menuitem name="B7 - Tổng kết lương" id="menu_salary_process_tong_ket_luong" parent="menu_salary_build" 
 					action="act_pq_vi_tri_luong" sequence="70"/>
-					
+
 	</data>
 </openerp>
