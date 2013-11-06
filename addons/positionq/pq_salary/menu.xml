@@ -15,13 +15,13 @@
 				<menuitem name="Tiêu chí đánh giá" id="menu_salary_salary_tieu_chi" parent="menu_salary_salary" 
 					action="act_pq_tieu_chi" sequence="30"/>
 
-				<menuitem name="Thiết lập ộ phận" id="menu_salary_salary_bo_phan" parent="menu_salary_salary" 
+				<menuitem name="Thiết lập bộ phận" id="menu_salary_salary_bo_phan" parent="menu_salary_salary" 
 					action="act_pq_bo_phan" sequence="40"/>
 
 				<menuitem name="Thiết lập nhóm vị trí" id="menu_salary_salary_nhom_vi_tri" parent="menu_salary_salary" 
 					action="act_pq_nhom_vi_tri" sequence="50"/>
 				
-				<menuitem name="Thiết lập ị trí" id="menu_salary_salary_vi_tri" parent="menu_salary_salary" 
+				<menuitem name="Thiết lập vị trí" id="menu_salary_salary_vi_tri" parent="menu_salary_salary" 
 					action="act_pq_vi_tri" sequence="60"/>
 				
 				<menuitem name="Bảng ương thị trường" id="menu_salary_salary_luong_thi_truong" parent="menu_salary_salary" 
