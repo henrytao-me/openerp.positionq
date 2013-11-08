@@ -81,7 +81,7 @@
 					<th rowspan="2">Tên</th>
 					<th rowspan="2">Tỷ trọng</th>
 					<th rowspan="2">Trọng số</th>
-					<th colspan="{{res.bac.length}}">Bậc</th>
+					<th colspan="{{res.bac.length}}">Thang điểm giá trị</th>
 				</tr>
 				<tr>
 					<th ng-repeat="bac in res.bac">{{bac.name}}</th>

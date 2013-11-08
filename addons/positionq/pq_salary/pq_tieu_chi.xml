@@ -77,7 +77,7 @@
         </record>
         
         <record id="act_pq_tieu_chi_cap" model="ir.actions.act_window">
-            <field name="name">Trọng số tiêu chí</field>
+            <field name="name">Định nghĩa tiêu chí đánh giá</field>
             <field name="res_model">pq.tieu.chi</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
