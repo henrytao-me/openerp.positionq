@@ -522,7 +522,7 @@
 						</thead>
 					</table>
 				</div>
-				<div class="bottomleft" style="position:absolute;left:0px;top:0px;width:405px;bottom:0px;overflow:hidden">
+				<div class="bottomleft" style="position:absolute;left:-1px;top:0px;width:405px;bottom:0px;overflow:hidden">
 					<table>
 						<tbody>
 							<t t-foreach="res.vi_tri.length" t-as="i">
@@ -530,7 +530,7 @@
 								<tr style="height:26px;">
 									<td style="min-width:35px;"><t t-esc="i + 1"></t></td>
 									<td t-att-title="vi_tri.name" style="text-align:left"><div style="width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.name"></t></div></td>
-									<td t-att-title="vi_tri.bo_phan[1]" style="text-align:left"><div style="width:120px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.bo_phan[1]"></t></div></td>
+									<td t-att-title="vi_tri.bo_phan[1]" style="text-align:left"><div style="width:100px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.bo_phan[1]"></t></div></td>
 									<td t-att-title="vi_tri.nhom_vi_tri[1]" style="text-align:left"><div style="width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><t t-esc="vi_tri.nhom_vi_tri[1]"></t></div></td>
 								</tr>
 							</t>
