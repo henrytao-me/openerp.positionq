@@ -8,8 +8,8 @@
 			<field name="model">pq.tieu.chi</field>
 			<field name="arch" type="xml">
 				<tree string="Tiêu chí" version="7.0" editable="bottom">
-					<field name="yeu_to"></field>
 					<field name="name"/>
+					<field name="yeu_to"></field>
 				</tree>
 			</field>
 		</record>
