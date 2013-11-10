@@ -18,6 +18,22 @@ class pq_nhom_vi_tri(osv.osv):
                        'pq_salary_w2': id,
                        'pq_salary_w3': id}
         return res;
+
+    def func_diem(self, cr, uid, ids, fields, args, context=None):
+        res = {}
+        for obj in self.read(cr, uid, ids, ['vi_tri']):
+            val_min = 0
+            val_max = 0
+            for tobj in self.pool.get('pq.vi.tri').read(cr, uid, obj['vi_tri'], ['diem']):
+                if val_min > tobj['diem'] or val_min == 0:
+                    val_min = tobj['diem']
+                if val_max < tobj['diem']:
+                    val_max = tobj['diem']
+            res[obj['id']] = {
+                'diem_cao_nhat': val_max,
+                'diem_thap_nhat': val_min
+            }
+        return res
     
     _name = 'pq.nhom.vi.tri'
     _description = 'Nhom Vi Tri'
@@ -25,6 +41,9 @@ class pq_nhom_vi_tri(osv.osv):
         'name': fields.char('Tên nhóm', size=128, required=True),
         'vi_tri': fields.one2many('pq.vi.tri', 'nhom_vi_tri', string="Vị trí"),
         'yeu_to': fields.one2many('pq.nhom.vi.tri.yeu.to', 'nhom_vi_tri', string="Yếu tố"),
+
+        'diem_cao_nhat': fields.function(func_diem, method=True, type="float", digits=(16,2), string="Điểm cao nhất", multi=True),
+        'diem_thap_nhat': fields.function(func_diem, method=True, type="float", digits=(16,2), string="Điểm thấp nhất", multi=True),
         
         'pq_salary_w1': fields.function(func_custom, string='pq_salary_w1', type='integer', multi=True, store=True),
         'pq_salary_w2': fields.function(func_custom, string='pq_salary_w2', type='integer', multi=True, store=True),

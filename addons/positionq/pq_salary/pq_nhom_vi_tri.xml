@@ -86,7 +86,13 @@
 				<form string="Nhóm vị trí" version="7.0">
 					<sheet>
 						<group colspan="4">
-							<field name="name"/>
+							<group>
+								<field name="name"/>
+							</group>
+							<group>
+								<field name="diem_cao_nhat"/>
+								<field name="diem_thap_nhat"/>
+							</group>
 						</group>
 						<notebook colspan="4">
 							<page string="Nhóm lương">

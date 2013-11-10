@@ -24,7 +24,7 @@
 				<menuitem name="Thiết lập vị trí" id="menu_salary_salary_vi_tri" parent="menu_salary_salary" 
 					action="act_pq_vi_tri" sequence="60"/>
 				
-				<menuitem name="Bảng ương thị trường" id="menu_salary_salary_luong_thi_truong" parent="menu_salary_salary" 
+				<menuitem name="Bảng lương thị trường" id="menu_salary_salary_luong_thi_truong" parent="menu_salary_salary" 
 					action="act_pq_ltt_custom" sequence="70"/>
 			
 		<menuitem id="menu_dgvt" name="Đánh giá vị trí" sequence="200" />
