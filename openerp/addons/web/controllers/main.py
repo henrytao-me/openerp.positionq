@@ -545,7 +545,7 @@ html_template = """<!DOCTYPE html>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>VietERP</title>
-        <link rel="shortcut icon" href="/web/static/src/img/favicon.ico" type="image/x-icon"/>
+        <!-- <link rel="shortcut icon" href="/web/static/src/img/favicon.ico" type="image/x-icon"/> -->
         <link rel="stylesheet" href="/web/static/src/css/full.css" />
         %(css)s
         %(js)s

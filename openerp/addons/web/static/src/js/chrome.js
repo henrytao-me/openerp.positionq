@@ -1273,7 +1273,7 @@ instance.web.WebClient = instance.web.Client.extend({
     set_title: function(title) {
         title = _.str.clean(title);
         var sep = _.isEmpty(title) ? '' : ' - ';
-        document.title = title + sep + 'OpenERP';
+        document.title = title; // + sep + 'OpenERP';
     },
     show_common: function() {
         var self = this;
