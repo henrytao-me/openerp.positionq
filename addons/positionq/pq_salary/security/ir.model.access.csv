@@ -17,3 +17,4 @@
 "access_pq_vi_tri_yeu_to","access_pq_vi_tri_yeu_to","model_pq_vi_tri_yeu_to","pq_base.group_positionq_admin",1,1,1,1
 "access_pq_vi_tri","access_pq_vi_tri","model_pq_vi_tri","pq_base.group_positionq_admin",1,1,1,1
 "access_pq_yeu_to","access_pq_yeu_to","model_pq_yeu_to","pq_base.group_positionq_admin",1,1,1,1
+"access_pq_redis","access_pq_redis","model_pq_redis","pq_base.group_positionq_admin",1,1,1,1

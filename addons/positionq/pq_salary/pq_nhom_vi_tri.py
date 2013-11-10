@@ -62,9 +62,18 @@ class pq_nhom_vi_tri(osv.osv):
     ]
     
     def create(self, cr, uid, vals, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
         res = super(pq_nhom_vi_tri, self).create(cr, uid, vals, context)
         self.pool.get('pq.nhom.vi.tri.yeu.to').auto_sync(cr, uid, nhom_vi_tri_id=res)     
         return res
+
+    def write(self, cr, uid, ids, vals, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_nhom_vi_tri, self).write(cr, uid, ids, vals, context)
+
+    def unlink(self, cr, uid, ids, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_nhom_vi_tri, self).unlink(cr, uid, ids, context)
     
 pq_nhom_vi_tri()
 

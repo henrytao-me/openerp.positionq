@@ -26,6 +26,18 @@ class pq_tcc2(osv.osv):
         'trong_so': lambda *x: 0,
         'user_id': lambda self, cr, uid, context=None: uid,
     }
+
+    def create(self, cr, uid, vals, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_tcc2, self).create(cr, uid, vals, context)
+
+    def write(self, cr, uid, ids, vals, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_tcc2, self).write(cr, uid, ids, vals, context)
+
+    def unlink(self, cr, uid, ids, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_tcc2, self).unlink(cr, uid, ids, context)
     
 pq_tcc2()
 

@@ -28,6 +28,18 @@ class pq_thang_luong(osv.osv):
     _sql_constraints = [
         
     ]
+
+    def create(self, cr, uid, vals, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_thang_luong, self).create(cr, uid, vals, context)
+
+    def write(self, cr, uid, ids, vals, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_thang_luong, self).write(cr, uid, ids, vals, context)
+
+    def unlink(self, cr, uid, ids, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_thang_luong, self).unlink(cr, uid, ids, context)
     
 pq_thang_luong()
 

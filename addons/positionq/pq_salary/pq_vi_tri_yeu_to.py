@@ -121,6 +121,18 @@ class pq_vi_tri_yeu_to(osv.osv):
     _sql_constraints = [
         ('_unique', 'unique(vi_tri, yeu_to, tieu_chi, tcc1, tcc2)', 'record is unique')
     ]
+
+    def create(self, cr, uid, vals, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_vi_tri_yeu_to, self).create(cr, uid, vals, context)
+
+    def write(self, cr, uid, ids, vals, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_vi_tri_yeu_to, self).write(cr, uid, ids, vals, context)
+
+    def unlink(self, cr, uid, ids, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_vi_tri_yeu_to, self).unlink(cr, uid, ids, context)
     
     def auto_sync(self, cr, uid, vi_tri_id=None, yeu_to_id=None):
         if not vi_tri_id and not yeu_to_id:
@@ -172,10 +184,26 @@ class pq_vi_tri_yeu_to(osv.osv):
         # filter by bo_phan & nhom_vi_tri
         args = []
         if bo_phan_id and int(bo_phan_id) != 0:
-            args.append(('bo_phan', '=', int(bo_phan_id)))
+            bo_phan_id = int(bo_phan_id)
+            args.append(('bo_phan', '=', bo_phan_id))
+        else:
+            bo_phan_id = 0
+
         if nhom_vi_tri_id and int(nhom_vi_tri_id) != 0:
-            args.append(('nhom_vi_tri', '=', int(nhom_vi_tri_id)))
-        
+            nhom_vi_tri_id = int(nhom_vi_tri_id)
+            args.append(('nhom_vi_tri', '=', nhom_vi_tri_id))
+        else:
+            nhom_vi_tri_id = 0
+
+        #################
+        # redis cache 
+        #################
+        __key = '.'.join(['pq_vi_tri_yeu_to', 'get_matrix', str(bo_phan_id), str(nhom_vi_tri_id)])
+        __value = self.pool.get('pq.redis').get(cr, uid, __key)
+        if __value:
+            return __value
+        #################
+
         # get vi_tri
         ids = self.pool.get('pq.vi.tri').search(cr, uid, args)
         res['vi_tri'] = self.pool.get('pq.vi.tri').read(cr, uid, ids, ['name', 'bo_phan', 'nhom_vi_tri'])
@@ -333,6 +361,12 @@ class pq_vi_tri_yeu_to(osv.osv):
                     matrix[a]['diem'] += matrix[a]['yeu_to'][b]['tieu_chi'][c]['diem']
         
         res['matrix'] = matrix
+
+        #################
+        # redis cache 
+        #################
+        self.pool.get('pq.redis').set(cr, uid, __key, res)
+        #################
         return res
     
     def set_matrix(self, cr, uid, matrix):

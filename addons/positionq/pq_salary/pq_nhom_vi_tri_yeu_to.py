@@ -166,6 +166,18 @@ class pq_nhom_vi_tri_yeu_to(osv.osv):
     _sql_constraints = [
         ('_unique', 'unique(nhom_vi_tri, yeu_to, yeu_to_2, tieu_chi, bac)', 'record is unique')
     ]
+
+    def create(self, cr, uid, vals, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_nhom_vi_tri_yeu_to, self).create(cr, uid, vals, context)
+
+    def write(self, cr, uid, ids, vals, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_nhom_vi_tri_yeu_to, self).write(cr, uid, ids, vals, context)
+
+    def unlink(self, cr, uid, ids, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_nhom_vi_tri_yeu_to, self).unlink(cr, uid, ids, context)
     
     def auto_sync(self, cr, uid, nhom_vi_tri_id=None, yeu_to_id=None):
         if not nhom_vi_tri_id and not yeu_to_id:

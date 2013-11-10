@@ -73,11 +73,30 @@ class pq_vi_tri(osv.osv):
     }
     
     def create(self, cr, uid, vals, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
         res = super(pq_vi_tri, self).create(cr, uid, vals, context)
         self.pool.get('pq.vi.tri.yeu.to').auto_sync(cr, uid, vi_tri_id=res)     
         return res
+
+    def write(self, cr, uid, ids, vals, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_vi_tri, self).write(cr, uid, ids, vals, context)
+
+    def unlink(self, cr, uid, ids, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_vi_tri, self).unlink(cr, uid, ids, context)
     
     def get_tong_ket_luong(self, cr, uid):
+
+        #################
+        # redis cache 
+        #################
+        __key = '.'.join(['pq_vi_tri', 'get_tong_ket_luong'])
+        __value = self.pool.get('pq.redis').get(cr, uid, __key)
+        if __value:
+            return __value
+        #################
+
         res = {'vi_tri': [],
                'thang_luong': []}
         
@@ -172,6 +191,12 @@ class pq_vi_tri(osv.osv):
                 vi_tri['ss_luong_dieu_chinh'] = vi_tri['luong_dieu_chinh'] / vi_tri['muc_luong_hien_tai'] - 1
                 vi_tri['ss_luong_thuc_te'] = vi_tri['luong_thuc_te'] / vi_tri['muc_luong_hien_tai'] - 1
         
+        #################
+        # redis cache 
+        #################
+        self.pool.get('pq.redis').set(cr, uid, __key, res)
+        #################
+
         return res
     
     def set_tong_ket_luong(self, cr, uid, data):

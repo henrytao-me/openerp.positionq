@@ -28,10 +28,20 @@ class pq_yeu_to(osv.osv):
     ]
     
     def create(self, cr, uid, vals, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        
         res = super(pq_yeu_to, self).create(cr, uid, vals, context)
         self.pool.get('pq.nhom.vi.tri.yeu.to').auto_sync(cr, uid, yeu_to_id=res)
         self.pool.get('pq.vi.tri.yeu.to').auto_sync(cr, uid, yeu_to_id=res)     
         return res
+
+    def write(self, cr, uid, ids, vals, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_yeu_to, self).write(cr, uid, ids, vals, context)
+
+    def unlink(self, cr, uid, ids, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_yeu_to, self).unlink(cr, uid, ids, context)
     
 pq_yeu_to()
 

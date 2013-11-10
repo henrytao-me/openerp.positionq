@@ -19,6 +19,8 @@ import pq_nhom_luong
 import pq_thang_luong
 import pq_tieu_chi_luong
 
+import pq_redis
+
 # Note:
 # - b1: pq.nhom.vi.tri
 # - b2: pq.tieu.chi

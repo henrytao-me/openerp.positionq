@@ -23,6 +23,18 @@ class pq_bo_phan(osv.osv):
     _defaults = {
         'user_id': lambda self, cr, uid, context=None: uid,
     }
+
+    def create(self, cr, uid, vals, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_bo_phan, self).create(cr, uid, vals, context)
+
+    def write(self, cr, uid, ids, vals, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_bo_phan, self).write(cr, uid, ids, vals, context)
+
+    def unlink(self, cr, uid, ids, context=None):
+        self.pool.get('pq.redis').clear_all(cr, uid)
+        return super(pq_bo_phan, self).unlink(cr, uid, ids, context)
     
 pq_bo_phan()
 
